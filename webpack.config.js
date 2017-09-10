@@ -10,13 +10,6 @@ const PATHS = require('./configs/paths');
 const pages = require('./configs/pages');
 
 /**
- * @type {Object}
- */
-const entriesKeys = {
-    'common': `${PATHS.src}/common.js`,
-};
-
-/**
  * @param {{prod: Number, dev: Number, prod: Number,}} env
  * @return {{entry: Object, output: {path: string, filename: string}, plugins: Array.<*>, module: {rules: [null,null,null,null,null,null,null,null]}, devtool: string, devServer: {hot: boolean, inline: boolean, contentBase: string, compress: boolean, port: number, stats: string}, stats: string}}
  */
@@ -27,6 +20,13 @@ module.exports = (env={}) => {
     const name = nameBase + '.[ext]';
     const fileNameJs = nameBase + '.js';
     const fileNameCss = nameBase + '.css';
+
+    /**
+     * @type {Object}
+     */
+    const entriesKeys = {
+        'common': `${PATHS.src}/common/scripts/common.js`,
+    };
 
     /**
      * @type {Array}
@@ -149,7 +149,7 @@ module.exports = (env={}) => {
                     },
                 },
                 {
-                    test: /\.ttf$/,
+                    test: /\.(ttf|eot|woff(2)?)$/,
                     loader: 'url-loader',
                     query: {
                         name,
