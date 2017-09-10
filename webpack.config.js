@@ -20,6 +20,7 @@ module.exports = (env={}) => {
     const name = nameBase + '.[ext]';
     const fileNameJs = nameBase + '.js';
     const fileNameCss = nameBase + '.css';
+    const publicPath = !env.ghpages ? PATHS.public : PATHS.ghPage;
 
     /**
      * @type {Object}
@@ -44,26 +45,28 @@ module.exports = (env={}) => {
         );
     });
     if (isServer) {
-        HtmlWebpackPlugins.push(
-            new ReloadPlugin()
-        );
+        // LR при изменении pug файлов,
+        // Попбочный эффекта: не работает HMR для стилей
+        // HtmlWebpackPlugins.push(
+        //     new ReloadPlugin()
+        // );
     }
 
     return {
         entry: entriesKeys,
         output: {
             path: isServer ? PATHS.dev : PATHS.build,
-            filename: './' + PATHS.static + 'js/' + fileNameJs,
+            filename: PATHS.static + 'js/' + fileNameJs,
         },
         plugins: [
             new CleanPlugin([isServer ? PATHS.dev : PATHS.build]),
             new ExtractTextPlugin({
-                filename: `${PATHS.public}${PATHS.static}css/${fileNameCss}`,
+                filename: PATHS.static + 'css/' + fileNameCss,
                 disable: isServer,
             }),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common',
-                filename: './' + PATHS.static + 'js/' + fileNameJs,
+                filename: PATHS.static + 'js/' + fileNameJs,
                 minChunks: 3,
             }),
             new webpack.optimize.UglifyJsPlugin({
@@ -113,7 +116,6 @@ module.exports = (env={}) => {
                 {
                     test: /\.scss$/,
                     use: ExtractTextPlugin.extract({
-                        publicPath: './',
                         fallback: 'style-loader',
                         use: ['css-loader?sourceMap', 'postcss-loader', 'sass-loader'],
                     }),
@@ -121,7 +123,6 @@ module.exports = (env={}) => {
                 {
                     test: /\.css$/,
                     use: ExtractTextPlugin.extract({
-                        publicPath: './',
                         fallback: 'style-loader',
                         use: ['css-loader?sourceMap', 'postcss-loader'],
                     }),
@@ -132,7 +133,7 @@ module.exports = (env={}) => {
                     include: /content/,
                     query: {
                         name: (!isProd ? '[path]' : '') + name,
-                        publicPath: PATHS.public,
+                        publicPath: publicPath,
                         outputPath: 'content/img/',
                         limit: 4000,
                     },
@@ -142,8 +143,8 @@ module.exports = (env={}) => {
                     loader: 'url-loader',
                     include: /assets/,
                     query: {
-                        name: (!isProd ? '[path]' : '') + name,
-                        publicPath: PATHS.public,
+                        name,
+                        publicPath: publicPath,
                         outputPath: PATHS.static + 'img/',
                         limit: 4000,
                     },
@@ -153,7 +154,7 @@ module.exports = (env={}) => {
                     loader: 'url-loader',
                     query: {
                         name,
-                        publicPath: PATHS.public,
+                        publicPath: publicPath,
                         outputPath: PATHS.static + 'fonts/',
                         limit: 4000,
                     },

@@ -10,6 +10,7 @@ const PATHS = {
     static: 'static/',
     public: '/',
     pages: 'pages/',
+    ghPage: '/loftschool-portfolio/',
 };
 
 module.exports = PATHS;

@@ -8,9 +8,10 @@
         "build:prod": "webpack --env.prod=1",
         "build:dev": "webpack --env.dev=1",
         "server:dev": "webpack-dev-server --inline --hot --env.dev=1 --env.server=1",
-        "lint:js": "eslint . --ignore-path .gitignore --ignore-pattern \"build/**/*\"",
+        "lint:js": "eslint \"src/**/*.js\"",
         "lint:css": "stylelint \"src/**/*.scss\" \"src/**/*.css\"",
-        "lint:all": "npm run lint:js && npm run lint:css"
+        "lint:all": "npm run lint:js && npm run lint:css",
+        "public:gh-pages": "webpack --env.prod=1 --env.ghpages=1  && git add build && git commit -am \"build\" && git subtree push --prefix build origin gh-pages"
     },
     "repository": {
         "type": "git",
