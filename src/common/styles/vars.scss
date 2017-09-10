@@ -1,0 +1,30 @@
+$color-light-green: #6c9c5a;
+$color-green: #4e8839;
+$color-gray-green: #566358;
+$color-black-green: #566358;
+$color-rose: #e44845;
+$color-blue-gray: #6da3bd;
+
+$color-error: $color-rose;
+$color-hover-green: $color-green;
+
+$color-text-accent: $color-green;
+$color-link: $color-blue-gray;
+
+$font-family-roboto: "Roboto", sans-serif;
+$font-family-awecome: "FontAwesome", sans-serif;
+$font-family-sansus: "Sansus webissimo", sans-serif;
+
+$font-family-base: $font-family-roboto;
+
+$font-size-base: 16px;
+$font-size-title: 63px;
+$font-size-subtitle: 35px;
+
+$offset-base: 20px;
+$gutter-base: 20px;
+
+$media-max: 1800px;
+$media-medium: 1200px;
+$media-ipad: 768px;
+$media-iphone: 320px;
