@@ -61,7 +61,10 @@
     "browserslist": [
         "> 1%",
         "last 2 versions",
-        "iOS 7"
+        "iOS 7",
+        "IE 11"
     ],
-    "dependencies": {}
+    "dependencies": {
+        "normalize.css": "^7.0.0"
+    }
 }
