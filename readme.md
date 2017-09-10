@@ -10,6 +10,9 @@
 npm i
 ```
 4. Запустить необходимый npm script
+```
+npm run [script_name]
+```
 
 #### Npm scripts
 * ```build:prod```
