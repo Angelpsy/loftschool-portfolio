@@ -1,0 +1,14 @@
+include ../menuFooter/index
+
+//-
+  options.menu - объект для передачи данных в меню
+mixin footer(options)
+    if !options
+        - options = {}
+
+    footer.b-footer
+        +menu-footer({
+            menuItems: options.menu.menuItems,
+            menuItemActiveHref: options.menu.menuItemActiveHref
+        })
+

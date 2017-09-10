@@ -1,0 +1,15 @@
+include ../index-menu/index
+
+//-
+  options.menu - объект для передачи данных в меню
+mixin index-card(options)
+    if !options
+        - options = {}
+
+    main.b-index-card
+        | Алексей Алексеев
+        footer.b-index-card__footer
+            +index-menu({
+                menuItems: options.menu.menuItems,
+                menuItemActiveHref: options.menu.menuItemActiveHref
+            })

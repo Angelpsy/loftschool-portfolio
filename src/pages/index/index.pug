@@ -1,0 +1,17 @@
+extends ../../templates/base/index
+
+append variables
+    - var title = "Добро пожаловать";
+    include ../../data/menu
+
+include ../../components/_index/index-header/index
+include ../../components/_index/index-card/index
+include ../../components/_index/index-footer/index
+block body
+    +index-header()
+    +index-card({
+        menu: {
+            menuItems: locals.menuItems, menuItemActiveHref: '/index.html'
+        }
+    })
+    +index-footer()

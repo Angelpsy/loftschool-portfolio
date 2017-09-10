@@ -1,0 +1,14 @@
+include ../menuBase/index
+
+//-
+  options.menuItems - массив елементов меню
+mixin menu-footer(options)
+    if !options
+        - options = {}
+
+    +menu-base({
+        menuItems: options.menuItems,
+        menuItemActiveHref: options.menuItemActiveHref,
+        menuClass: 'b-menu-footer',
+        menuItemClass: 'b-menu-footer-item'
+    })
