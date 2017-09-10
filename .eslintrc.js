@@ -19,5 +19,8 @@ module.exports = {
             'comments': 120,
         }],
         'no-console': 'warn',
-    }
+    },
+    globals: {
+        'env': true,
+    },
 };
