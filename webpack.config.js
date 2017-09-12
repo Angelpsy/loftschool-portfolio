@@ -139,7 +139,7 @@ module.exports = (env={}) => {
                     },
                 },
                 {
-                    test: /\.(png|jpe?g|gif|svg)$/,
+                    test: /\.(png|jpe?g|gif)$/,
                     loader: 'url-loader',
                     include: /assets/,
                     query: {
@@ -148,6 +148,18 @@ module.exports = (env={}) => {
                         outputPath: PATHS.static + 'img/',
                         limit: 4000,
                     },
+                },
+                {
+                    test: /\.svg$/,
+                    use: [
+                        {
+                            loader: 'svg-sprite-loader',
+                            options: {
+                                extract: false,
+                            },
+                        },
+                        'svgo-loader',
+                    ],
                 },
                 {
                     test: /\.(ttf|eot|woff(2)?)$/,
