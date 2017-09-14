@@ -54,6 +54,7 @@
         "stylefmt": "^6.0.0",
         "stylelint": "^8.1.1",
         "stylelint-config-standard": "^17.0.0",
+        "stylelint-scss": "^2.1.0",
         "svg-sprite-loader": "^3.2.5",
         "svgo-loader": "^1.2.1",
         "url-loader": "^0.5.9",
