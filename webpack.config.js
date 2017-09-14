@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -16,6 +18,7 @@ const pages = require('./configs/pages');
 module.exports = (env={}) => {
     const isProd = !!env.prod;
     const isServer = !!env.server;
+    const isMarkup = !!env.markup;
     const nameBase = '[name]' + (isProd ? '.[hash]' : '');
     const name = nameBase + '.[ext]';
     const fileNameJs = nameBase + '.js';
@@ -34,6 +37,18 @@ module.exports = (env={}) => {
      */
     const HtmlWebpackPlugins = [];
 
+    const data = {};
+
+    fs
+        .readdirSync(path.resolve(PATHS.src, 'data'))
+        .filter((file) => {
+            return file.indexOf('base') !== 0 && file.search(/\.json/) + 1;
+        })
+        .forEach((file) => {
+            const _dataFile = JSON.parse(fs.readFileSync(path.resolve(PATHS.src, 'data', file), 'utf8')).data;
+            Object.assign(data, _dataFile );
+        });
+
     pages.forEach((page) => {
         entriesKeys[page] = `${PATHS.src}/pages/${page}/index.js`;
         HtmlWebpackPlugins.push(
@@ -41,15 +56,16 @@ module.exports = (env={}) => {
                 filename: `${page}.html`,
                 chunks: ['common', page],
                 template: `${PATHS.src}/pages/${page}/index.pug`,
+                data: {data},
             })
         );
     });
-    if (isServer) {
+    if (isServer && isMarkup) {
         // LR при изменении pug файлов,
         // Попбочный эффекта: не работает HMR для стилей
-        // HtmlWebpackPlugins.push(
-        //     new ReloadPlugin()
-        // );
+        HtmlWebpackPlugins.push(
+            new ReloadPlugin()
+        );
     }
 
     return {
@@ -88,6 +104,10 @@ module.exports = (env={}) => {
             }),
         ]
             .concat(HtmlWebpackPlugins),
+        resolve: {
+            alias: {},
+            modules: ['node_modules', PATHS.src, './'],
+        },
         module: {
             rules: [
                 {
@@ -141,7 +161,7 @@ module.exports = (env={}) => {
                 {
                     test: /\.(png|jpe?g|gif)$/,
                     loader: 'url-loader',
-                    include: /assets/,
+                    exclude: /content/,
                     query: {
                         name,
                         publicPath: publicPath,
@@ -180,6 +200,7 @@ module.exports = (env={}) => {
             contentBase: PATHS.dev,
             port: SERVER.portsStatic,
             host: '0.0.0.0',
+            stats: 'minimal',
         },
     };
 };

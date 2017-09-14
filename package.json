@@ -8,6 +8,7 @@
         "build:prod": "webpack --env.prod=1",
         "build:dev": "webpack --env.dev=1",
         "server:dev": "webpack-dev-server --inline --hot --env.dev=1 --env.server=1",
+        "server:dev-markup": "webpack-dev-server --inline --hot --env.dev=1 --env.server=1 --env.markup=1",
         "lint:js": "eslint \"src/**/*.js\"",
         "lint:css": "stylelint \"src/**/*.scss\" \"src/**/*.css\"",
         "lint:all": "npm run lint:js && npm run lint:css",
