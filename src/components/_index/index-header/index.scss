@@ -1,0 +1,14 @@
+@import "../../../common/styles/vars";
+
+.b-index-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.b-index-header__btn {
+    min-width: 180px;
+
+    & + & {
+        margin-left: $gutter-base;
+    }
+}

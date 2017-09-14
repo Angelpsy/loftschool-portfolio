@@ -1,15 +1,31 @@
 include ../index-menu/index
+include ../../soc-btns/index
 
 //-
-  options.menu - объект для передачи данных в меню
+  options.persona.avatar
+  options.persona.name
+
+  options.subTitle
+  options.socBtns
+
+  options.menu.menuItems
+  options.menu.menuItemActiveHref
 mixin index-card(options)
     if !options
         - options = {}
 
-    main.b-index-card
-        | Алексей Алексеев
+    main.b-index-card(class!=attributes.class)
+        main.b-index-card__main
+            .b-index-card__photo-wr
+                img.b-index-card__photo(src=options.persona.avatar)
+            h1.b-index-card__title=options.persona.name
+            h2.b-index-card__subtitle=options.subTitle
+            +soc-btns({
+                items: options.socBtns,
+                mod: 'grey'
+            })(class='b-index-card__soc-btns')
         footer.b-index-card__footer
             +index-menu({
                 menuItems: options.menu.menuItems,
                 menuItemActiveHref: options.menu.menuItemActiveHref
-            })
+            })(class='b-index-card__menu')

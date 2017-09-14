@@ -1,6 +1,12 @@
+include ../index-header-btn/index
+
+//- options.menu
 mixin index-header(options)
     if !options
         - options = {}
 
-    header.b-index-header
-        | b-index-header
+    header.b-index-header(class!=attributes.class)
+        each item in options.menu
+            +index-header-btn({
+                link: item
+            })(class="b-index-header__btn")

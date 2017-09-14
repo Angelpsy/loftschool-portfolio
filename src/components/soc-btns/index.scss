@@ -1,0 +1,32 @@
+@import "../../common/styles/vars";
+@import "../../common/styles/mixins";
+
+.b-soc-btns {
+    @include nl;
+}
+
+.b-soc-btns__item {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 12px;
+}
+
+.b-soc-btn {
+    //
+}
+
+.b-soc-btn__link {
+    transition: colro $transition-standard;
+
+    &:hover {
+        color: $color-light-green;
+    }
+
+    .b-soc-btns--grey &:hover {
+        color: $color-green;
+    }
+}
+
+.b-soc-btn__icon {
+    //
+}

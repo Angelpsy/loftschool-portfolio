@@ -22,9 +22,17 @@ $font-size-title: 63px;
 $font-size-subtitle: 35px;
 
 $offset-base: 20px;
+$offset-vertical-base: 20px;
+$offset-horizontal-base: 20px;
 $gutter-base: 20px;
 
 $media-max: 1800px;
 $media-medium: 1200px;
 $media-ipad: 768px;
 $media-iphone: 320px;
+
+$transition-fast: 100ms;
+$transition-middle: 300ms;
+$transition-slow: 800ms;
+
+$transition-standard: $transition-middle;

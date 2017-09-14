@@ -1,0 +1,25 @@
+@import "../../../common/styles/vars";
+
+.b-index-header-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    border: 1px solid;
+    padding-left: 29px;
+    padding-right: 29px;
+    border-radius: 23px;
+    text-decoration: none;
+
+    transition: border-color $transition-standard, background-color $transition-standard;
+
+    &:hover {
+        border-color: #729e19;
+        background-color: #4e8839;
+    }
+}
+
+.b-index-header-btn__text {
+    line-height: 0;
+    font-weight: 500;
+}

@@ -1,0 +1,27 @@
+@import "../../common/styles/vars";
+
+.p-index {
+    background: $color-black-green url("../../common/img/bg-forest-max.jpg") center center no-repeat;
+    background-size: cover;
+    color: #fff;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.p-index__header {
+    max-width: 98%;
+    width: 1600px;
+    margin: 24px auto auto;
+}
+
+.p-index__main {
+    max-width: 98%;
+    width: 380px;
+    min-height: 395px;
+    margin: $offset-horizontal-base*2 auto;
+}
+
+.p-index__footer {
+    //
+}

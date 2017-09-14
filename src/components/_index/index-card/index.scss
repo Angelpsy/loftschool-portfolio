@@ -1,0 +1,54 @@
+@import "../../../common/styles/vars";
+
+.b-index-card {
+    //
+}
+
+.b-index-card__main {
+    padding: 40px $offset-base 36px;
+    background: rgba(18, 38, 32, 0.6);
+}
+
+.b-index-card__photo-wr {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 141px;
+    height: 141px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.b-index-card__photo {
+    display: block;
+}
+
+.b-index-card__title {
+    font-size: 28px;
+    line-height: 1.214;
+    font-weight: 500;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.b-index-card__subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 31px;
+}
+
+.b-index-card__soc-btns {
+    color: #8c9995;
+}
+
+.b-index-card__footer {
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+
+.b-index-card__menu {
+    //
+}

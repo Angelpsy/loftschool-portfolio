@@ -1,0 +1,10 @@
+.l-page {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.l-page__footer {
+    margin-top: auto;
+}

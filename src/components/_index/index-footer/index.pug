@@ -2,6 +2,6 @@ mixin index-footer(options)
     if !options
         - options = {}
 
-    footer.b-index-footer
-        | b-index-footer
+    footer.b-index-footer(class!=attributes.class)
+        | &copy; Алексей Алексеев | создано с любовью в LoftSchool | 2017
 

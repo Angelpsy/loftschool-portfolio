@@ -9,27 +9,27 @@ mixin menu-base(options)
         - options = {}
 
     if !options.menuItems
-    nav(class=options.menuClass)
-        ul(class=options.menuClass + "__list")
+    nav.b-menu(class=options.menuClass)
+        ul.b-menu__list(class=options.menuClass + "__list")
             each item in options.menuItems
                 if item.href !== options.menuItemActiveHref
-                    li(
+                    li.b-menu__list-item.b-menu-item(
                     class=options.menuClass + "__item"
                     class=options.menuItemClass
                     )
-                        a(
+                        a.b-menu-item__link(
                         href=item.href
                         class=options.menuItemClass + "__link"
                         )
-                            span(
+                            span.b-menu-item__text(
                             class=options.menuItemClass + "__text"
                             )=item.name
                 else
-                    li(
+                    li.b-menu-item(
                     class=options.menuClass + "__item"
                     class=options.menuItemClass
                     class=options.menuItemClass + "--active"
                     )
-                        span(
+                        span.b-index-menu-item__text(
                         class=options.menuItemClass + "__text"
                         )=item.name
