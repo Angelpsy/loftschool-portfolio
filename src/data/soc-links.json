@@ -1,0 +1,21 @@
+{
+    "data": {
+        "socLinks": [
+            {
+                "id": "vk",
+                "name": "Моя страница во Вконтакте",
+                "href": "https://vk.com/angelpsy"
+            },
+            {
+                "id": "github",
+                "name": "Моя страница на github",
+                "href": "https://github.com/Angelpsy"
+            },
+            {
+                "id": "in",
+                "name": "Моя страница LinkedIn",
+                "href": "https://www.linkedin.com/in/angelpsy/"
+            }
+        ]
+    }
+}
