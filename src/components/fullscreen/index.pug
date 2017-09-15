@@ -1,0 +1,16 @@
+include ../menu-fullscreen/index
+
+mixin fullscreen(options)
+    if !options
+        - options = {}
+
+    section.b-fullscreen(class!=attributes.class)
+        button.b-fullscreen__open-btn
+            .b-fullscreen__open-icon ---
+            span.u-sr-only Открыть меню
+        .b-fullscreen__wr
+            +menu-fullscreen(options.menu)(class="b-fullscreen__menu")
+    //-
+        TODO
+        btn-open-menu
+        menu-fullscreen

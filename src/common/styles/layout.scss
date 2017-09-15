@@ -1,8 +1,18 @@
+@import "vars";
+
 .l-page {
     min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.l-page__header {
+    position: absolute;
+    z-index: $z-header;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .l-page__footer {

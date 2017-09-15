@@ -6,9 +6,23 @@ mixin footer(options)
     if !options
         - options = {}
 
-    footer.b-footer
+    footer.b-footer(class!=attributes.class)
         +menu-footer({
             menuItems: options.menu.menuItems,
             menuItemActiveHref: options.menu.menuItemActiveHref
         })
+
+    //- TODO
+        .footer__row-base
+            .footer__col
+                .footer__text
+            .footer__col
+                .footer__menu.footer-menu
+                .footer__soc-btns.soc-btns.soc-btns--gray
+            .footer__col
+                .footer__quote
+        .footer__row-copy
+            text
+
+
 

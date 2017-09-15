@@ -36,3 +36,10 @@ $transition-middle: 300ms;
 $transition-slow: 800ms;
 
 $transition-standard: $transition-middle;
+
+$z-top: 1000;
+$z-middle: 100;
+$z-low: 1;
+
+$z-fullscreen: $z-top;
+$z-header: $z-middle;

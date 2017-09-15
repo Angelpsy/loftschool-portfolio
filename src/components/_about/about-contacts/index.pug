@@ -1,0 +1,14 @@
+mixin about-contacts(options)
+    if !options
+        - options = {}
+
+    sections.b-about-contacts(class!=attributes.class)
+    //- TODO
+        .contacts__maps
+        .contacts__main (posa)
+            .contacts__title
+            .contacts__list
+                .contacts__list-item.contact
+                    .contact__icon
+                    .contact__title.sr-only
+                    .contact__value

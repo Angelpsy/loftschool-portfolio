@@ -1,1 +1,21 @@
+include ../icon/index
 
+mixin hero(options)
+    if !options
+        - options = {}
+
+    section.b-hero(class!=attributes.class)
+        .b-hero__bg
+        main.b-hero__main
+            .b-hero__photo-wr
+                img.b-hero__photo(src=options.persona.avatar)
+            h1.b-hero__title= options.title
+            h2.b-hero__subtitle= options.subTitle
+        footer.b-hero__foter
+            .b-hero__arrow
+                +icon({file: 'arrow_down'})(class="b-hero__icon")
+    //-
+        photo
+        title
+        subtitle
+        arrow
