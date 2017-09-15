@@ -1,3 +1,4 @@
+include ../icon/index
 include ../menu-fullscreen/index
 
 mixin fullscreen(options)
@@ -5,12 +6,9 @@ mixin fullscreen(options)
         - options = {}
 
     section.b-fullscreen(class!=attributes.class)
-        button.b-fullscreen__open-btn
-            .b-fullscreen__open-icon ---
-            span.u-sr-only Открыть меню
-        .b-fullscreen__wr
+        button.b-fullscreen__btn-toggle-menu.js-togle-menu-fullscreen
+            span.u-sr-only Открыть/Закрыть меню
+            span.b-hamburger.b-fullscreen__icon
+                span.b-hamburger__inner
+        .b-fullscreen__content
             +menu-fullscreen(options.menu)(class="b-fullscreen__menu")
-    //-
-        TODO
-        btn-open-menu
-        menu-fullscreen

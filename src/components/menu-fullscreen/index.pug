@@ -4,13 +4,12 @@ mixin menu-fullscreen(options)
     if !options
         - options = {}
 
-    section.b-menu-fullscreen(class!=attributes.class)
-        +menu-base({
-            menuItems: options.menuItems,
-            menuItemActiveHref: options.menuItemActiveHref,
-            menuClass: 'b-menu-fullscreen',
-            menuItemClass: 'b-menu-fullscreen-item'
-        })
+    +menu-base({
+        menuItems: options.menuItems,
+        menuItemActiveHref: options.menuItemActiveHref,
+        menuClass: 'b-menu-fullscreen',
+        menuItemClass: 'b-menu-fullscreen-item'
+    })(class!=attributes.class)
     //-
         TODO
         btn-open-menu
