@@ -1,1 +1,32 @@
-//
+@import "../../common/styles/vars";
+
+.b-menu-footer {
+    //
+}
+
+.b-menu-footer__list {
+    display: flex;
+}
+
+.b-menu-footer__item {
+
+    & + & {
+        margin-left: 40px;
+    }
+}
+
+.b-menu-footer-item {
+
+}
+
+.b-menu-footer-item__link {
+    transition: opacity $transition-standard;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.b-menu-footer-item__text {
+    font-weight: bold;
+}

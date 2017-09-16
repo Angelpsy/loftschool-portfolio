@@ -1,5 +1,6 @@
 .p-about {
-
+    min-height: 100%;
+    position: relative;
 }
 
 .p-about__header {
@@ -19,5 +20,8 @@
 }
 
 .p-about__footer {
-
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }

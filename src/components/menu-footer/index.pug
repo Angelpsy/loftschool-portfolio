@@ -11,4 +11,4 @@ mixin menu-footer(options)
         menuItemActiveHref: options.menuItemActiveHref,
         menuClass: 'b-menu-footer',
         menuItemClass: 'b-menu-footer-item'
-    })
+    })(class!=attributes.class)

@@ -1,4 +1,5 @@
 include ../menu-footer/index
+include ../soc-btns/index
 
 //-
   options.menu - объект для передачи данных в меню
@@ -7,22 +8,22 @@ mixin footer(options)
         - options = {}
 
     footer.b-footer(class!=attributes.class)
-        +menu-footer({
-            menuItems: options.menu.menuItems,
-            menuItemActiveHref: options.menu.menuItemActiveHref
-        })
-
-    //- TODO
-        .footer__row-base
-            .footer__col
-                .footer__text
-            .footer__col
-                .footer__menu.footer-menu
-                .footer__soc-btns.soc-btns.soc-btns--gray
-            .footer__col
-                .footer__quote
-        .footer__row-copy
-            text
+        .b-footer__row-base
+            .b-footer__col
+                .b-footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+            .b-footer__col
+                +menu-footer({
+                    menuItems: options.menu.menuItems,
+                    menuItemActiveHref: options.menu.menuItemActiveHref
+                })(class="b-footer__menu")
+                +soc-btns({
+                    items: options.socLinks,
+                    mod: 'opacity'
+                })(class="b-footer__soc-btns")
+            .b-footer__col
+                .b-footer__quote Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.
+                    .b-footer__quote-author — Martin Golding
+        .b-footer__row-copy &copy; #{persona.name} | Создано с любовью в LoftSchool | 2017
 
 
 

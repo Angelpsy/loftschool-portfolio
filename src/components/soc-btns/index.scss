@@ -8,7 +8,10 @@
 .b-soc-btns__item {
     display: inline-block;
     vertical-align: middle;
-    margin: 0 12px;
+
+    & + & {
+        margin-left: 24px;
+    }
 }
 
 .b-soc-btn {
@@ -16,7 +19,7 @@
 }
 
 .b-soc-btn__link {
-    transition: colro $transition-standard;
+    transition: color $transition-standard;
 
     &:hover {
         color: $color-light-green;
@@ -24,6 +27,16 @@
 
     .b-soc-btns--grey &:hover {
         color: $color-green;
+    }
+
+    .b-soc-btns--opacity & {
+        opacity: 0.5;
+        transition: opacity $transition-standard;
+    }
+
+    .b-soc-btns--opacity &:hover {
+        opacity: 1;
+        color: inherit;
     }
 }
 
