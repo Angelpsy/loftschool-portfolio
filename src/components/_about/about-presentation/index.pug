@@ -1,16 +1,16 @@
 include ../../content/index
 include ../../title/index
 
-mixin about-present(options)
+mixin about-presentation(options)
     if !options
         - options = {}
 
-    .b-about-present(class!=attributes.class)
-        img.b-about-present__photo(src=options.photo)
+    .b-about-presentation(class!=attributes.class)
+        img.b-about-presentation__photo(src=options.photo)
         +sub-title({
             text: "Кто я"
-        })(class="b-about-present__title" tag="h2")
-        .b-about-present__content.b-content
+        })(class="b-about-presentation__title" tag="h2")
+        .b-about-presentation__content.b-content
             p
                 | Я веб разработчик из Челябинска. Мне 34 года. <br>
                 | Я занимаюсь разработкой различных сайтов <br>

@@ -1,5 +1,5 @@
 include ../../title/index
-include ../about-present/index
+include ../about-presentation/index
 include ../../skills/index
 
 mixin about-main(options)
@@ -8,15 +8,15 @@ mixin about-main(options)
 
     main.b-about-main(class!=attributes.class)
         .b-about-main__content
-            .b-about-main__col.b-about-main__col--left.b-about-main__col--present
+            .b-about-main__col.b-about-main__col--left.b-about-main__col--presentation
                 .b-about-main__col-content
                     +title({
                         text: "Обо мне",
                         icon: 'about_header'
                     })(class="b-about-main__title" tag="h1" mod="about")
-                    +about-present({
+                    +about-presentation({
                         photo: options.photo
-                    })(class="b-about-main__present")
+                    })(class="b-about-main__presentation")
             .b-about-main__col.b-about-main__col--right.b-about-main__col--skills
                 .b-about-main__col-content
                     +sub-title({
