@@ -1,0 +1,31 @@
+include ../icon/index
+
+//-
+    options.text = имя файла иконки
+    options.mod [about]
+    attributes.tag = тэг (не обязательный)
+mixin title(options)
+    if !options
+        - options = {}
+    - var tagTitle = attributes.tag ? attributes.tag : 'div'
+    - var classNameTitle = attributes.class + (attributes.mod ? ' b-title--' + attributes.mod : '')
+
+    #{tagTitle}.b-title(class!=classNameTitle)
+        if (options.icon)
+            +icon({
+                file: options.icon
+            })(class="b-title__icon")
+        span.b-title__text= options.text
+
+//-
+    options.text = имя файла иконки
+    options.mod
+    attributes.tag = тэг (не обязательный)
+mixin sub-title(options)
+    if !options
+        - options = {}
+    - var tagsubtitle = attributes.tag ? attributes.tag : 'div'
+    - var classNamesubtitle = attributes.class + (options.mod ? ' b-sub-title--' + options.mod : '')
+
+    #{tagsubtitle}.b-sub-title(class!=classNamesubtitle)
+        span.b-sub-title__text= options.text

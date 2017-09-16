@@ -1,0 +1,30 @@
+mixin skills(options)
+    if !options
+        - options = {}
+        //strokeDasharray = 2 * Math.PI * this.radius;
+    -
+        var items = options.items.map((list) => {
+            list.items = list.items.map((skill) => {
+                skill.strokeDasharray = "0"
+                return skill;
+            });
+            return list;
+        });
+
+        var sizeCircle = 122;
+
+    section.b-skills(class!=attributes.class)
+        ul.b-skills__list.b-skills-list
+            each list in items
+                li.b-skills-list__item
+                    h3.b-skills-list__title= list.name
+                    ul.b-skills-list__content
+                        each item in list.items
+                            li.b-skills-list__item.b-skill(style=`opacity: ${item.value / 100}`)
+                                .b-skill__img
+                                    svg(viewBox=`0 0 ${sizeCircle} ${sizeCircle}` width=sizeCircle height=sizeCircle).b-skill-svg
+                                        circle(r="50" cx="50%" cy="50%" fill="none" class="b-skill-svg__circle-base")
+                                        circle(r="50" cx="50%" cy="50%"
+                                        transform="rotate(-90 50% 50%)" class="b-skill-svg__circle-progress"
+                                        )
+                                .b-skill__title= item.name

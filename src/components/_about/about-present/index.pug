@@ -1,0 +1,23 @@
+include ../../content/index
+include ../../title/index
+
+mixin about-present(options)
+    if !options
+        - options = {}
+
+    .b-about-present(class!=attributes.class)
+        img.b-about-present__photo(src=options.photo)
+        +sub-title({
+            text: "Кто я"
+        })(class="b-about-present__title" tag="h2")
+        .b-about-present__content.b-content
+            p
+                | Я веб разработчик из Челябинска. Мне 34 года. <br>
+                | Я занимаюсь разработкой различных сайтов <br>
+                | и приложений. Мне нравится делать интересные <br>
+                | и современные проекты
+            p
+                | Этот сайт я сделал в рамках обучения в Школе онлайн <br>
+                | образования Loftschool. Чуть позже я освежу в нем <br>
+                | свой контент. А пока смотрите, <br>
+                | как тут все классно и красиво!

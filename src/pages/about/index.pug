@@ -27,7 +27,11 @@ block body
             title: persona.name,
             subTitle: "Личный сайт веб разработчика"
         })(class="p-about__hero")
-        +about-main()(class="p-about__main")
+        //-TODO заменить photo на покрупнее
+        +about-main({
+            skills: data.skills,
+            photo: require("../../common/img/photo-about.jpg")
+        })(class="p-about__main")
         +about-contacts()(class="p-about__contacts")
         +footer({
             menu,

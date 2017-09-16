@@ -1,0 +1,74 @@
+{
+    "data": {
+        "skills": [
+            {
+                "id": "frontend",
+                "name": "Frontend",
+                "items": [
+                    {
+                        "id": "html5",
+                        "name": "HTML5",
+                        "value": 95
+                    },
+                    {
+                        "id": "css3",
+                        "name": "CSS3",
+                        "value": 90
+                    },
+                    {
+                        "id": "js",
+                        "name": "JavaScript & jQuier",
+                        "value": 90
+                    }
+                ]
+            },
+            {
+                "id": "backend",
+                "name": "Backend",
+                "items": [
+                    {
+                        "id": "php",
+                        "name": "PHP",
+                        "value": 40
+                    },
+                    {
+                        "id": "mysql",
+                        "name": "mySQL",
+                        "value": 55
+                    },
+                    {
+                        "id": "nodejs",
+                        "name": "Node.js & npm",
+                        "value": 30
+                    },
+                    {
+                        "id": "mongo",
+                        "name": "Mongo.db",
+                        "value": 60
+                    }
+                ]
+            },
+            {
+                "id": "workflow",
+                "name": "WorkFlow",
+                "items": [
+                    {
+                        "id": "git",
+                        "name": "Git",
+                        "value": 85
+                    },
+                    {
+                        "id": "gulp",
+                        "name": "Gulp",
+                        "value": 70
+                    },
+                    {
+                        "id": "bower",
+                        "name": "Bower",
+                        "value": 65
+                    }
+                ]
+            }
+        ]
+    }
+}

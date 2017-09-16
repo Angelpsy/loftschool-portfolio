@@ -1,27 +1,41 @@
+include ../../title/index
+include ../about-present/index
+include ../../skills/index
+
 mixin about-main(options)
     if !options
         - options = {}
 
     main.b-about-main(class!=attributes.class)
+        .b-about-main__content
+            .b-about-main__col.b-about-main__col--left.b-about-main__col--present
+                .b-about-main__col-content
+                    +title({
+                        text: "Обо мне",
+                        icon: 'about_header'
+                    })(class="b-about-main__title" tag="h1" mod="about")
+                    +about-present({
+                        photo: options.photo
+                    })(class="b-about-main__present")
+            .b-about-main__col.b-about-main__col--right.b-about-main__col--skills
+                .b-about-main__col-content
+                    +sub-title({
+                        text: "Чем я могу быть Вам полезен"
+                    })(class="b-about-main__sub-title-skills" tag="h2")
+                    .b-content.b-about-main__content-skills
+                        p
+                            | Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи
+                            | на&nbsp;Backend. Но давайте по порядку.
+                    +skills({items: options.skills})(class="b-about-main__skills")
+
+
     //- TODO
-        triangles
-            triangle--left.triangle--about
-            triangle--right.triangle--about
-        main.content
+        .content
             .col
                 .col__title--left.title.title--about
-                .about-present
-                    .about-present__photo
-                    .about-present__title
-                    .about-present__content.content
+
             .col
                 .col__title.title
                 .about__content.content
-                .about__skills.skills
-                    .skills__list.skills-list
-                        .skills-list__title
-                        .skills-list__list
-                            .skills-list__list--item.skill
-                                .skill__img
-                                .skill__title
+                .about__skills
 

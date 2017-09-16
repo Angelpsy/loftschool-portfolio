@@ -5,7 +5,7 @@
 }
 
 .b-footer__row-base {
-    background: fade_out(#373e42, 0.15);
+    background: fade_out($color-black-green, 0.15);
     padding-top: 27px;
     padding-bottom: 30px;
     display: flex;
