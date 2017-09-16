@@ -21,8 +21,9 @@ block body
             socBtns: data.socLinks,
             menu: {
                 menuItems: data.menuItems,
-                menuItemActiveHref: '/index.html'
+                menuItemActiveHref: '/index.html',
+                isNav: true
             }
-        })(class="p-index__main")
+        })(class="p-index__main" tag="main")
         +index-footer()(class="p-index__footer l-page__footer")
 

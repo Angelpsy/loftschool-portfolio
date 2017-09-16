@@ -7,10 +7,11 @@
 mixin menu-base(options)
     if !options
         - options = {}
-    - var className = options.menuClass + ' ' + attributes.class
+    - var className = options.menuClass + (attributes.class ? ' ' + attributes.class : '')
+    - var tag = options.isNav ? 'nav' : 'div'
 
     if !options.menuItems
-    nav.b-menu(class=className)
+    #{tag}.b-menu(class=className)
         ul.b-menu__list(class=options.menuClass + "__list")
             each item in options.menuItems
                 if item.href !== options.menuItemActiveHref
