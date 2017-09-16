@@ -1,8 +1,32 @@
+include ../../title/index
+include ../../icon/index
+
+//-
+    options.contacts.items = массив контактов
 mixin about-contacts(options)
     if !options
         - options = {}
 
     sections.b-about-contacts(class!=attributes.class)
+        .b-about-contacts__map
+        .b-about-contacts__main
+            +sub-title({
+                text: "Контакты"
+            })(class="b-about-contacts__title" tag="h2")
+            ul.b-about-contacts__list
+                each contact in options.contacts.items
+                    li.b-about-contacts__list-item.b-about-contact
+                        span.b-about-contact__name.u-sr-only= contact.name
+                        .b-about-contact__icon-wr
+                            +icon({
+                                file: contact.fileName
+                            })(class="b-about-contact__icon")
+                        if contact.href
+                            a.b-about-contact__link(href=contact.href)
+                                span.b-about-contact__value= contact.value
+                        else
+                            span.b-about-contact__value= contact.value
+
     //- TODO
         .contacts__maps
         .contacts__main (posa)

@@ -32,7 +32,9 @@ block body
             skills: data.skills,
             photo: require("../../common/img/photo-about.jpg")
         })(class="p-about__main")
-        +about-contacts()(class="p-about__contacts")
+        +about-contacts({
+            contacts: data.contacts
+        })(class="p-about__contacts")
         +footer({
             menu,
             socLinks: data.socLinks
