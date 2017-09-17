@@ -1,6 +1,26 @@
+include ../../title/index
+include ../works-form/index
+include ../../icon/index
+
 mixin works-what(options)
     if !options
         - options = {}
 
     section.b-works-what(class!=attributes.class)
-
+        +title({
+            text: "Что обо мне говорят",
+            icon: "about_header"
+        })(class="b-works-what__title" tag="h2" mod="what")
+        .b-works-what__reviews
+            each item in options.reviews
+                .b-works-what__reviews-item.b-review
+                    .b-review__persona-photo-wr
+                        img.b-review__persona-photo(src=item.persona.photo)
+                    .b-review__text= item.text
+                    .b-review__persona-name= item.persona.name
+                    .b-review__persona-post= item.persona.post
+        +works-form()(class="b-works-what__form")
+        footer.b-works-what__footer
+            button.b-works-what-btn-up
+                span.b-works-what-btn-up__text.u-sr-only Вверх
+                +icon({file: "arrow_down"})(class="b-works-what-btn-up__icon")

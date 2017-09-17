@@ -1,7 +1,5 @@
 .p-works {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    position: relative;
 }
 
 .p-works__header {
@@ -13,5 +11,8 @@
 }
 
 .p-works__footer {
-    margin-top: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }

@@ -8,6 +8,10 @@ append variables
         menuItems: [].concat(data.menuItems, data.menuItemLogin),
         menuItemActiveHref: menuItemActiveHref
         }
+        var reviews = data.reviews.map((review) => {
+            review.persona.photo = require(`../../common/img/review-photo-${review.id}.jpg`)
+            return review;
+        });
 
 include ../../components/header/index
 include ../../components/hero/index
@@ -31,7 +35,9 @@ block body
         +works-main({
             works: data.works
         })(class="p-works__main" tag="main")
-        +works-what({})(class="p-works__what")
+        +works-what({
+            reviews
+        })(class="p-works__what")
         +footer({
             menu,
             socLinks: data.socLinks
