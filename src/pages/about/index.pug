@@ -22,10 +22,11 @@ block body
         })(class="p-about__header l-page__header")
         +hero({
             persona: {
-                avatar: require("../../common/img/photo.jpg")
+                avatar: require("../../common/img/photo.jpg"),
+                name: persona.name
             },
-            title: persona.name,
-            subTitle: "Личный сайт веб разработчика"
+            subTitle: "Личный сайт веб разработчика",
+            isArrow: true
         })(class="p-about__hero")
         //-TODO заменить photo на покрупнее
         +about-main({

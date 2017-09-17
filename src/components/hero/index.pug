@@ -1,5 +1,11 @@
 include ../icon/index
-
+include ../title/index
+//-
+    options.persona.avatar
+    options.persona.name=
+    options.title=
+    options.subTitle
+    options.isArrow=
 mixin hero(options)
     if !options
         - options = {}
@@ -9,8 +15,12 @@ mixin hero(options)
         .b-hero__main
             .b-hero__photo-wr
                 img.b-hero__photo(src=options.persona.avatar)
-            .b-hero__title= options.title
+            if (options.title)
+                +title({text: options.title})(class="b-hero__title" tag="h1")
+            else
+                .b-hero__name= options.persona.name
             .b-hero__subtitle= options.subTitle
-        footer.b-hero__foter
-            .b-hero__arrow
-                +icon({file: 'arrow_down'})(class="b-hero__icon")
+        if (options.isArrow)
+            footer.b-hero__foter
+                .b-hero__arrow
+                    +icon({file: 'arrow_down'})(class="b-hero__icon")
