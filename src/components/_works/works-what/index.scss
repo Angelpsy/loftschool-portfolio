@@ -1,10 +1,16 @@
 @import "../../../common/styles/vars";
 
 .b-works-what {
-    padding-top: 80px;
-    padding-bottom: 275px;
-
+    padding-top: 58px;
+    padding-bottom: 250px;
     background: #fff url("./assets/bg.jpg") center bottom no-repeat;
+}
+
+.b-works-what__title {
+    max-width: 20em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 38px;
 }
 
 .b-works-what__reviews {
@@ -24,7 +30,7 @@
     max-width: 98%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 65px;
+    margin-bottom: 57px;
 }
 
 .b-works-what__footer {

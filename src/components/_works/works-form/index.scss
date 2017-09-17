@@ -3,17 +3,18 @@
 .b-works-form {
     border-radius: 5px;
     background-color: fade_out(#dadbd6, 0.4);
-    padding-top: 20px;
+    padding-top: 25px;
     overflow: hidden;
 }
 
 .b-works-form__title {
     color: $color-gray-green;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
 }
 
 .b-works-form__main {
     padding: 0 $offset-horizontal-base;
+    margin-bottom: -4px;
 }
 
 .b-works-form__field {
@@ -40,6 +41,7 @@
 .b-works-form__textarea {
     min-height: 140px;
     resize: vertical;
+    padding-top: 15px;
 }
 
 .b-works-form__footer {

@@ -13,10 +13,17 @@
     color: #93c42e;
     max-width: 98%;
     width: 350px;
-    top: -82%;
-    left: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
     margin: auto;
+    transform: translate(-50%, -50%);
+}
+
+.b-title--works,
+.b-title--what {
+    .b-title__icon {
+        width: 500px;
+    }
 }
 
 .b-title__text {
