@@ -1,0 +1,12 @@
+{
+    "data": {
+        "works": [
+            {
+                "id": "1",
+                "name": "Сайт школы онлайн Образования",
+                "skills": "HTML , CSS, JavaScript",
+                "href": "#"
+            }
+        ]
+    }
+}

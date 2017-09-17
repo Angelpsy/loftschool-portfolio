@@ -1,0 +1,17 @@
+include ../../title/index
+include ../works-slider/index
+
+mixin works-main(options)
+    if !options
+        - options = {}
+
+    - var tagTitle = attributes.tag ? attributes.tag : 'div'
+
+    #{tagTitle}.b-works-main(class!=attributes.class)
+        +title({
+            text: "Мои работы",
+            icon: "works_header"
+        })(class="b-works-main__title" tag="h1" mod="works")
+        +works-slider({
+            works: options.works
+        })(class="b-works-main__slider")

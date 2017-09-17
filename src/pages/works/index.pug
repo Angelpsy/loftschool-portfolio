@@ -1,8 +1,38 @@
-extends ../../templates/innerPages/index
+extends ../../templates/base/index
 
 append variables
-    - var title = "Страница Мои работы";
-    - var menuItemActiveHref = "works.html"
+    -
+        var title = "Страница Мои работы";
+        var menuItemActiveHref = "works.html"
+        var menu = {
+        menuItems: [].concat(data.menuItems, data.menuItemLogin),
+        menuItemActiveHref: menuItemActiveHref
+        }
 
-block main
-    | Основная часть страницы Мои работы
+include ../../components/header/index
+include ../../components/hero/index
+include ../../components/_works/works-main/index
+include ../../components/_works/works-what/index
+include ../../components/footer/index
+block body
+    .l-page.p-works
+        +header({
+            menu,
+            socLinks: data.socLinks
+        })(class="p-works__header l-page__header")
+        +hero({
+            persona: {
+                avatar: require("../../common/img/photo.jpg"),
+                name: persona.name
+            },
+            subTitle: "Личный сайт веб разработчика",
+            isArrow: true
+        })(class="p-works__hero")
+        +works-main({
+            works: data.works
+        })(class="p-works__main" tag="main")
+        +works-what({})(class="p-works__what")
+        +footer({
+            menu,
+            socLinks: data.socLinks
+        })(class="p-works__footer")

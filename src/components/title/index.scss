@@ -24,6 +24,19 @@
     }
 }
 
+.b-title--works {
+    .b-title__icon {
+        opacity: 0.1;
+        color: #93c42e;
+        max-width: 98%;
+        width: 350px;
+        top: -82%;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+
 .b-title__text {
     display: inline-block;
     font-family: $font-family-sansus;
