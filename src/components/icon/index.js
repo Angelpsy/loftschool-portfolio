@@ -76,3 +76,6 @@ import {replacementViewbox} from 'src/common/scripts/helpers/svg';
 ].forEach((item) => {
     replacementViewbox(item.id, item.symbol);
 });
+
+console.log('icon');
+
