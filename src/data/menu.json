@@ -4,31 +4,31 @@
             {
                 "id": "works",
                 "name": "Мои работы",
-                "href": "/works.html"
+                "href": "works.html"
             },
             {
                 "id": "about",
                 "name": "Обо мне",
-                "href": "/about.html"
+                "href": "about.html"
             },
             {
                 "id": "blog",
                 "name": "Блог",
-                "href": "/blog.html"
+                "href": "blog.html"
             }
         ],
         "menuItemIndex": [
             {
                 "id": "index",
                 "name": "Главная",
-                "href": "/index.html"
+                "href": "index.html"
             }
         ],
         "menuItemLogin": [
             {
                 "id": "login",
                 "name": "Авторизация",
-                "href": "/login.html"
+                "href": "login.html"
             }
         ]
     }
