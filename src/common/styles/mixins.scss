@@ -7,3 +7,14 @@
     list-style: none;
     list-style-position: outside;
 }
+
+@mixin cf {
+    &::after {
+        display: block;
+        content: "";
+    }
+
+    &::after {
+        clear: both;
+    }
+}

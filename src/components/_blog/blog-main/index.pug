@@ -1,0 +1,18 @@
+include ../blog-nav/index
+include ../blog-posts/index
+
+mixin blog-main(options)
+    if !options
+        - options = {}
+
+    - var tagTitle = attributes.tag ? attributes.tag : 'div'
+
+    #{tagTitle}.b-blog-main(class!=attributes.class)
+        asside.b-blog-main__sidebar
+            +blog-nav({
+                items: options.posts
+            })(class="b-blog-main__nav")
+        section.b-blog-main__content
+            +blog-posts({
+                posts: options.posts
+            })(class="b-blog-main__posts")

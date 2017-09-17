@@ -1,0 +1,49 @@
+@import "../../../common/styles/vars";
+@import "../../../common/styles/mixins";
+
+.b-blog-nav {
+    @include nl;
+    text-align: right;
+}
+
+.b-blog-nav__item {
+    margin-bottom: 20px;
+}
+
+.b-blog-nav-item {
+    //
+}
+
+.b-blog-nav-item--active {
+    color: $color-green;
+}
+
+.b-blog-nav-item__link {
+    text-decoration: none;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    padding-right: $gutter-base;
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        width: 3px;
+        background: currentColor;
+        opacity: 0;
+
+        .b-blog-nav-item--active & {
+            opacity: 1;
+        }
+    }
+}
+
+.b-blog-nav-item__text {
+    width: 100%;
+    line-height: 1.615;
+}

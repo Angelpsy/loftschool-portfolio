@@ -1,0 +1,72 @@
+@import "../../../common/styles/vars";
+@import "../../../common/styles/mixins";
+
+$_sidebar-width: 410px;
+$_bg-color: #faf8f0;
+
+.b-blog-main {
+    display: flex;
+    justify-content: center;
+    background: $_bg-color;
+    position: relative;
+    padding-top: 60px;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        width: 100%;
+        height: 320px;
+        transform: translateY(50%);
+
+        background-image:
+            linear-gradient(
+                to top right,
+                $_bg-color 0%,
+                $_bg-color 50%,
+                transparent calc(50% + 1px),
+                transparent 100%
+            ),
+            linear-gradient(
+                to top left,
+                $_bg-color 0%,
+                $_bg-color 50%,
+                transparent calc(50% + 1px),
+                transparent 100%
+            );
+        background-position: 0 bottom, 10% bottom;
+        background-repeat: no-repeat;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        flex-basis: $_sidebar-width - 100px;
+    }
+}
+
+.b-blog-main__sidebar {
+    @include cf;
+    flex-basis: $_sidebar-width;
+    padding-right: $gutter-base;
+    padding-top: 10px;
+}
+
+.b-blog-main__nav {
+    position: sticky;
+    top: $offset-vertical-base;
+    max-width: 20em;
+    float: right;
+}
+
+.b-blog-main__content {
+    flex-basis: 980px;
+    flex-shrink: 0;
+    margin-left: (100px/1800px)*100%;
+}
+
+.b-blog-main__posts {
+    //
+}
