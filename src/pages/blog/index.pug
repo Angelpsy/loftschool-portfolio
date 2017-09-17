@@ -24,7 +24,11 @@ block body
                 avatar: require("../../common/img/photo.jpg"),
                 name: persona.name
             },
-            title: "Блог",
+            title: {
+                text: "Блог",
+                mod: "blog",
+                icon: "blog_header"
+            },
             subTitle: "Статьи, которые я написал",
             isArrow: false
         })(class="p-blog__hero")

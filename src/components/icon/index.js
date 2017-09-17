@@ -4,6 +4,7 @@ import githubSvg from './assets/github.svg';
 import inSvg from './assets/in.svg';
 import arrowDownSvg from './assets/arrow_down.svg';
 import aboutHeaderSvg from './assets/about_header.svg';
+import blogHeaderSvg from './assets/blog_header.svg';
 import worksHeaderSvg from './assets/works_header.svg';
 import skypeSvg from './assets/skype.svg';
 import envelopeSvg from './assets/envelope.svg';
@@ -35,6 +36,10 @@ import {replacementViewbox} from 'src/common/scripts/helpers/svg';
     {
         id: 'about_header',
         symbol: aboutHeaderSvg,
+    },
+    {
+        id: 'blog_header',
+        symbol: blogHeaderSvg,
     },
     {
         id: 'works_header',

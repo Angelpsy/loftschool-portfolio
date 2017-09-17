@@ -3,7 +3,9 @@ include ../title/index
 //-
     options.persona.avatar
     options.persona.name=
-    options.title=
+    options.title.text=
+    options.title.mod=
+    options.title.icon=
     options.subTitle
     options.isArrow=
 mixin hero(options)
@@ -16,7 +18,7 @@ mixin hero(options)
             .b-hero__photo-wr
                 img.b-hero__photo(src=options.persona.avatar)
             if (options.title)
-                +title({text: options.title})(class="b-hero__title" tag="h1")
+                +title(options.title)(class="b-hero__title" tag="h1" mod=options.title.mod ? options.title.mod : "")
             else
                 .b-hero__name= options.persona.name
             .b-hero__subtitle= options.subTitle
