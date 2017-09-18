@@ -1,1 +1,135 @@
-//
+@import "../../common/styles/vars";
+
+.b-login-card {
+    padding-top: 32px;
+    background: rgba(18, 38, 32, 0.6);
+}
+
+.b-login-card__title {
+    margin-bottom: 28px;
+}
+
+.b-login-card__main {
+    padding-left: $gutter-base;
+    padding-right: $gutter-base;
+    padding-bottom: 17px;
+}
+
+.b-login-card__field {
+    margin-bottom: $offset-vertical-base;
+}
+
+.b-login-card__input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    border-radius: 23px;
+    overflow: hidden;
+}
+
+.b-login-card__input-addon {
+    width: 45px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0efe9;
+}
+
+.b-login-card__input-control {
+    display: block;
+    width: calc(100% - 45px);
+    height: 100%;
+    background: #fff;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.b-login-card__field--checkbox {
+    margin-bottom: 13px;
+}
+
+.b-login-card__checkbox {
+    //
+}
+
+.b-login-card__label {
+    display: inline-flex;
+    align-items: center;
+}
+
+.b-login-card__label-text {
+    margin-left: 7px;
+}
+
+.b-login-card__field-note {
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.b-login-card__radio-btns {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b-login-card__radio-btn {
+    & + & {
+        margin-left: 47px;
+    }
+}
+
+.b-login-card__radio-btn-control {
+
+}
+
+.b-login-card__radio-btn-text {
+    transition: color $transition-fast;
+
+    .b-login-card__radio-btn-control:checked ~ & {
+        color: $color-green;
+    }
+}
+
+.b-login-card__footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b-login-card__footer-btn {
+    flex-basis: 50%;
+    display: block;
+}
+
+// TODO: перенести в единый компонент button
+.b-login-card__btn {
+    flex-basis: 50%;
+    height: 45px;
+    background-color: fade_out($color-light-green, 0.15);
+    border: none;
+    position: relative;
+    line-height: 2.257;
+    color: #fff;
+    cursor: pointer;
+
+    transition: background-color $transition-standard;
+
+    & + &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -1px;
+        width: 2px;
+        height: 100%;
+        background-color: fade_out(#dee3e7, 0.5);
+    }
+
+    &:hover {
+        background-color: fade_out($color-green, 0.15);
+    }
+}

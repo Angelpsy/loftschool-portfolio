@@ -18,8 +18,15 @@
 .p-index__main {
     max-width: 98%;
     width: 380px;
-    min-height: 395px;
     margin: $offset-horizontal-base*2 auto;
+}
+
+.p-index__index-card {
+    //
+}
+
+.p-index__login-card {
+    display: none; // TODO: после реализации смены главной карточки\карточки входа убрать скрытие
 }
 
 .p-index__footer {

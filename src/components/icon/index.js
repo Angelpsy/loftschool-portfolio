@@ -15,6 +15,7 @@ import portfArrowDownSvg from './assets/portf_arrow_down.svg';
 import portfArrowUpSvg from './assets/portf_arrow_up.svg';
 import loginSvg from './assets/login.svg';
 import passwordSvg from './assets/password.svg';
+import checkSvg from './assets/check.svg';
 
 import {replacementViewbox} from 'src/common/scripts/helpers/svg';
 
@@ -82,6 +83,10 @@ import {replacementViewbox} from 'src/common/scripts/helpers/svg';
     {
         id: 'password',
         symbol: passwordSvg,
+    },
+    {
+        id: 'check',
+        symbol: checkSvg,
     },
 ].forEach((item) => {
     replacementViewbox(item.id, item.symbol);

@@ -1,1 +1,44 @@
-//
+@import "../../../common/styles/vars";
+
+.b-checkbox {
+    display: inline-block;
+    position: relative;
+}
+
+.b-checkbox__control {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+}
+
+.b-checkbox__icon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2px;
+    bottom: 0;
+    margin: auto;
+    color: #fff;
+    max-width: 11px;
+}
+
+.b-checkbox__tick {
+    width: 20px;
+    height: 20px;
+    display: block;
+
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+
+    transition: background-color $transition-fast, border-color $transition-fast;
+
+    .b-checkbox__control:checked + & {
+        background-color: $color-light-green;
+        border-color: $color-light-green;
+    }
+}

@@ -13,22 +13,22 @@ mixin login-card(options)
             text: "Авторизуйтесь"
         })(class="b-login-card__title")
         .b-login-card__main
-            .b-login-card__field.b-login-card__field--input
-                label.b-login-card__label.b-login-card__label--input(for=`${formName}-login`)
-                    span.u-sr-only Логин
-                    .b-login-card__input-addon
+            .b-login-card__field
+                .b-login-card__input
+                    label.b-login-card__input-addon(for=`${formName}-login`)
+                        span.u-sr-only Логин
                         +icon({
                             file: "login"
                         })(class="b-login-card__icon")
-                    input.b-login-card__input(id=`${formName}-login` type="text" placeholder="Логин")
-            .b-login-card__field.b-login-card__field--input
-                label.b-login-card__label.b-login-card__label--input(for=`${formName}-password`)
-                    span.u-sr-only Пароль
-                    .b-login-card__input-addon
+                    input.b-login-card__input-control(id=`${formName}-login` type="text" placeholder="Логин")
+            .b-login-card__field
+                .b-login-card__input
+                    label.b-login-card__input-addon(for=`${formName}-password`)
+                        span.u-sr-only Пароль
                         +icon({
                             file: "password"
                         })(class="b-login-card__icon")
-                    input.b-login-card__input(id=`${formName}-password` type="password" placeholder="Пароль")
+                    input.b-login-card__input-control(id=`${formName}-password` type="password" placeholder="Пароль")
             .b-login-card__field.b-login-card__field--checkbox
                 label.b-login-card__label(for=`${formName}-human`)
                     +checkbox({
@@ -37,22 +37,33 @@ mixin login-card(options)
                         name: `${formName}-human`
                     })(class="b-login-card__checkbox")
                     span.b-login-card__label-text Я человек
-            .b-login-card__field.b-login-card__field--radio-btns
+            .b-login-card__field
                 .b-login-card__field-note Вы точно не робот
-                    .b-login-card__radio-btns
-                        label.b-login-card__label(for=`${formName}-norobot-yes`)
-                            +radio-button({
-                                id: `${formName}-norobot-yes`,
-                                value: `${formName}-norobot-yes`,
-                                isChecked: true,
-                                name: `${formName}-norobot`
-                            })(class="b-login-card__radio-btn")
-                            span.b-login-card__label-text Да
-                        label.b-login-card__label(for=`${formName}-norobot-not-sure`)
-                            +radio-button({
-                                id: `${formName}-norobot-not-sure`,
-                                value: `${formName}-norobot-not-sure`,
-                                isChecked: false,
-                                name: `${formName}-norobot`
-                            })(class="b-login-card__radio-btn")
-                            span.b-login-card__label-text Не уверен
+                .b-login-card__radio-btns
+                    .b-login-card__radio-btn(for=`${formName}-norobot-yes`)
+                        +radio-button({
+                            id: `${formName}-norobot-yes`,
+                            value: `${formName}-norobot-yes`,
+                            isChecked: true,
+                            name: `${formName}-norobot`,
+                            className: "b-login-card__radio-btn-control",
+                            text: {
+                                text: "Да",
+                                className: "b-login-card__radio-btn-text"
+                            }
+                        })
+                    .b-login-card__radio-btn(for=`${formName}-norobot-not-sure`)
+                        +radio-button({
+                            id: `${formName}-norobot-not-sure`,
+                            value: `${formName}-norobot-not-sure`,
+                            isChecked: false,
+                            name: `${formName}-norobot`,
+                            className: "b-login-card__radio-btn-control",
+                            text: {
+                                text: "Не уверен",
+                                className: "b-login-card__radio-btn-text"
+                            }
+                        })
+        .b-login-card__footer
+            button.b-login-card__btn.b-login-card__footer-btn(type="button") На главную
+            button.b-login-card__btn.b-login-card__footer-btn(type="submit") Войти

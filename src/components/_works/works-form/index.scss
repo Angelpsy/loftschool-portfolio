@@ -52,6 +52,7 @@
     display: flex;
 }
 
+// TODO: перенести в единый компонент button
 .b-works-form__btn {
     flex-basis: 50%;
     height: 45px;
@@ -62,7 +63,7 @@
     color: #fff;
     cursor: pointer;
 
-    transition: opacity $transition-standard;
+    transition: background-color $transition-standard;
 
     & + &::before {
         content: '';
@@ -76,10 +77,6 @@
     }
 
     &:hover {
-        opacity: 0.8;
+        background-color: fade_out($color-green, 0.15);
     }
-}
-
-.b-works-form__btn--reset {
-    background-color: fade_out($color-green, 0.15);
 }
