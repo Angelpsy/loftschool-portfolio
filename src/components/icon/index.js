@@ -13,6 +13,8 @@ import mapMarkerSvg from './assets/map_marker.svg';
 import linkSvg from './assets/link.svg';
 import portfArrowDownSvg from './assets/portf_arrow_down.svg';
 import portfArrowUpSvg from './assets/portf_arrow_up.svg';
+import loginSvg from './assets/login.svg';
+import passwordSvg from './assets/password.svg';
 
 import {replacementViewbox} from 'src/common/scripts/helpers/svg';
 
@@ -73,9 +75,14 @@ import {replacementViewbox} from 'src/common/scripts/helpers/svg';
         id: 'portf_arrow_up',
         symbol: portfArrowUpSvg,
     },
+    {
+        id: 'login',
+        symbol: loginSvg,
+    },
+    {
+        id: 'password',
+        symbol: passwordSvg,
+    },
 ].forEach((item) => {
     replacementViewbox(item.id, item.symbol);
 });
-
-console.log('icon');
-

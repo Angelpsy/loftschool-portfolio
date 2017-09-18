@@ -1,0 +1,15 @@
+include ../../icon/index
+
+mixin checkbox(options)
+    if !options
+        - options = {}
+
+    span.b-checkbox(class!=attributes.class)
+        input.b-checkbox__control(
+            type='checkbox'
+            checked=options.isChecked
+            id!=options.id
+            name=options.name
+        )
+        span.b-checkbox__tick
+            +icon({file: "check"})(class="b-checkbox__icon")

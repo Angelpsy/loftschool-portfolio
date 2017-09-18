@@ -1,0 +1,15 @@
+include ../../icon/index
+
+mixin radio-button(options)
+    if !options
+        - options = {}
+
+    span.radio-button(class!=attributes.class)
+        input.radio-button__control(
+            type='radio'
+            checked=options.isChecked
+            id!=options.id
+            value!=options.value
+            name=options.name
+        )
+        span.radio-button__tick
