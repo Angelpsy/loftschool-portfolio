@@ -14,19 +14,21 @@ block body
             menu: data.menuItemLogin
         })(class="p-index__header")
         .p-index__main
-            +index-card({
-                persona: {
-                    avatar: require('../../common/img/photo.jpg'),
-                    name: persona.name
-                },
-                subTitle: 'Личный сайт веб разработчика',
-                socBtns: data.socLinks,
-                menu: {
-                    menuItems: data.menuItems,
-                    menuItemActiveHref: '/index.html',
-                    isNav: true
-                }
-            })(class="p-index__index-card" tag="main")
-            +login-form()(class="p-index__login-form")
+            .p-index__card-front
+                +index-card({
+                    persona: {
+                        avatar: require('../../common/img/photo.jpg'),
+                        name: persona.name
+                    },
+                    subTitle: 'Личный сайт веб разработчика',
+                    socBtns: data.socLinks,
+                    menu: {
+                        menuItems: data.menuItems,
+                        menuItemActiveHref: '/index.html',
+                        isNav: true
+                    }
+                })(class="p-index__index-card" tag="main")
+            .p-index__card-back
+                +login-form()(class="p-index__login-form")
         +simple-footer()(class="p-index__footer l-page__footer")
 

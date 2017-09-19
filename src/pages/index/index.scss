@@ -7,6 +7,8 @@
     justify-content: center;
     text-align: center;
     padding-bottom: 40px;
+
+    perspective: 1000px;
 }
 
 .p-index__header {
@@ -19,19 +21,36 @@
     max-width: 98%;
     width: 380px;
     margin: $offset-horizontal-base*2 auto;
+
+    transition: transform $transition-slow;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+.p-index__main--open-login {
+    transform: rotateY(180deg);
+}
+
+.p-index__card-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.p-index__card-back {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
 }
 
 .p-index__index-card {
-    .p-index__main--open-login & {
-        display: none;
-    }
+    //
 }
 
 .p-index__login-form {
-    display: none; // TODO: после реализации смены главной карточки\карточки входа убрать скрытие
-    .p-index__main--open-login & {
-        display: block;
-    }
+    //
 }
 
 .p-index__footer {
