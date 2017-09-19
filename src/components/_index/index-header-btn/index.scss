@@ -10,8 +10,13 @@
     padding-right: 29px;
     border-radius: 23px;
     text-decoration: none;
+    color: inherit;
+
+    background-color: transparent;
 
     transition: border-color $transition-standard, background-color $transition-standard;
+
+    cursor: pointer;
 
     &:hover,
     &:focus {

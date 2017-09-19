@@ -6,7 +6,7 @@ append variables
 include ../../components/_index/index-header/index
 include ../../components/_index/index-card/index
 include ../../components/login-form/index
-include ../../components/_index/index-footer/index
+include ../../components/simple-footer/index
 block body
 
     .p-index.l-page
@@ -28,5 +28,5 @@ block body
                 }
             })(class="p-index__index-card" tag="main")
             +login-form()(class="p-index__login-form")
-        +index-footer()(class="p-index__footer l-page__footer")
+        +simple-footer()(class="p-index__footer l-page__footer")
 

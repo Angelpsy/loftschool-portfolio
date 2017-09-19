@@ -1,1 +1,30 @@
-//
+@import "../../common/styles/vars";
+
+.p-login {
+    background: $color-black-green url("../../common/img/bg-forest-max.jpg") center center no-repeat;
+    background-size: cover;
+    color: #fff;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 40px;
+
+    &::before {
+        content: '';
+        display: block;
+        margin-bottom: auto;
+    }
+}
+
+.p-login__main {
+    max-width: 98%;
+    width: 380px;
+    margin: $offset-horizontal-base*2 auto;
+}
+
+.p-login__login-form {
+    //
+}
+
+.p-login__footer {
+    //
+}

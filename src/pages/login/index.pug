@@ -1,9 +1,16 @@
-//- TODO: расширяется от base.pug
-extends ../../templates/innerPages/index
+extends ../../templates/base/index
 
 append variables
-    - var title = "Страница Авторизации";
-    - var menuItemActiveHref = "login.html"
+    - var title = "Добро пожаловать";
 
-block main
-    | Основная часть страницы авторизации
+include ../../components/login-form/index
+include ../../components/simple-footer/index
+block body
+
+    .p-login.l-page
+        .p-login__main
+            +login-form({
+                menuItemIndex: data.menuItemIndex
+            })(class="p-login__login-form")
+        +simple-footer()(class="p-login__footer l-page__footer")
+
