@@ -7,6 +7,8 @@
 
 .b-login-form__title {
     margin-bottom: 28px;
+    padding-left: $gutter-base;
+    padding-right: $gutter-base;
 }
 
 .b-login-form__main {
@@ -62,6 +64,7 @@
 
 .b-login-form__label-text {
     margin-left: 7px;
+    text-align: left;
 }
 
 .b-login-form__field-note {
@@ -88,6 +91,7 @@
 }
 
 .b-login-form__radio-btn-text {
+    text-align: left;
     transition: color $transition-fast;
 
     .b-login-form__radio-btn-control:checked ~ & {
