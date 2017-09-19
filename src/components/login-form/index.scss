@@ -120,12 +120,16 @@
     color: #fff;
     cursor: pointer;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 1px 6px;
 
     transition: background-color $transition-standard;
+
+    // button and display: flex - bug in safari
+    &:not(button) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     & + &::before {
         content: '';

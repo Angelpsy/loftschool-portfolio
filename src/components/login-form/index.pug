@@ -66,7 +66,10 @@ mixin login-form(options)
                         })
         .b-login-form__footer
             if (options.menuItemIndex && options.menuItemIndex[0].href)
-                a.b-login-form__btn.b-login-form__footer-btn(href=options.menuItemIndex[0].href) На главную
+                a.b-login-form__btn.b-login-form__footer-btn(href=options.menuItemIndex[0].href)
+                    span.b-login-form__btn_text На главную
             else
-                button.b-login-form__btn.b-login-form__footer-btn.js-go-home(type="button") На главную
-            button.b-login-form__btn.b-login-form__footer-btn(type="submit") Войти
+                button.b-login-form__btn.b-login-form__footer-btn.js-go-home(type="button")
+                    span.b-login-form__btn-text На главную
+            button.b-login-form__btn.b-login-form__footer-btn(type="submit")
+                span.b-login-form__btn-text Войти

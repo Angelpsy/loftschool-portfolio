@@ -1,9 +1,6 @@
 @import "../../../common/styles/vars";
 
 .b-index-header-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 45px;
     border: 1px solid;
     padding-left: 29px;
@@ -17,6 +14,13 @@
     transition: border-color $transition-standard, background-color $transition-standard;
 
     cursor: pointer;
+
+    // button and display: flex - bug in safari
+    &:not(button) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     &:hover,
     &:focus {
