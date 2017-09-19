@@ -1,25 +1,25 @@
 @import "../../common/styles/vars";
 
-.b-login-card {
+.b-login-form {
     padding-top: 32px;
     background: rgba(18, 38, 32, 0.6);
 }
 
-.b-login-card__title {
+.b-login-form__title {
     margin-bottom: 28px;
 }
 
-.b-login-card__main {
+.b-login-form__main {
     padding-left: $gutter-base;
     padding-right: $gutter-base;
     padding-bottom: 17px;
 }
 
-.b-login-card__field {
+.b-login-form__field {
     margin-bottom: $offset-vertical-base;
 }
 
-.b-login-card__input {
+.b-login-form__input {
     display: flex;
     align-items: center;
     width: 100%;
@@ -28,7 +28,7 @@
     overflow: hidden;
 }
 
-.b-login-card__input-addon {
+.b-login-form__input-addon {
     width: 45px;
     height: 100%;
     display: flex;
@@ -37,7 +37,7 @@
     background: #f0efe9;
 }
 
-.b-login-card__input-control {
+.b-login-form__input-control {
     display: block;
     width: calc(100% - 45px);
     height: 100%;
@@ -47,66 +47,66 @@
     padding-right: 20px;
 }
 
-.b-login-card__field--checkbox {
+.b-login-form__field--checkbox {
     margin-bottom: 13px;
 }
 
-.b-login-card__checkbox {
+.b-login-form__checkbox {
     //
 }
 
-.b-login-card__label {
+.b-login-form__label {
     display: inline-flex;
     align-items: center;
 }
 
-.b-login-card__label-text {
+.b-login-form__label-text {
     margin-left: 7px;
 }
 
-.b-login-card__field-note {
+.b-login-form__field-note {
     margin-bottom: 8px;
     color: rgba(255, 255, 255, 0.8);
     font-weight: bold;
     line-height: 1.5;
 }
 
-.b-login-card__radio-btns {
+.b-login-form__radio-btns {
     display: inline-flex;
     justify-content: center;
     align-items: center;
 }
 
-.b-login-card__radio-btn {
+.b-login-form__radio-btn {
     & + & {
         margin-left: 47px;
     }
 }
 
-.b-login-card__radio-btn-control {
+.b-login-form__radio-btn-control {
     //
 }
 
-.b-login-card__radio-btn-text {
+.b-login-form__radio-btn-text {
     transition: color $transition-fast;
 
-    .b-login-card__radio-btn-control:checked ~ & {
+    .b-login-form__radio-btn-control:checked ~ & {
         color: $color-green;
     }
 }
 
-.b-login-card__footer {
+.b-login-form__footer {
     display: flex;
     justify-content: space-between;
 }
 
-.b-login-card__footer-btn {
+.b-login-form__footer-btn {
     flex-basis: 50%;
     display: block;
 }
 
 // TODO: перенести в единый компонент button
-.b-login-card__btn {
+.b-login-form__btn {
     flex-basis: 50%;
     height: 45px;
     background-color: fade_out($color-light-green, 0.15);
