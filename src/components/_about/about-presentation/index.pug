@@ -5,11 +5,12 @@ mixin about-presentation(options)
     if !options
         - options = {}
 
-    .b-about-presentation(class!=attributes.class)
-        img.b-about-presentation__photo(src=options.photo)
-        +sub-title({
-            text: "Кто я"
-        })(class="b-about-presentation__title" tag="h2")
+    section.b-about-presentation(class!=attributes.class)
+        header.b-about-presentation__header
+            img.b-about-presentation__photo(src=options.photo alt=options.persona.name)
+            +sub-title({
+                text: "Кто я"
+            })(class="b-about-presentation__title" tag="h2")
         .b-about-presentation__content.b-content
             p
                 | Я веб разработчик из Челябинска. Мне 34 года. <br>

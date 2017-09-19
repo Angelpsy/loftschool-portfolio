@@ -10,5 +10,5 @@ mixin blog-posts(options)
                 article.b-blog-post
                     header.b-blog-post__header
                         h2.b-blog-post__title!= post.name
-                        time.b-blog-post__date(datetime=post.date pubdate)= post.date
-                    section.b-blog-post__main.b-content!= post.text
+                        time.b-blog-post__date(datetime=post.date)= post.date
+                    .b-blog-post__main.b-content!= post.text

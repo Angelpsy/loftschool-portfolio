@@ -6,6 +6,7 @@ mixin index-header(options)
         - options = {}
 
     header.b-index-header(class!=attributes.class)
+        h1.u-sr-only Сайт портфолио. Алексей Алексеев.
         each item in options.menu
             +index-header-btn({
                 link: item

@@ -40,7 +40,7 @@ mixin login-card(options)
             .b-login-card__field
                 .b-login-card__field-note Вы точно не робот
                 .b-login-card__radio-btns
-                    .b-login-card__radio-btn(for=`${formName}-norobot-yes`)
+                    .b-login-card__radio-btn
                         +radio-button({
                             id: `${formName}-norobot-yes`,
                             value: `${formName}-norobot-yes`,

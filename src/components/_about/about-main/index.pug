@@ -15,10 +15,11 @@ mixin about-main(options)
                         icon: 'about_header'
                     })(class="b-about-main__title" tag="h1" mod="about")
                     +about-presentation({
-                        photo: options.photo
+                        photo: options.photo,
+                        persona: options.persona
                     })(class="b-about-main__presentation")
             .b-about-main__col.b-about-main__col--right.b-about-main__col--skills
-                .b-about-main__col-content
+                section.b-about-main__col-content
                     +sub-title({
                         text: "Чем я могу быть Вам полезен"
                     })(class="b-about-main__sub-title-skills" tag="h2")

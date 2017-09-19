@@ -19,13 +19,13 @@ mixin index-card(options)
         .b-index-card__main
             .b-index-card__photo-wr
                 img.b-index-card__photo(src=options.persona.avatar)
-            h1.b-index-card__title=options.persona.name
+            .b-index-card__title=options.persona.name
             h2.b-index-card__subtitle=options.subTitle
             +soc-btns({
                 items: options.socBtns,
                 mod: 'grey'
             })(class='b-index-card__soc-btns')
-        footer.b-index-card__footer
+        .b-index-card__bottom
             +index-menu({
                 menu: options.menu
             })(class='b-index-card__menu')

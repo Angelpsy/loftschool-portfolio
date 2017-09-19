@@ -7,7 +7,7 @@ mixin works-form(options)
 
     form.b-works-form(class!=attributes.class name=formName)
         +sub-title({text: "Связаться со мной"})(class="b-works-form__title" tag="h3")
-        section.b-works-form__main
+        .b-works-form__main
             .b-works-form__field
                 label.b-works-form__label.u-sr-only(for=`${formName}-name`) Имя
                 input.b-works-form__input(id=`${formName}-name` type="text" placeholder="Имя")
@@ -17,7 +17,7 @@ mixin works-form(options)
             .b-works-form__field
                 label.b-works-form__label.u-sr-only(for=`${formName}-message`) Ваше сообщение
                 textarea.b-works-form__textarea(id=`${formName}-message` type="email" placeholder="Ваше сообщение")
-        footer.b-works-form__footer
+        .b-works-form__bottom
             .b-works-form__btns
                 button.b-works-form__btn(type="submit") Отправить
                 button.b-works-form__btn(type="reset") Очистить
