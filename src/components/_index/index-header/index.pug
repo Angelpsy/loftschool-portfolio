@@ -7,7 +7,10 @@ mixin index-header(options)
 
     header.b-index-header(class!=attributes.class)
         h1.u-sr-only Сайт портфолио. Алексей Алексеев.
-        each item in options.menu
+        .b-index-header__menu
             +index-header-btn({
-                link: item
-            })(class="b-index-header__btn")
+                link: {
+                    id: "login",
+                    name: "Авторизация"
+                }
+            })(class="b-index-header__btn js-open-login-form")

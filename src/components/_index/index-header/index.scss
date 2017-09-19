@@ -5,6 +5,15 @@
     justify-content: flex-end;
 }
 
+.b-index-header__menu {
+    transition: opacity $transition-standard;
+}
+
+.b-index-header__menu--hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .b-index-header__btn {
     min-width: 180px;
 

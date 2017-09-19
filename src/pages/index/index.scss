@@ -22,11 +22,16 @@
 }
 
 .p-index__index-card {
-    //
+    .p-index__main--open-login & {
+        display: none;
+    }
 }
 
 .p-index__login-form {
     display: none; // TODO: после реализации смены главной карточки\карточки входа убрать скрытие
+    .p-index__main--open-login & {
+        display: block;
+    }
 }
 
 .p-index__footer {
