@@ -23,8 +23,13 @@
 
     transition: background-color $transition-standard;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $color-green;
+    }
+
+    &:active {
+        background-color: darken($color-green, 10%);
     }
 }
 

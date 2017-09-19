@@ -12,8 +12,13 @@
         color: $color-blue-gray;
         text-decoration: underline;
 
-        &:hover {
+        &:hover,
+        &:focus {
             text-decoration: none;
+        }
+
+        &:active {
+            color: darken($color-blue-gray, 10%);
         }
     }
 }

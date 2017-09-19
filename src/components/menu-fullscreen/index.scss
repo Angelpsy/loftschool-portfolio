@@ -39,6 +39,12 @@
     position: relative;
     padding-bottom: 18px;
 
+    transition: color $transition-standard;
+
+    .b-menu-fullscreen-item__link:active & {
+        color: lighten($color-green, 50%);
+    }
+
     &::after {
         content: '';
         display: block;
@@ -54,7 +60,8 @@
 
         transition: opacity $transition-standard;
 
-        .b-menu-fullscreen-item__link:hover & {
+        .b-menu-fullscreen-item__link:hover &,
+        .b-menu-fullscreen-item__link:focus & {
             opacity: 1;
         }
     }

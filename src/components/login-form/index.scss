@@ -129,7 +129,8 @@
         background-color: fade_out(#dee3e7, 0.5);
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: fade_out($color-green, 0.15);
     }
 }

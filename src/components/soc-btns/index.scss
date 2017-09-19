@@ -21,22 +21,41 @@
 .b-soc-btn__link {
     transition: color $transition-standard;
 
-    &:hover {
+    &:hover,
+    &:focus {
         color: $color-light-green;
     }
 
-    .b-soc-btns--grey &:hover {
-        color: $color-green;
+    &:active {
+        color: darken($color-green, 10%);
+    }
+
+    .b-soc-btns--grey & {
+        &:hover,
+        &:focus {
+            color: $color-green;
+        }
+
+        &:active {
+            color: darken($color-green, 10%);
+        }
     }
 
     .b-soc-btns--opacity & {
         opacity: 0.5;
-        transition: opacity $transition-standard;
+        transition: opacity $transition-standard, color $transition-standard;
     }
 
-    .b-soc-btns--opacity &:hover {
-        opacity: 1;
-        color: inherit;
+    .b-soc-btns--opacity & {
+        &:hover,
+        &:focus {
+            opacity: 1;
+            color: inherit;
+        }
+
+        &:active {
+            color: darken($color-green, 10%);
+        }
     }
 }
 

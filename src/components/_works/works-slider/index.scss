@@ -65,8 +65,13 @@ $_sliders-h: 750px;
 
     transition: background-color $transition-standard;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $color-green;
+    }
+
+    &:active {
+        background-color: darken($color-green, 10%);
     }
 }
 
@@ -145,8 +150,13 @@ $_sliders-h: 750px;
         transition: $transition-standard;
     }
 
-    &:hover::before {
+    &:hover::before,
+    &:focus::before {
         transform: scale(0.1);
+    }
+
+    &:active::before {
+        background-color: darken($color-green, 10%);
     }
 }
 

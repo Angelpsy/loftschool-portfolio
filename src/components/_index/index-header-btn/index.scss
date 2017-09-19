@@ -13,7 +13,8 @@
 
     transition: border-color $transition-standard, background-color $transition-standard;
 
-    &:hover {
+    &:hover,
+    &:focus {
         border-color: #729e19;
         background-color: #4e8839;
     }

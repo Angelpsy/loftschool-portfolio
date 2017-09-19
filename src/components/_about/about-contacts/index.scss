@@ -60,8 +60,13 @@
 
     transition: opacity $transition-standard;
 
-    &:hover {
+    &:hover,
+    &:focus {
         opacity: 0.5;
+    }
+
+    &:active {
+        opacity: 1;
     }
 }
 
