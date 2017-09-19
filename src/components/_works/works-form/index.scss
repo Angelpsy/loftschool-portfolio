@@ -29,7 +29,8 @@
 .b-works-form__textarea {
     width: 100%;
     background-color: fade_out(#fff, 0.15);
-    padding: $offset-horizontal-base;
+    padding-left: $offset-horizontal-base;
+    padding-right: $offset-horizontal-base;
     border-radius: 23px;
     border: none;
 }
@@ -42,6 +43,7 @@
     min-height: 140px;
     resize: vertical;
     padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .b-works-form__bottom {
