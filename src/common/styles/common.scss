@@ -36,3 +36,8 @@ label {
 input::placeholder {
     opacity: 0.5;
 }
+
+button,
+button:active {
+    padding: 1px 6px;
+}
