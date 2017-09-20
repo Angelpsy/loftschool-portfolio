@@ -1,8 +1,43 @@
-extends ../../templates/innerPages/index
+extends ../../templates/base/index
 
 append variables
-    - var title = "Страница Блога";
-    - var menuItemActiveHref = "/blog.html"
+    -
+        var title = "Страница Блога";
+        var menuItemActiveHref = "blog.html"
+        var menu = {
+            menuItems: [].concat(data.menuItems, data.menuItemLogin),
+            menuItemActiveHref: menuItemActiveHref
+        }
 
-block main
-    | Основная часть страницы блога
+include ../../components/header/index
+include ../../components/hero/index
+include ../../components/_blog/blog-main/index
+include ../../components/footer/index
+block body
+    .l-page.p-blog
+        +header({
+            menu,
+            socLinks: data.socLinks
+        })(class="p-blog__header l-page__header")
+        +hero({
+            persona: {
+                avatar: require("../../common/img/photo.jpg"),
+                name: persona.name
+            },
+            title: {
+                text: "Блог",
+                mod: "blog",
+                icon: "blog_header"
+            },
+            subTitle: "Статьи, которые я написал",
+            isArrow: false
+        })(class="p-blog__hero")
+        +blog-main({
+            posts: data.posts
+        })(class="p-blog__main" tag="main")
+        +footer({
+            menu,
+            socLinks: data.socLinks
+        })(class="p-blog__footer")
+
+

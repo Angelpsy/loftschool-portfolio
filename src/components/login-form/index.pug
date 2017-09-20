@@ -1,0 +1,75 @@
+include ../title/index
+include ../icon/index
+include ../ui/checkbox/index
+include ../ui/radio-button/index
+
+mixin login-form(options)
+    if !options
+        - options = {}
+    - var formName = "login-form"
+
+    form.b-login-form(class!=attributes.class)
+        +sub-title({
+            text: "Авторизуйтесь"
+        })(class="b-login-form__title")
+        .b-login-form__main
+            .b-login-form__field
+                .b-login-form__input
+                    label.b-login-form__input-addon(for=`${formName}-login`)
+                        span.u-sr-only Логин
+                        +icon({
+                            file: "login"
+                        })(class="b-login-form__icon")
+                    input.b-login-form__input-control(id=`${formName}-login` type="text" placeholder="Логин")
+            .b-login-form__field
+                .b-login-form__input
+                    label.b-login-form__input-addon(for=`${formName}-password`)
+                        span.u-sr-only Пароль
+                        +icon({
+                            file: "password"
+                        })(class="b-login-form__icon")
+                    input.b-login-form__input-control(id=`${formName}-password` type="password" placeholder="Пароль")
+            .b-login-form__field.b-login-form__field--checkbox
+                label.b-login-form__label(for=`${formName}-human`)
+                    +checkbox({
+                        id: `${formName}-human`,
+                        isChecked: false,
+                        name: `${formName}-human`
+                    })(class="b-login-form__checkbox")
+                    span.b-login-form__label-text Я человек
+            .b-login-form__field
+                .b-login-form__field-note Вы точно не робот
+                .b-login-form__radio-btns
+                    .b-login-form__radio-btn
+                        +radio-button({
+                            id: `${formName}-norobot-yes`,
+                            value: `${formName}-norobot-yes`,
+                            isChecked: true,
+                            name: `${formName}-norobot`,
+                            className: "b-login-form__radio-btn-control",
+                            text: {
+                                text: "Да",
+                                className: "b-login-form__radio-btn-text"
+                            }
+                        })
+                    .b-login-form__radio-btn(for=`${formName}-norobot-not-sure`)
+                        +radio-button({
+                            id: `${formName}-norobot-not-sure`,
+                            value: `${formName}-norobot-not-sure`,
+                            isChecked: false,
+                            name: `${formName}-norobot`,
+                            className: "b-login-form__radio-btn-control",
+                            text: {
+                                text: "Не уверен",
+                                className: "b-login-form__radio-btn-text"
+                            }
+                        })
+        .b-login-form__footer
+            if (options.menuItemIndex && options.menuItemIndex[0].href)
+                a.b-login-form__btn.b-login-form__footer-btn(href=options.menuItemIndex[0].href)
+                    span.b-login-form__btn_text На главную
+            else
+                button.b-login-form__btn.b-login-form__footer-btn.js-go-home(type="button")
+                    span.b-login-form__btn-text На главную
+            button.b-login-form__btn.b-login-form__footer-btn(type="submit")
+                span.b-login-form__btn-text Войти

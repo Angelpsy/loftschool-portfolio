@@ -1,8 +1,45 @@
-extends ../../templates/innerPages/index
+extends ../../templates/base/index
 
 append variables
-    - var title = "Страница About";
-    - var menuItemActiveHref = "/about.html"
+    -
+        var title = "Страница About";
+        var menuItemActiveHref = "about.html"
+        var menu = {
+            menuItems: [].concat(data.menuItems, data.menuItemLogin),
+            menuItemActiveHref: menuItemActiveHref
+        }
 
-block main
-    | Основная часть страницы About 2
+include ../../components/header/index
+include ../../components/hero/index
+include ../../components/_about/about-main/index
+include ../../components/_about/about-contacts/index
+include ../../components/footer/index
+block body
+    .l-page.p-about
+        +header({
+            menu,
+            socLinks: data.socLinks
+        })(class="p-about__header l-page__header")
+        +hero({
+            persona: {
+                avatar: require("../../common/img/photo.jpg"),
+                name: persona.name
+            },
+            subTitle: "Личный сайт веб разработчика",
+            isArrow: true
+        })(class="p-about__hero")
+        //-TODO заменить photo на покрупнее
+        +about-main({
+            skills: data.skills,
+            photo: require("../../common/img/photo-about.jpg"),
+            persona: persona
+        })(class="p-about__main")
+        +about-contacts({
+            contacts: data.contacts
+        })(class="p-about__contacts")
+        +footer({
+            menu,
+            socLinks: data.socLinks
+        })(class="p-about__footer")
+
+

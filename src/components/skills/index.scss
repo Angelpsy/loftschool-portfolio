@@ -1,0 +1,73 @@
+@import "../../common/styles/vars";
+@import "../../common/styles/mixins";
+
+.b-skills {
+    //
+}
+
+.b-skills__list {
+    @include nl;
+}
+
+.b-skills-list__item {
+    margin-bottom: 15px;
+}
+
+.b-skills-list {
+    //
+}
+
+.b-skills-list__title {
+    font-size: 28px;
+    color: rgb(86, 99, 88);
+    line-height: 1.143;
+    margin-top: 0;
+    margin-bottom: 13px;
+}
+
+.b-skills-list__content {
+    @include nl;
+}
+
+.b-skills-list__item {
+    display: inline-block;
+    margin-right: 34px;
+}
+
+.b-skill {
+    position: relative;
+}
+
+.b-skill__img {
+    //
+}
+
+.b-skill__title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $color-green;
+    font-weight: 500;
+    max-width: 4em;
+    font-size: 14px;
+}
+
+.b-skill-svg {
+    fill: none;
+    stroke-width: 22;
+}
+
+.b-skill-svg__circle-base {
+    stroke: #dfdcd5;
+}
+
+.b-skill-svg__circle-progress {
+    stroke: #1bb696;
+}

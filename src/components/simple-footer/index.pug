@@ -1,0 +1,7 @@
+mixin simple-footer(options)
+    if !options
+        - options = {}
+
+    footer.b-simple-footer(class!=attributes.class)
+        | &copy; Алексей Алексеев | создано с любовью в LoftSchool | 2017
+

@@ -1,0 +1,79 @@
+@import "../../common/styles/vars";
+
+.b-title {
+    margin-top: 0;
+    text-align: center;
+    position: relative;
+}
+
+.b-title__icon {
+    display: block;
+    position: absolute;
+    opacity: 0.1;
+    color: #93c42e;
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, -50%);
+}
+
+.b-title--works,
+.b-title--what {
+    .b-title__icon {
+        width: 500px;
+    }
+}
+
+.b-title__text {
+    display: inline-block;
+    font-family: $font-family-sansus;
+    font-size: 63px;
+    font-weight: normal;
+    line-height: 1.048;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 22px;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        right: 0;
+        width: 89px;
+        height: 3px;
+        transform: translateX(-50%);
+        background: currentColor;
+    }
+}
+
+.b-sub-title {
+    margin-top: 0;
+    text-align: center;
+}
+
+.b-sub-title__text {
+    display: inline-block;
+    font-family: $font-family-sansus;
+    font-size: 35px;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.171;
+    position: relative;
+    padding-bottom: 26px;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        right: 0;
+        width: 89px;
+        height: 3px;
+        transform: translateX(-50%);
+        background: currentColor;
+    }
+}

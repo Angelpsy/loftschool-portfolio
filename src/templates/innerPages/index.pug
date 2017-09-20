@@ -1,9 +1,8 @@
 extends ../../templates/base/index
 
-block variables
+append variables
     - var title = "Внутренняя страница";
     - var menuItemActiveHref = ""
-    include ../../data/menu
 
 include ../../components/footer/index
 block body
@@ -11,9 +10,9 @@ block body
     block main
         | Основная часть внутренней страницы
     block footer
-        +footer({
-            menu: {
-                menuItems: locals.menuItemsFull,
-                menuItemActiveHref
-            }
-        })
+        //+footer({
+        //    menu: {
+        //        menuItems: data.menuItemsFull,
+        //        menuItemActiveHref
+        //    }
+        //})

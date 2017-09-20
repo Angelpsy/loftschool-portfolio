@@ -1,0 +1,26 @@
+@import "../../common/styles/vars";
+@import "../../common/styles/mixins";
+
+.b-menu {
+    //
+}
+
+.b-menu__list {
+    @include nl;
+}
+
+.b-menu__list-item {
+    display: block;
+}
+
+.b-menu-item {
+    //
+}
+
+.b-menu-item__link {
+    text-decoration: none;
+}
+
+.b-menu-item__text {
+    //
+}

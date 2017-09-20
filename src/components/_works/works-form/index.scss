@@ -1,0 +1,89 @@
+@import "../../../common/styles/vars";
+
+.b-works-form {
+    border-radius: 5px;
+    background-color: fade_out(#dadbd6, 0.4);
+    padding-top: 25px;
+    overflow: hidden;
+}
+
+.b-works-form__title {
+    color: $color-gray-green;
+    margin-bottom: 32px;
+}
+
+.b-works-form__main {
+    padding: 0 $offset-horizontal-base;
+    margin-bottom: -4px;
+}
+
+.b-works-form__field {
+    margin-bottom: $offset-vertical-base;
+}
+
+.b-works-form__label {
+    //
+}
+
+.b-works-form__input,
+.b-works-form__textarea {
+    width: 100%;
+    background-color: fade_out(#fff, 0.15);
+    padding-left: $offset-horizontal-base;
+    padding-right: $offset-horizontal-base;
+    border-radius: 23px;
+    border: none;
+}
+
+.b-works-form__input {
+    height: 45px;
+}
+
+.b-works-form__textarea {
+    min-height: 140px;
+    resize: vertical;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.b-works-form__bottom {
+    //
+}
+
+.b-works-form__btns {
+    display: flex;
+}
+
+// TODO: перенести в единый компонент button
+.b-works-form__btn {
+    flex-basis: 50%;
+    height: 45px;
+    background-color: fade_out($color-light-green, 0.15);
+    border: none;
+    position: relative;
+    line-height: 2.257;
+    color: #fff;
+    cursor: pointer;
+
+    transition: background-color $transition-standard;
+
+    & + &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -1px;
+        width: 2px;
+        height: 100%;
+        background-color: fade_out(#dee3e7, 0.5);
+    }
+
+    &:hover,
+    &:focus {
+        background-color: fade_out($color-green, 0.15);
+    }
+
+    &:active {
+        background-color: darken($color-green, 10%);
+    }
+}

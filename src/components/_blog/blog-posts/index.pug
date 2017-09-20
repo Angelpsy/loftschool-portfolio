@@ -1,0 +1,14 @@
+//-
+    options.posts
+mixin blog-posts(options)
+    if !options
+        - options = {}
+
+    ul.b-blog-posts(class!=attributes.class)
+        each post in options.posts
+            li.b-blog-posts__item(id=post.id)
+                article.b-blog-post
+                    header.b-blog-post__header
+                        h2.b-blog-post__title!= post.name
+                        time.b-blog-post__date(datetime=post.date)= post.date
+                    .b-blog-post__main.b-content!= post.text

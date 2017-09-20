@@ -1,6 +1,16 @@
+include ../index-header-btn/index
+
+//- options.menu
 mixin index-header(options)
     if !options
         - options = {}
 
-    header.b-index-header
-        | b-index-header
+    header.b-index-header(class!=attributes.class)
+        h1.u-sr-only Сайт портфолио. Алексей Алексеев.
+        .b-index-header__menu
+            +index-header-btn({
+                link: {
+                    id: "login",
+                    name: "Авторизация"
+                }
+            })(class="b-index-header__btn js-open-login-form")

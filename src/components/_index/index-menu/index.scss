@@ -1,0 +1,46 @@
+@import "../../../common/styles/vars";
+
+.b-index-menu {
+    //
+}
+
+.b-index-menu__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.b-index-menu__item {
+    flex-grow: 1;
+
+    & + & {
+        border-left: 2px solid #93b190;
+    }
+}
+
+.b-index-menu-item {
+    background-color: $color-light-green;
+
+    transition: background-color $transition-standard;
+
+    &:hover,
+    &:focus {
+        background-color: $color-green;
+    }
+
+    &:active {
+        background-color: darken($color-green, 10%);
+    }
+}
+
+.b-index-menu-item__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 45px;
+    padding: 0 $offset-vertical-base / 2;
+}
+
+.b-index-menu-item__text {
+    //
+}

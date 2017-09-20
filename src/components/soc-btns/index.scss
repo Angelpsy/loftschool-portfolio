@@ -1,0 +1,64 @@
+@import "../../common/styles/vars";
+@import "../../common/styles/mixins";
+
+.b-soc-btns {
+    @include nl;
+}
+
+.b-soc-btns__item {
+    display: inline-block;
+    vertical-align: middle;
+
+    & + & {
+        margin-left: 24px;
+    }
+}
+
+.b-soc-btn {
+    //
+}
+
+.b-soc-btn__link {
+    transition: color $transition-standard;
+
+    &:hover,
+    &:focus {
+        color: $color-light-green;
+    }
+
+    &:active {
+        color: darken($color-green, 10%);
+    }
+
+    .b-soc-btns--grey & {
+        &:hover,
+        &:focus {
+            color: $color-green;
+        }
+
+        &:active {
+            color: darken($color-green, 10%);
+        }
+    }
+
+    .b-soc-btns--opacity & {
+        opacity: 0.5;
+        transition: opacity $transition-standard, color $transition-standard;
+    }
+
+    .b-soc-btns--opacity & {
+        &:hover,
+        &:focus {
+            opacity: 1;
+            color: inherit;
+        }
+
+        &:active {
+            color: darken($color-green, 10%);
+        }
+    }
+}
+
+.b-soc-btn__icon {
+    //
+}

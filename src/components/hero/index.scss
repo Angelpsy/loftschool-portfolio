@@ -1,0 +1,76 @@
+@import "../../common/styles/vars";
+
+$_footer-height: 90px;
+
+.b-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 600px;
+    padding-top: 17px;
+    background-color: $color-black-green;
+    color: #fff;
+    text-align: center;
+}
+
+.b-hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../../common/img/bg-forest-max.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.b-hero__main {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.b-hero__photo-wr {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 141px;
+    height: 141px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 23px;
+}
+
+.b-hero__photo {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.b-hero__name {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 1.171;
+}
+
+.b-hero__subtitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.b-hero__bottom {
+    position: relative;
+    z-index: 1;
+    height: $_footer-height;
+}
+
+.b-hero__arrow {
+    opacity: 0.7;
+}

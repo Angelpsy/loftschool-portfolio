@@ -2,16 +2,33 @@ extends ../../templates/base/index
 
 append variables
     - var title = "Добро пожаловать";
-    include ../../data/menu
 
 include ../../components/_index/index-header/index
 include ../../components/_index/index-card/index
-include ../../components/_index/index-footer/index
+include ../../components/login-form/index
+include ../../components/simple-footer/index
 block body
-    +index-header()
-    +index-card({
-        menu: {
-            menuItems: locals.menuItems, menuItemActiveHref: '/index.html'
-        }
-    })
-    +index-footer()
+
+    .p-index.l-page
+        +index-header({
+            menu: data.menuItemLogin
+        })(class="p-index__header")
+        .p-index__main
+            .p-index__card-front
+                +index-card({
+                    persona: {
+                        avatar: require('../../common/img/photo.jpg'),
+                        name: persona.name
+                    },
+                    subTitle: 'Личный сайт веб разработчика',
+                    socBtns: data.socLinks,
+                    menu: {
+                        menuItems: data.menuItems,
+                        menuItemActiveHref: '/index.html',
+                        isNav: true
+                    }
+                })(class="p-index__index-card" tag="main")
+            .p-index__card-back
+                +login-form()(class="p-index__login-form")
+        +simple-footer()(class="p-index__footer l-page__footer")
+

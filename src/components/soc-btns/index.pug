@@ -1,0 +1,17 @@
+include ../icon/index
+
+//-
+    options.items
+    options.mod [grey, opacity]
+
+mixin soc-btns(options)
+    if !options
+        - options = {}
+    - className = attributes.class + (options.mod ? ' b-soc-btns--' + options.mod : null)
+
+    ul.b-soc-btns(class!=className)
+        each item in options.items
+            li.b-soc-btns__item.b-soc-btn
+                a.b-soc-btn__link(href=item.href target="_blank" rel="noopener")
+                    span.b-soc-btn__text.u-sr-only=item.name
+                    +icon({file: item.id})(class="b-soc-btn__icon")

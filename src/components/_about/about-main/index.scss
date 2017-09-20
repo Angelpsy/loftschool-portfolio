@@ -1,0 +1,108 @@
+@import "../../../common/styles/vars";
+
+$_bg-color--present: #ebefe2;
+$_bg-color--skills: #f4f5f0;
+
+.b-about-main {
+    position: relative;
+}
+
+.b-about-main__content {
+    display: flex;
+}
+
+.b-about-main__col {
+    flex-basis: 50%;
+    position: relative;
+}
+
+.b-about-main__col--left {
+    &::before {
+        content: '';
+        display: block;
+        height: 160px;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        background: currentColor;
+        background:
+            linear-gradient(
+                to top right,
+                currentColor 0%,
+                currentColor 50%,
+                transparent calc(50% + 1px),
+                transparent 100%
+            );
+    }
+}
+
+.b-about-main__col--right {
+    &::before {
+        content: '';
+        display: block;
+        height: 160px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        background: currentColor;
+        background:
+            linear-gradient(
+                to top left,
+                currentColor 0%,
+                currentColor 50%,
+                transparent calc(50% + 1px),
+                transparent 100%
+            );
+    }
+}
+
+.b-about-main__col--presentation {
+    color: $_bg-color--present;
+    background: currentColor;
+
+    .b-about-main__col-content {
+        display: flex;
+        align-items: flex-start;
+    }
+}
+
+.b-about-main__col--skills {
+    color: $_bg-color--skills;
+    background: currentColor;
+    padding-top: 23px;
+}
+
+.b-about-main__col-content {
+    position: relative;
+    top: -12px;
+}
+
+.b-about-main__title {
+    color: $color-black-green;
+    width: (447/900)*100%;
+}
+
+.b-about-main__presentation {
+    color: $color-gray-green;
+    padding-right: 20px;
+    padding-top: 32px;
+}
+
+.b-about-main__sub-title-skills {
+    color: $color-gray-green;
+    margin: 0 auto 26px;
+    max-width: 13em;
+}
+
+.b-about-main__content-skills {
+    color: $color-gray-green;
+    padding: 0 40px;
+    margin-bottom: 47px;
+}
+
+.b-about-main__skills {
+    color: $color-gray-green;
+    padding: 0 40px;
+}

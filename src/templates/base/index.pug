@@ -1,5 +1,17 @@
 block variables
-    - var title = "Base шаблон";
+    -
+        var title = "Base шаблон";
+        var menuItemActiveHref = "base.html";
+        var persona = {
+            name: "Алексей Алексеев"
+        }
+
+    //-
+        DATA BLOCKS
+    -
+        var data = htmlWebpackPlugin.options.data.data;
+        data.menuItemsFull = [].concat(data.menuItemIndex, data.menuItems, data.menuItemLogin);
+
 
 doctype html
 html(lang="ru-RU")

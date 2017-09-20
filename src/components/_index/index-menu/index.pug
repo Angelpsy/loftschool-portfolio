@@ -1,4 +1,4 @@
-include ../../menuBase/index
+include ../../menu-base/index
 
 //-
   options.menuItems - массив елементов меню
@@ -7,8 +7,9 @@ mixin index-menu(options)
         - options = {}
 
     +menu-base({
-        menuItems: options.menuItems,
-        menuItemActiveHref: options.menuItemActiveHref,
+        menuItems: options.menu.menuItems,
+        menuItemActiveHref: options.menu.menuItemActiveHref,
         menuClass: 'b-index-menu',
-        menuItemClass: 'b-index-menu-item'
+        menuItemClass: 'b-index-menu-item',
+        isNav: options.menu.isNav
     })

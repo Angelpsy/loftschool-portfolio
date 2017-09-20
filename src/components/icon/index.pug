@@ -1,0 +1,9 @@
+//-
+    options.file = имя файла иконки
+mixin icon(options)
+    if !options
+        - options = {}
+
+    span.b-icon(class!=attributes.class)
+        svg.b-icon(data-file=options.file height=20 width=20)
+            use(xlink:href='#' + options.file)

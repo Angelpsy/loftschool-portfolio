@@ -1,0 +1,35 @@
+{
+    "data": {
+        "menuItems": [
+            {
+                "id": "works",
+                "name": "Мои работы",
+                "href": "works.html"
+            },
+            {
+                "id": "about",
+                "name": "Обо мне",
+                "href": "about.html"
+            },
+            {
+                "id": "blog",
+                "name": "Блог",
+                "href": "blog.html"
+            }
+        ],
+        "menuItemIndex": [
+            {
+                "id": "index",
+                "name": "Главная",
+                "href": "index.html"
+            }
+        ],
+        "menuItemLogin": [
+            {
+                "id": "login",
+                "name": "Авторизация",
+                "href": "login.html"
+            }
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+@import "../../../common/styles/vars";
+
+.b-works-what-btn-up {
+    padding: 0;
+    min-height: 40px;
+    min-width: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    transition: opacity $transition-standard;
+
+    &:hover,
+    &:focus {
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}
+
+.b-works-what-btn-up__icon {
+    display: inline-block;
+    transform: rotate(180deg);
+}

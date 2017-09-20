@@ -1,1 +1,14 @@
+include ../fullscreen/index
+include ../soc-btns/index
+mixin header(options)
+    if !options
+        - options = {}
+
+    .b-header(class!=attributes.class)
+        .b-header__col
+            +soc-btns({
+                items: options.socLinks
+            })
+        .b-header__col
+            +fullscreen({menu: options.menu})
 

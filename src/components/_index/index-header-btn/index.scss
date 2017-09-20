@@ -1,0 +1,35 @@
+@import "../../../common/styles/vars";
+
+.b-index-header-btn {
+    height: 45px;
+    border: 1px solid;
+    padding-left: 29px;
+    padding-right: 29px;
+    border-radius: 23px;
+    text-decoration: none;
+    color: inherit;
+
+    background-color: transparent;
+
+    transition: border-color $transition-standard, background-color $transition-standard;
+
+    cursor: pointer;
+
+    // button and display: flex - bug in safari
+    &:not(button) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: #729e19;
+        background-color: #4e8839;
+    }
+}
+
+.b-index-header-btn__text {
+    line-height: 0;
+    font-weight: 500;
+}

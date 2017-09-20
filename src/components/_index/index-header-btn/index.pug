@@ -1,0 +1,12 @@
+//- options.link
+
+mixin index-header-btn(options)
+    if !options
+        - options = {}
+
+    if options.link && options.link.href
+        a.b-index-header-btn(class!=attributes.class href=options.link.href)
+            span.b-index-header-btn__text=options.link.name
+    else
+        button.b-index-header-btn(class!=attributes.class)
+            span.b-index-header-btn__text=options.link.name

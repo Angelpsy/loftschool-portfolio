@@ -1,0 +1,34 @@
+{
+    "data": {
+        "contacts": {
+            "items": [
+                {
+                    "id": "skype",
+                    "fileName": "skype",
+                    "name": "Мой скайп",
+                    "href": "skype:ya.angelpsy",
+                    "value": "ya.angelpsy"
+                },
+                {
+                    "id": "email",
+                    "fileName": "envelope",
+                    "name": "Мой email",
+                    "href": "mailto:angelpsymail@gmail.com",
+                    "value": "angelpsymail@gmail.com"
+                },
+                {
+                    "id": "phone",
+                    "fileName": "phone",
+                    "name": "Мой телефон",
+                    "value": "+7 999 999 99 99"
+                },
+                {
+                    "id": "address",
+                    "fileName": "map_marker",
+                    "name": "Мой город",
+                    "value": "Челябинск"
+                }
+            ]
+        }
+    }
+}

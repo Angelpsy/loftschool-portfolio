@@ -1,0 +1,31 @@
+include ../../title/index
+include ../about-presentation/index
+include ../../skills/index
+
+mixin about-main(options)
+    if !options
+        - options = {}
+
+    main.b-about-main(class!=attributes.class)
+        .b-about-main__content
+            .b-about-main__col.b-about-main__col--left.b-about-main__col--presentation
+                .b-about-main__col-content
+                    +title({
+                        text: "Обо мне",
+                        icon: 'about_header'
+                    })(class="b-about-main__title" tag="h1" mod="about")
+                    +about-presentation({
+                        photo: options.photo,
+                        persona: options.persona
+                    })(class="b-about-main__presentation")
+            .b-about-main__col.b-about-main__col--right.b-about-main__col--skills
+                section.b-about-main__col-content
+                    +sub-title({
+                        text: "Чем я могу быть Вам полезен"
+                    })(class="b-about-main__sub-title-skills" tag="h2")
+                    .b-content.b-about-main__content-skills
+                        p
+                            | Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи
+                            | на&nbsp;Backend. Но давайте по порядку.
+                    +skills({items: options.skills})(class="b-about-main__skills")
+

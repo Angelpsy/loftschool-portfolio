@@ -1,0 +1,37 @@
+//-
+    options.menuItems - массив елементов меню
+    options.menuClass - дополнительные класс меню
+    options.menuItemClass - дополнительные класс элемента меню
+    options.menuItemActiveHref - url активного элемента меню
+
+mixin menu-base(options)
+    if !options
+        - options = {}
+    - var className = options.menuClass + (attributes.class ? ' ' + attributes.class : '')
+    - var tag = options.isNav ? 'nav' : 'div'
+
+    if !options.menuItems
+    #{tag}.b-menu(class=className)
+        ul.b-menu__list(class=options.menuClass + "__list")
+            each item in options.menuItems
+                if item.href !== options.menuItemActiveHref
+                    li.b-menu__list-item.b-menu-item(
+                    class=options.menuClass + "__item"
+                    class=options.menuItemClass
+                    )
+                        a.b-menu-item__link(
+                        href=item.href
+                        class=options.menuItemClass + "__link"
+                        )
+                            span.b-menu-item__text(
+                            class=options.menuItemClass + "__text"
+                            )=item.name
+                else
+                    li.b-menu-item(
+                    class=options.menuClass + "__item"
+                    class=options.menuItemClass
+                    class=options.menuItemClass + "--active"
+                    )
+                        span.b-index-menu-item__text(
+                        class=options.menuItemClass + "__text"
+                        )=item.name

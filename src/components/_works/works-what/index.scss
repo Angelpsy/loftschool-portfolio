@@ -1,0 +1,38 @@
+@import "../../../common/styles/vars";
+
+.b-works-what {
+    padding-top: 58px;
+    padding-bottom: 250px;
+    background: #fff url("./assets/bg.jpg") center bottom no-repeat;
+}
+
+.b-works-what__title {
+    max-width: 20em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 38px;
+}
+
+.b-works-what__reviews {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+.b-works-what__reviews-item {
+    flex-basis: 380px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.b-works-what__form {
+    width: 380px;
+    max-width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 57px;
+}
+
+.b-index-card__bottom {
+    text-align: center;
+}

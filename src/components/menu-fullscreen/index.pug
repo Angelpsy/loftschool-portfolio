@@ -1,0 +1,16 @@
+include ../menu-base/index
+
+mixin menu-fullscreen(options)
+    if !options
+        - options = {}
+
+    +menu-base({
+        menuItems: options.menuItems,
+        menuItemActiveHref: options.menuItemActiveHref,
+        menuClass: 'b-menu-fullscreen',
+        menuItemClass: 'b-menu-fullscreen-item'
+    })(class!=attributes.class)
+    //-
+        TODO
+        btn-open-menu
+        nav-menu

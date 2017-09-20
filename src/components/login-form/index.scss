@@ -1,0 +1,149 @@
+@import "../../common/styles/vars";
+
+.b-login-form {
+    padding-top: 32px;
+    background: rgba(18, 38, 32, 0.6);
+}
+
+.b-login-form__title {
+    margin-bottom: 28px;
+    padding-left: $gutter-base;
+    padding-right: $gutter-base;
+}
+
+.b-login-form__main {
+    padding-left: $gutter-base;
+    padding-right: $gutter-base;
+    padding-bottom: 17px;
+}
+
+.b-login-form__field {
+    margin-bottom: $offset-vertical-base;
+}
+
+.b-login-form__input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    border-radius: 23px;
+    overflow: hidden;
+}
+
+.b-login-form__input-addon {
+    width: 45px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0efe9;
+}
+
+.b-login-form__input-control {
+    display: block;
+    width: calc(100% - 45px);
+    height: 100%;
+    background: #fff;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.b-login-form__field--checkbox {
+    margin-bottom: 13px;
+}
+
+.b-login-form__checkbox {
+    //
+}
+
+.b-login-form__label {
+    display: inline-flex;
+    align-items: center;
+}
+
+.b-login-form__label-text {
+    margin-left: 7px;
+    text-align: left;
+}
+
+.b-login-form__field-note {
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.b-login-form__radio-btns {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b-login-form__radio-btn {
+    & + & {
+        margin-left: 47px;
+    }
+}
+
+.b-login-form__radio-btn-control {
+    //
+}
+
+.b-login-form__radio-btn-text {
+    text-align: left;
+    transition: color $transition-fast;
+
+    .b-login-form__radio-btn-control:checked ~ & {
+        color: $color-green;
+    }
+}
+
+.b-login-form__footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b-login-form__footer-btn {
+    flex-basis: 50%;
+    display: block;
+}
+
+// TODO: перенести в единый компонент button
+.b-login-form__btn {
+    flex-basis: 50%;
+    height: 45px;
+    background-color: fade_out($color-light-green, 0.15);
+    border: none;
+    position: relative;
+    line-height: 2.257;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 1px 6px;
+
+    transition: background-color $transition-standard;
+
+    // button and display: flex - bug in safari
+    &:not(button) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & + &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -1px;
+        width: 2px;
+        height: 100%;
+        background-color: fade_out(#dee3e7, 0.5);
+    }
+
+    &:hover,
+    &:focus {
+        background-color: fade_out($color-green, 0.15);
+    }
+}
