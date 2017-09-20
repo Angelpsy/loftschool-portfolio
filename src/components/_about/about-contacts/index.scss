@@ -3,10 +3,28 @@
 
 .b-about-contacts {
     position: relative;
+
+    @media (max-width: $media-max - 1) {
+        height: 968px;
+        height: 80vw;
+        min-height: 968px;
+        max-height: 1113px;
+    }
+
+    @media (min-width: $media-max) {
+        height: 1113px;
+        height: 60vw;
+        min-height: 1113px;
+        max-height: 1200px;
+    }
 }
 
 .b-about-contacts__map {
-    height: 1113px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .b-about-contacts__main {

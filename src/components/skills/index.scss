@@ -9,29 +9,47 @@
     @include nl;
 }
 
-.b-skills-list__item {
-    margin-bottom: 15px;
+.b-skills-lists__item {
+    margin-bottom: 26px;
+
+    @media (min-width: $media-max) {
+        margin-bottom: 15px;
+    }
 }
 
-.b-skills-list {
+.b-skills-lists {
     //
 }
 
-.b-skills-list__title {
+.b-skills-lists__title {
     font-size: 28px;
     color: rgb(86, 99, 88);
     line-height: 1.143;
     margin-top: 0;
-    margin-bottom: 13px;
+    margin-bottom: 7px;
+
+    @media (min-width: $media-max) {
+        margin-bottom: 13px;
+    }
 }
 
-.b-skills-list__content {
+.b-skills-lists__content {
     @include nl;
 }
 
 .b-skills-list__item {
     display: inline-block;
     margin-right: 34px;
+
+    width: 110px;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    @media (min-width: $media-max) {
+        width: 120px;
+    }
 }
 
 .b-skill {

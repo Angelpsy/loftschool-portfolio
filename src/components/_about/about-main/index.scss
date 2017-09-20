@@ -20,7 +20,7 @@ $_bg-color--skills: #f4f5f0;
     &::before {
         content: '';
         display: block;
-        height: 160px;
+        padding-top: 17%;
         width: 100%;
         position: absolute;
         right: 0;
@@ -41,7 +41,7 @@ $_bg-color--skills: #f4f5f0;
     &::before {
         content: '';
         display: block;
-        height: 160px;
+        padding-top: 17%;
         width: 100%;
         position: absolute;
         left: 0;
@@ -63,31 +63,60 @@ $_bg-color--skills: #f4f5f0;
     background: currentColor;
 
     .b-about-main__col-content {
-        display: flex;
-        align-items: flex-start;
+        @media (max-width: $media-max - 1) {
+            width: (450px / 600px * 100%);
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: $media-max) {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+        }
     }
 }
 
 .b-about-main__col--skills {
     color: $_bg-color--skills;
     background: currentColor;
-    padding-top: 23px;
+
+    @media (min-width: $media-max) {
+        padding-top: 23px;
+    }
 }
 
 .b-about-main__col-content {
     position: relative;
-    top: -12px;
+    padding-top: 10px;
+
+    @media (min-width: $media-max) {
+        padding-top: 0;
+        top: -12px;
+    }
 }
 
 .b-about-main__title {
     color: $color-black-green;
-    width: (447/900)*100%;
+
+    @media (max-width: $media-max - 1) {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: $media-max) {
+        width: (447/900)*100%;
+    }
 }
 
 .b-about-main__presentation {
     color: $color-gray-green;
     padding-right: 20px;
     padding-top: 32px;
+
+    @media (max-width: $media-max - 1) {
+        margin-bottom: 20px;
+    }
 }
 
 .b-about-main__sub-title-skills {
@@ -104,5 +133,9 @@ $_bg-color--skills: #f4f5f0;
 
 .b-about-main__skills {
     color: $color-gray-green;
-    padding: 0 40px;
+    padding-left: 40px;
+
+    @media (min-width: $media-max) {
+        padding: 0 40px;
+    }
 }

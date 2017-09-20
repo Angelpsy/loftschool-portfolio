@@ -1,10 +1,19 @@
+@import "../../common/styles/vars";
+
 .p-blog {
     display: flex;
     justify-content: flex-start;
 }
 
+.p-blog__header {
+    @media (max-width: $media-max - 1) {
+        display: none;
+    }
+}
+
 .p-blog__hero {
-    //
+    min-height: 420px;
+    padding-top: 0;
 }
 
 .p-blog__main {

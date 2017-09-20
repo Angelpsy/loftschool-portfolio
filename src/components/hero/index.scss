@@ -25,6 +25,12 @@ $_footer-height: 90px;
     background-size: cover;
 }
 
+.b-hero__title {
+    @media (max-width: $media-max - 1) {
+        margin-bottom: 25px;
+    }
+}
+
 .b-hero__main {
     position: relative;
     z-index: 1;
