@@ -6,9 +6,18 @@
 }
 
 .b-login-form__title {
-    margin-bottom: 28px;
     padding-left: $gutter-base;
     padding-right: $gutter-base;
+
+    @media (max-width: $media-medium - 1) {
+        margin-bottom: 38px;
+        font-size: 35px;
+        line-height: 1.171;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 28px;
+    }
 }
 
 .b-login-form__main {

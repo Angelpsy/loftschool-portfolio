@@ -2,15 +2,26 @@
 
 .b-footer {
     color: #fff;
+
+    @media (max-width: $media-medium - 1) {
+        font-size: 14px;
+    }
 }
 
 .b-footer__row-base {
     background: fade_out($color-black-green, 0.15);
     padding-top: 27px;
-    padding-bottom: 30px;
     display: flex;
     justify-content: space-around;
     align-items: stretch;
+
+    @media (max-width: $media-medium - 1) {
+        flex-wrap: wrap;
+    }
+
+    @media (min-width: $media-medium) {
+        padding-bottom: 30px;
+    }
 }
 
 .b-footer__col {
@@ -19,8 +30,30 @@
     padding-left: 30px;
     padding-right: 30px;
 
+    @media (max-width: $media-medium - 1) {
+        margin-bottom: 26px;
+    }
+
     & + & {
         border-left: 1px solid fade_out(#fff, 0.8);
+    }
+
+    &:nth-of-type(-n+2) {
+        @media (max-width: $media-medium - 1) {
+            width: 50%;
+        }
+    }
+
+    &:nth-of-type(n+3) {
+        @media (max-width: $media-medium - 1) {
+            border-left: none;
+        }
+    }
+
+    &:last-of-type {
+        @media (max-width: $media-medium - 1) {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -42,7 +75,11 @@
 .b-footer__quote {
     opacity: 0.5;
     line-height: 1.625;
-    max-width: 35em;
+    font-style: italic;
+
+    @media (min-width: $media-medium) {
+        max-width: 35em;
+    }
 }
 
 .b-footer__quote-author {

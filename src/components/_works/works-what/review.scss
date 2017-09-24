@@ -27,7 +27,15 @@
     color: #5d5a55;
     font-style: italic;
     line-height: 1.625;
-    margin-bottom: 20px;
+
+    @media (max-width: $media-medium - 1) {
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 20px;
+    }
 }
 
 .b-review__persona-name {

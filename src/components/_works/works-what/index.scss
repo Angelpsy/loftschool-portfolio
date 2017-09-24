@@ -1,36 +1,82 @@
 @import "../../../common/styles/vars";
 
 .b-works-what {
-    padding-top: 58px;
-    padding-bottom: 250px;
-    background: #fff url("./assets/bg.jpg") center bottom no-repeat;
+    @media (max-width: $media-ipad - 1) {
+        background: #fff url("./assets/bg-ipad.jpg") center bottom no-repeat;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        background: #fff url("./assets/bg-medium.jpg") center bottom no-repeat;
+    }
+
+    @media (max-width: $media-medium - 1) {
+        padding-top: 35px;
+        padding-bottom: 316px;
+    }
+
+    @media (min-width: $media-medium) {
+        background: #fff url("./assets/bg.jpg") center bottom no-repeat;
+        padding-top: 58px;
+        padding-bottom: 250px;
+    }
 }
 
 .b-works-what__title {
-    max-width: 20em;
+    max-width: 8em;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 38px;
+
+    @media (max-width: $media-medium - 1) {
+        margin-bottom: 31px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 38px;
+    }
 }
 
 .b-works-what__reviews {
     display: flex;
     justify-content: center;
-    margin-bottom: 70px;
+
+    @media (max-width: $media-medium - 1) {
+        padding-left: $gutter-ipad / 2;
+        padding-right: $gutter-ipad / 2;
+        margin-bottom: 50px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 70px;
+    }
 }
 
 .b-works-what__reviews-item {
-    flex-basis: 380px;
-    margin-left: 10px;
-    margin-right: 10px;
+    @media (max-width: $media-medium - 1) {
+        flex-basis: 100%;
+        margin-left: $gutter-ipad / 2;
+        margin-right: $gutter-ipad / 2;
+    }
+
+    @media (min-width: $media-medium) {
+        flex-basis: 380px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 .b-works-what__form {
-    width: 380px;
     max-width: 98%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 57px;
+
+    @media (max-width: $media-medium - 1) {
+        width: 350px;
+    }
+
+    @media (min-width: $media-medium) {
+        width: 380px;
+    }
 }
 
 .b-index-card__bottom {

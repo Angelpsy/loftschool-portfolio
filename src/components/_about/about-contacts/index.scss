@@ -4,7 +4,14 @@
 .b-about-contacts {
     position: relative;
 
-    @media (max-width: $media-max - 1) {
+    @media (max-width: $media-medium - 1) {
+        height: 908px;
+        height: (908px / $media-ipad) * 100vw;
+        min-height: 908px;
+        max-height: 968px;
+    }
+
+    @media (min-width: $media-medium) and (max-width: $media-max - 1) {
         height: 968px;
         height: 80vw;
         min-height: 968px;
@@ -29,20 +36,39 @@
 
 .b-about-contacts__main {
     position: absolute;
+    z-index: 1;
     left: 0;
     right: 0;
-    top: 0;
-    bottom: 145px;
-    width: 380px;
-    height: 310px;
     margin: auto;
-    padding: 25px 38px 35px;
     border-radius: 5px;
     background-color: fade_out(#f4f5f0, 0.15);
+
+    @media (max-width: $media-medium - 1) {
+        top: 170px;
+        bottom: auto;
+        height: 287px;
+        width: 350px;
+        padding: 25px 20px 35px;
+    }
+
+    @media (min-width: $media-medium) {
+        top: 0;
+        bottom: 145px;
+        height: 310px;
+        width: 380px;
+        padding: 25px 38px 35px;
+    }
 }
 
 .b-about-contacts__title {
-    margin-bottom: 30px;
+    @media (max-width: $media-medium - 1) {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 30px;
+    }
 }
 
 .b-about-contacts__list {

@@ -7,12 +7,19 @@ $_footer-height: 90px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    min-height: 600px;
     padding-top: 17px;
+    align-items: center;
     background-color: $color-black-green;
     color: #fff;
     text-align: center;
+
+    @media (max-width: $media-medium - 1) {
+        min-height: 505px;
+    }
+
+    @media (min-width: $media-medium) {
+        min-height: 600px;
+    }
 }
 
 .b-hero__bg {
@@ -74,7 +81,14 @@ $_footer-height: 90px;
 .b-hero__bottom {
     position: relative;
     z-index: 1;
-    height: $_footer-height;
+
+    @media (max-width: $media-medium - 1) {
+        height: 65px;
+    }
+
+    @media (min-width: $media-medium) {
+        height: $_footer-height;
+    }
 }
 
 .b-hero__arrow {

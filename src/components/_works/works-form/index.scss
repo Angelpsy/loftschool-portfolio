@@ -9,7 +9,15 @@
 
 .b-works-form__title {
     color: $color-gray-green;
-    margin-bottom: 32px;
+
+    @media (max-width: $media-medium - 1) {
+        margin-bottom: 21px;
+        font-size: 35px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 32px;
+    }
 }
 
 .b-works-form__main {

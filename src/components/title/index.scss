@@ -4,6 +4,16 @@
     margin-top: 0;
     text-align: center;
     position: relative;
+
+    @media (max-width: $media-medium - 1) {
+        font-size: 48px;
+        line-height: 1.167;
+    }
+
+    @media (min-width: $media-medium) {
+        font-size: 63px;
+        line-height: 1.048;
+    }
 }
 
 .b-title__icon {
@@ -28,12 +38,17 @@
 .b-title__text {
     display: inline-block;
     font-family: $font-family-sansus;
-    font-size: 63px;
     font-weight: normal;
-    line-height: 1.048;
     text-transform: uppercase;
     position: relative;
-    padding-bottom: 22px;
+
+    @media (max-width: $media-medium - 1) {
+        padding-bottom: 12px;
+    }
+
+    @media (min-width: $media-medium) {
+        padding-bottom: 22px;
+    }
 
     &::after {
         content: '';
@@ -52,17 +67,32 @@
 .b-sub-title {
     margin-top: 0;
     text-align: center;
+
+    @media (max-width: $media-medium - 1) {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    @media (min-width: $media-medium) {
+        font-size: 35px;
+        line-height: 1.171;
+    }
 }
 
 .b-sub-title__text {
     display: inline-block;
     font-family: $font-family-sansus;
-    font-size: 35px;
     font-weight: normal;
     text-transform: uppercase;
-    line-height: 1.171;
     position: relative;
-    padding-bottom: 26px;
+
+    @media (max-width: $media-medium - 1) {
+        padding-bottom: 14px;
+    }
+
+    @media (min-width: $media-medium) {
+        padding-bottom: 26px;
+    }
 
     &::after {
         content: '';

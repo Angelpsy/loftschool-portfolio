@@ -5,11 +5,23 @@
 }
 
 .b-about-presentation__photo {
-    margin-bottom: 27px;
+    @media (max-width: $media-medium - 1) {
+        margin-bottom: 38px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 27px;
+    }
 }
 
 .b-about-presentation__title {
-    margin-bottom: 25px;
+    @media (max-width: $media-medium - 1) {
+        margin-bottom: 14px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 25px;
+    }
 }
 
 .b-about-presentation__content {

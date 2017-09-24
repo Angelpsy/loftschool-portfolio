@@ -17,8 +17,17 @@
 
 .p-login__main {
     max-width: 98%;
-    width: 380px;
     margin: $offset-horizontal-base*2 auto;
+
+    @media (max-width: $media-medium - 1) {
+        min-width: 348px;
+        width: (348px / $media-ipad) * 100%;
+        max-width: 380px;
+    }
+
+    @media (min-width: $media-medium) {
+        width: 380px;
+    }
 }
 
 .p-login__login-form {

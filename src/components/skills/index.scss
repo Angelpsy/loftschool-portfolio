@@ -2,7 +2,9 @@
 @import "../../common/styles/mixins";
 
 .b-skills {
-    //
+    @media (max-width: $media-medium - 1) {
+        text-align: center;
+    }
 }
 
 .b-skills__list {
@@ -10,7 +12,13 @@
 }
 
 .b-skills-lists__item {
-    margin-bottom: 26px;
+    @media (max-width: $media-medium - 1) {
+        margin-bottom: 32px;
+    }
+
+    @media (min-width: $media-medium) and (max-width: $media-max - 1) {
+        margin-bottom: 26px;
+    }
 
     @media (min-width: $media-max) {
         margin-bottom: 15px;
@@ -22,11 +30,19 @@
 }
 
 .b-skills-lists__title {
-    font-size: 28px;
     color: rgb(86, 99, 88);
-    line-height: 1.143;
     margin-top: 0;
     margin-bottom: 7px;
+
+    @media (max-width: $media-medium - 1) {
+        font-size: 21px;
+        line-height: 1.333;
+    }
+
+    @media (min-width: $media-medium) {
+        font-size: 28px;
+        line-height: 1.143;
+    }
 
     @media (min-width: $media-max) {
         margin-bottom: 13px;
