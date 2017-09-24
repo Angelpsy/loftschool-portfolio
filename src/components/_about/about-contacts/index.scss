@@ -4,7 +4,11 @@
 .b-about-contacts {
     position: relative;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        height: 1145px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         height: 908px;
         height: (908px / $media-ipad) * 100vw;
         min-height: 908px;
@@ -43,7 +47,14 @@
     border-radius: 5px;
     background-color: fade_out(#f4f5f0, 0.15);
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        top: 0;
+        height: 287px;
+        width: 100%;
+        padding: 18px 27px 35px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         top: 170px;
         bottom: auto;
         height: 287px;
@@ -63,7 +74,7 @@
 .b-about-contacts__title {
     @media (max-width: $media-medium - 1) {
         font-size: 35px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     @media (min-width: $media-medium) {
@@ -73,12 +84,25 @@
 
 .b-about-contacts__list {
     @include nl;
+
+    @media (max-width: $media-ipad - 1) {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .b-about-contacts__list-item {
-    margin-bottom: 19px;
     display: flex;
     align-items: center;
+
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 21px;
+    }
+
+    @media (min-width: $media-ipad) {
+        margin-bottom: 19px;
+    }
 }
 
 .b-about-contact {

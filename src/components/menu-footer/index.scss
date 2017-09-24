@@ -16,7 +16,13 @@
 
 .b-menu-footer__item {
     & + & {
-        margin-left: 10px;
+        @media (max-width: $media-ipad - 1) {
+            margin-left: 5px;
+        }
+
+        @media (min-width: $media-ipad) and (max-width: $media-max) {
+            margin-left: 10px;
+        }
 
         @media (min-width: $media-max) {
             margin-left: 40px;

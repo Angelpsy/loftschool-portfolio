@@ -24,20 +24,37 @@
 }
 
 .b-index-card__title {
-    font-size: 28px;
-    line-height: 1.214;
     font-weight: 500;
-    margin-top: 15px;
     margin-bottom: 5px;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 21px;
+        line-height: 1.333;
+        margin-top: 20px;
+    }
+
+    @media (min-width: $media-ipad) {
+        font-size: 28px;
+        line-height: 1.214;
+        margin-top: 15px;
+    }
 }
 
 .b-index-card__subtitle {
     color: rgba(255, 255, 255, 0.8);
-    line-height: 1.5;
     font-weight: 400;
-    font-size: 16px;
     margin-top: 5px;
     margin-bottom: 31px;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 14px;
+        line-height: 1.714;
+    }
+
+    @media (min-width: $media-ipad) {
+        font-size: 16px;
+        line-height: 1.5;
+    }
 }
 
 .b-index-card__soc-btns {

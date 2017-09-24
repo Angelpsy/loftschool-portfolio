@@ -12,7 +12,9 @@ mixin hero(options)
     if !options
         - options = {}
 
-    section.b-hero(class!=attributes.class)
+    - className = attributes.class + (attributes.mod ? " b-hero--" + attributes.mod : "")
+
+    section.b-hero(class!=className)
         .b-hero__bg
         .b-hero__main
             .b-hero__photo-wr
@@ -22,7 +24,6 @@ mixin hero(options)
             else
                 .b-hero__name= options.persona.name
             .b-hero__subtitle= options.subTitle
-        if (options.isArrow)
-            .b-hero__bottom
-                .b-hero__arrow
-                    +icon({file: 'arrow_down'})(class="b-hero__icon")
+        .b-hero__bottom
+            .b-hero__arrow
+                +icon({file: 'arrow_down'})(class="b-hero__icon")

@@ -6,7 +6,11 @@ $_bg-color: #f8f9f5;
     background: $_bg-color;
     position: relative;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 20px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         padding-top: 40px;
     }
 
@@ -45,7 +49,11 @@ $_bg-color: #f8f9f5;
 }
 
 .b-works-main__title {
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         margin-bottom: 25px;
     }
 

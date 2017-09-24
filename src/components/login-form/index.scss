@@ -9,7 +9,13 @@
     padding-left: $gutter-base;
     padding-right: $gutter-base;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 38px;
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         margin-bottom: 38px;
         font-size: 35px;
         line-height: 1.171;
@@ -60,6 +66,10 @@
 
 .b-login-form__field--checkbox {
     margin-bottom: 13px;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 16px;
+    }
 }
 
 .b-login-form__checkbox {
@@ -81,18 +91,26 @@
     color: rgba(255, 255, 255, 0.8);
     font-weight: bold;
     line-height: 1.5;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 16px;
+    }
 }
 
 .b-login-form__radio-btns {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 16px;
+    }
 }
 
 .b-login-form__radio-btn {
-    & + & {
-        margin-left: 47px;
-    }
+    width: 100%;
+    text-align: center;
 }
 
 .b-login-form__radio-btn-control {

@@ -26,6 +26,17 @@
 
     position: relative;
 
+    @media (max-width: $media-iphone - 1) {
+        min-width: calc(100% - 20px);
+        width: 300px;
+    }
+
+    @media (min-width: $media-iphone) and (max-width: $media-ipad - 1) {
+        min-width: 300px;
+        width: (300px / $media-iphone) * 100%;
+        max-width: 348px;
+    }
+
     @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         min-width: 348px;
         width: (348px / $media-ipad) * 100%;

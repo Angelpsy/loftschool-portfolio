@@ -12,6 +12,7 @@ mixin blog-main(options)
             +blog-nav({
                 items: options.posts
             })(class="b-blog-main__nav")
+            button.b-blog-main__btn-sidebar-open.js-open-sidebar
         section.b-blog-main__content
             h2.u-sr-only Посты
             +blog-posts({

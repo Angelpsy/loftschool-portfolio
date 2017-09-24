@@ -6,10 +6,16 @@ $_bg-color--first-content: $_bg-color--present;
 
 .b-about-main {
     position: relative;
+
+    background: $_bg-color--present;
 }
 
 .b-about-main__content {
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 20px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         padding-top: 40px;
     }
 
@@ -105,10 +111,13 @@ $_bg-color--first-content: $_bg-color--present;
 
 .b-about-main__col--presentation {
     color: $_bg-color--present;
-    background: currentColor;
 
     .b-about-main__col-content {
-        @media (max-width: $media-max - 1) {
+        @media (max-width: $media-ipad - 1) {
+            //
+        }
+
+        @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
             width: (472px / $media-ipad * 100%);
             margin-left: auto;
             margin-right: auto;
@@ -131,9 +140,14 @@ $_bg-color--first-content: $_bg-color--present;
     color: $_bg-color--skills;
     background: currentColor;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 25px;
         padding-bottom: 5px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         padding-top: 41px;
+        padding-bottom: 5px;
     }
 
     @media (min-width: $media-max) {
@@ -170,9 +184,16 @@ $_bg-color--first-content: $_bg-color--present;
 .b-about-main__presentation {
     color: $color-gray-green;
 
-    padding-top: 32px;
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 22px;
+        margin-bottom: 20px;
+    }
 
-    @media (max-width: $media-medium - 1) {
+    @media (min-width: $media-ipad) {
+        padding-top: 32px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         margin-bottom: 43px;
     }
 
@@ -189,9 +210,16 @@ $_bg-color--first-content: $_bg-color--present;
     color: $color-gray-green;
     margin: 0 auto 26px;
 
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 12px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        margin-bottom: 17px;
+    }
+
     @media (max-width: $media-medium - 1) {
         max-width: 9em;
-        margin-bottom: 17px;
     }
 
     @media (min-width: $media-medium) {
@@ -202,7 +230,13 @@ $_bg-color--first-content: $_bg-color--present;
 .b-about-main__content-skills {
     color: $color-gray-green;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 18px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         width: (472px / $media-ipad * 100%);
         margin-left: auto;
         margin-right: auto;

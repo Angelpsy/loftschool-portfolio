@@ -2,20 +2,19 @@
 
 .b-works-what {
     @media (max-width: $media-ipad - 1) {
-        background: #fff url("./assets/bg-ipad.jpg") center bottom no-repeat;
+        background: #f4f5f0 url("./assets/bg-ipad.jpg") center bottom no-repeat;
+        padding-top: 29px;
+        padding-bottom: 407px;
     }
 
     @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
-        background: #fff url("./assets/bg-medium.jpg") center bottom no-repeat;
-    }
-
-    @media (max-width: $media-medium - 1) {
+        background: #f4f5f0 url("./assets/bg-medium.jpg") center bottom no-repeat;
         padding-top: 35px;
         padding-bottom: 316px;
     }
 
     @media (min-width: $media-medium) {
-        background: #fff url("./assets/bg.jpg") center bottom no-repeat;
+        background: #f4f5f0 url("./assets/bg.jpg") center bottom no-repeat;
         padding-top: 58px;
         padding-bottom: 250px;
     }
@@ -26,7 +25,11 @@
     margin-left: auto;
     margin-right: auto;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 35px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         margin-bottom: 31px;
     }
 
@@ -36,13 +39,22 @@
 }
 
 .b-works-what__reviews {
-    display: flex;
-    justify-content: center;
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 30px;
+    }
+
+    @media (min-width: $media-ipad) {
+        display: flex;
+        justify-content: center;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        margin-bottom: 50px;
+    }
 
     @media (max-width: $media-medium - 1) {
         padding-left: $gutter-ipad / 2;
         padding-right: $gutter-ipad / 2;
-        margin-bottom: 50px;
     }
 
     @media (min-width: $media-medium) {
@@ -51,7 +63,11 @@
 }
 
 .b-works-what__reviews-item {
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 35px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         flex-basis: 100%;
         margin-left: $gutter-ipad / 2;
         margin-right: $gutter-ipad / 2;
@@ -68,14 +84,21 @@
     max-width: 98%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 57px;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        width: (300px / $media-iphone * 100%);
+        max-width: 350px;
+        margin-bottom: 30px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         width: 350px;
+        margin-bottom: 57px;
     }
 
     @media (min-width: $media-medium) {
         width: 380px;
+        margin-bottom: 57px;
     }
 }
 

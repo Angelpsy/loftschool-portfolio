@@ -31,6 +31,10 @@
     &:active {
         background-color: darken($color-green, 10%);
     }
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 14px;
+    }
 }
 
 .b-index-menu-item__link {

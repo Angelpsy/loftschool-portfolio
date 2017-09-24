@@ -45,7 +45,12 @@ $_sliders-h-medium-plus: 750px;
     align-items: center;
     text-align: center;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 28px;
+        padding-bottom: 30px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         padding-top: 43px;
         padding-bottom: 60px;
     }
@@ -56,7 +61,13 @@ $_sliders-h-medium-plus: 750px;
 }
 
 .b-works-slide-info__title {
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         margin-bottom: 15px;
     }
 
@@ -72,7 +83,11 @@ $_sliders-h-medium-plus: 750px;
     text-transform: uppercase;
     font-weight: 500;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 14px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         margin-bottom: 38px;
     }
 
@@ -83,7 +98,6 @@ $_sliders-h-medium-plus: 750px;
 
 .b-works-slide-info__link {
     text-decoration: none;
-    min-height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,6 +108,14 @@ $_sliders-h-medium-plus: 750px;
     padding-right: 20px;
 
     transition: background-color $transition-standard;
+
+    @media (max-width: $media-ipad - 1) {
+        min-height: 40px;
+    }
+
+    @media (min-width: $media-ipad) {
+        min-height: 45px;
+    }
 
     &:hover,
     &:focus {
@@ -141,7 +163,12 @@ $_sliders-h-medium-plus: 750px;
     justify-content: center;
     align-items: center;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 49px;
+        padding-bottom: 58px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         padding-top: 104px;
         padding-bottom: 9px;
     }
@@ -152,11 +179,19 @@ $_sliders-h-medium-plus: 750px;
 }
 
 .b-works-slide-img__img {
-    //
+    @media (max-width: $media-ipad - 1) {
+        max-width: (232px / $media-iphone * 100%);
+    }
 }
 
 .b-works-slider__nav {
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        min-height: 93px;
+        height: 93px;
+        height: 29vw;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         min-height: 215px;
         height: 215px;
         height: 27.3vw;

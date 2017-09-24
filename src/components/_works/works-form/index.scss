@@ -3,14 +3,25 @@
 .b-works-form {
     border-radius: 5px;
     background-color: fade_out(#dadbd6, 0.4);
-    padding-top: 25px;
     overflow: hidden;
+
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 35px;
+    }
+
+    @media (min-width: $media-ipad) {
+        padding-top: 25px;
+    }
 }
 
 .b-works-form__title {
     color: $color-gray-green;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 18px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         margin-bottom: 21px;
         font-size: 35px;
     }
@@ -44,7 +55,13 @@
 }
 
 .b-works-form__input {
-    height: 45px;
+    @media (max-width: $media-ipad - 1) {
+        height: 40px;
+    }
+
+    @media (min-width: $media-ipad) {
+        height: 45px;
+    }
 }
 
 .b-works-form__textarea {

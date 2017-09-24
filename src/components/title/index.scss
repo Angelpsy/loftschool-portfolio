@@ -5,7 +5,12 @@
     text-align: center;
     position: relative;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        font-size: 35px;
+        line-height: 1.2;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         font-size: 48px;
         line-height: 1.167;
     }
@@ -22,6 +27,7 @@
     opacity: 0.1;
     color: #93c42e;
     width: 350px;
+    max-width: 100%;
     top: 50%;
     left: 50%;
     margin: auto;
@@ -42,7 +48,11 @@
     text-transform: uppercase;
     position: relative;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        padding-bottom: 12px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         padding-bottom: 12px;
     }
 
@@ -68,7 +78,12 @@
     margin-top: 0;
     text-align: center;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        font-size: 21px;
+        line-height: 1.333;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         font-size: 30px;
         line-height: 1.2;
     }
@@ -86,7 +101,11 @@
     text-transform: uppercase;
     position: relative;
 
-    @media (max-width: $media-medium - 1) {
+    @media (max-width: $media-ipad - 1) {
+        padding-bottom: 17px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
         padding-bottom: 14px;
     }
 
@@ -101,9 +120,16 @@
         bottom: 0;
         left: 50%;
         right: 0;
-        width: 89px;
         height: 3px;
         transform: translateX(-50%);
         background: currentColor;
+
+        @media (max-width: $media-ipad - 1) {
+            width: 55px;
+        }
+
+        @media (min-width: $media-ipad) {
+            width: 89px;
+        }
     }
 }
