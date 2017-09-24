@@ -113,10 +113,6 @@ $_bg-color--first-content: $_bg-color--present;
     color: $_bg-color--present;
 
     .b-about-main__col-content {
-        @media (max-width: $media-ipad - 1) {
-            //
-        }
-
         @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
             width: (472px / $media-ipad * 100%);
             margin-left: auto;
@@ -126,6 +122,8 @@ $_bg-color--first-content: $_bg-color--present;
         @media (min-width: $media-medium) and (max-width: $media-max - 1) {
             width: (450px / 600px * 100%);
             max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @media (min-width: $media-max) {
