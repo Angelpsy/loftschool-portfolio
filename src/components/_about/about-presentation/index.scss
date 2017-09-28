@@ -4,6 +4,10 @@
     //
 }
 
+.b-about-presentation__header {
+    text-align: center;
+}
+
 .b-about-presentation__photo {
     @media (max-width: $media-ipad - 1) {
         margin-bottom: 20px;
