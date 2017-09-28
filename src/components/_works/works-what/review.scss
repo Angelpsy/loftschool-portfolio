@@ -35,6 +35,8 @@
 .b-review__text {
     color: #5d5a55;
     font-style: italic;
+    position: relative;
+    z-index: 1;
 
     @media (max-width: $media-ipad - 1) {
         line-height: 1.72;
@@ -52,6 +54,20 @@
 
     @media (min-width: $media-medium) {
         margin-bottom: 20px;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: -24px;
+        left: 0;
+        width: 100px;
+        height: 65px;
+        background: url("./assets/bg/quotes.svg") left top no-repeat;
+        background-size: contain;
+        opacity: 0.1;
     }
 }
 
