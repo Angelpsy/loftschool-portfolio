@@ -155,7 +155,6 @@ $_bg-color--first-content: $_bg-color--present;
 
 .b-about-main__col-content {
     position: relative;
-    overflow: hidden;
 
     @media (min-width: $media-medium) and (max-width: $media-max - 1) {
         padding-top: 10px;

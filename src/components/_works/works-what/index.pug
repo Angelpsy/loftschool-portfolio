@@ -9,7 +9,7 @@ mixin works-what(options)
     section.b-works-what(class!=attributes.class)
         +title({
             text: "Что обо мне говорят",
-            icon: "about_header"
+            icon: "about"
         })(class="b-works-what__title" tag="h2" mod="what")
         .b-works-what__reviews
             each item in options.reviews

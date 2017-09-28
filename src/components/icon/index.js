@@ -1,21 +1,18 @@
 import './index.scss';
-import vkSvg from './assets/vk.svg';
-import githubSvg from './assets/github.svg';
-import inSvg from './assets/in.svg';
-import arrowDownSvg from './assets/arrow_down.svg';
-import aboutHeaderSvg from './assets/about_header.svg';
-import blogHeaderSvg from './assets/blog_header.svg';
-import worksHeaderSvg from './assets/works_header.svg';
-import skypeSvg from './assets/skype.svg';
-import envelopeSvg from './assets/envelope.svg';
-import phoneSvg from './assets/phone.svg';
-import mapMarkerSvg from './assets/map_marker.svg';
-import linkSvg from './assets/link.svg';
-import portfArrowDownSvg from './assets/portf_arrow_down.svg';
-import portfArrowUpSvg from './assets/portf_arrow_up.svg';
-import loginSvg from './assets/login.svg';
-import passwordSvg from './assets/password.svg';
-import checkSvg from './assets/check.svg';
+import vkSvg from './assets/sprite/vk.svg';
+import githubSvg from './assets/sprite/github.svg';
+import inSvg from './assets/sprite/in.svg';
+import arrowDownSvg from './assets/sprite/arrow_down.svg';
+import skypeSvg from './assets/sprite/skype.svg';
+import envelopeSvg from './assets/sprite/envelope.svg';
+import phoneSvg from './assets/sprite/phone.svg';
+import mapMarkerSvg from './assets/sprite/map_marker.svg';
+import linkSvg from './assets/sprite/link.svg';
+import portfArrowDownSvg from './assets/sprite/portf_arrow_down.svg';
+import portfArrowUpSvg from './assets/sprite/portf_arrow_up.svg';
+import loginSvg from './assets/sprite/login.svg';
+import passwordSvg from './assets/sprite/password.svg';
+import checkSvg from './assets/sprite/check.svg';
 
 import {replacementViewbox} from 'src/common/scripts/helpers/svg';
 
@@ -35,18 +32,6 @@ import {replacementViewbox} from 'src/common/scripts/helpers/svg';
     {
         id: 'arrow_down',
         symbol: arrowDownSvg,
-    },
-    {
-        id: 'about_header',
-        symbol: aboutHeaderSvg,
-    },
-    {
-        id: 'blog_header',
-        symbol: blogHeaderSvg,
-    },
-    {
-        id: 'works_header',
-        symbol: worksHeaderSvg,
     },
     {
         id: 'skype',

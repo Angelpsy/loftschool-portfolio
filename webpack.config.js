@@ -171,6 +171,8 @@ module.exports = (env={}) => {
                 },
                 {
                     test: /\.svg$/,
+                    include: /sprite/,
+                    exclude: /bg/,
                     use: [
                         {
                             loader: 'svg-sprite-loader',
@@ -180,6 +182,18 @@ module.exports = (env={}) => {
                         },
                         'svgo-loader',
                     ],
+                },
+                {
+                    test: /\.svg$/,
+                    include: /bg/,
+                    exclude: /sprite/,
+                    loader: 'url-loader',
+                    query: {
+                        name,
+                        publicPath: publicPath,
+                        outputPath: PATHS.static + 'img/',
+                        limit: 4000,
+                    },
                 },
                 {
                     test: /\.(ttf|eot|woff(2)?)$/,
