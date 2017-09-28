@@ -1,20 +1,22 @@
 @import "../../../common/styles/vars";
+@import "../_mixins/index";
 
 .b-works-what {
+    @include bg-what;
+
+    position: relative;
+
     @media (max-width: $media-ipad - 1) {
-        background: #f4f5f0 url("assets/bg/bg-ipad.jpg") center bottom no-repeat;
         padding-top: 29px;
         padding-bottom: 407px;
     }
 
     @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
-        background: #f4f5f0 url("assets/bg/bg-medium.jpg") center bottom no-repeat;
         padding-top: 35px;
         padding-bottom: 316px;
     }
 
     @media (min-width: $media-medium) {
-        background: #f4f5f0 url("assets/bg/bg.jpg") center bottom no-repeat;
         padding-top: 58px;
         padding-bottom: 250px;
     }
