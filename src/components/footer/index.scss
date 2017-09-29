@@ -76,6 +76,14 @@
     }
 }
 
+.b-footer__col-content {
+    @media (max-width: $media-ipad - 1) {
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .b-footer__text {
     font-weight: 100;
     max-width: 25em;
