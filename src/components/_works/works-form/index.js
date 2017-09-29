@@ -1,6 +1,8 @@
+import '../../title/index';
+
 import './index.scss';
 
-import '../../title/index';
+import {throttle} from '../../../common/scripts/helpers/throttle';
 
 const CLASSES = {
     blurEl: 'b-works-form__blur',
@@ -17,7 +19,7 @@ blurEl.classList.add(CLASSES.blurEl);
 /**
  *
  */
-function drawBlur() {
+let drawBlur = function() {
     const w = sectionEl.offsetWidth;
     const h = sectionEl.offsetHeight;
     const l = container.offsetLeft;
@@ -27,7 +29,9 @@ function drawBlur() {
     blurEl.style.height = h + 'px';
     blurEl.style.left = `-${l}px`;
     blurEl.style.bottom = `-${b}px`;
-}
+};
+
+drawBlur = throttle(drawBlur, 300);
 
 /**
  *
