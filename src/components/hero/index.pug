@@ -1,5 +1,6 @@
 include ../icon/index
 include ../title/index
+include ../anchor/index
 //-
     options.persona.avatar
     options.persona.name=
@@ -25,5 +26,8 @@ mixin hero(options)
                 .b-hero__name= options.persona.name
             .b-hero__subtitle= options.subTitle
         .b-hero__bottom
-            .b-hero__arrow
+            +anchor({
+                href: "#section-end-hero"
+            })(class="b-hero__arrow")
                 +icon({file: 'arrow_down'})(class="b-hero__icon")
+        #section-end-hero
