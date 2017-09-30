@@ -185,7 +185,6 @@ module.exports = (env={}) => {
                 },
                 {
                     test: /\.svg$/,
-                    include: /bg/,
                     exclude: /sprite/,
                     loader: 'url-loader',
                     query: {
