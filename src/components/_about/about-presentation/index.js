@@ -1,3 +1,4 @@
-import './index.scss';
-
 import '../../content/index';
+import '../../picture/index';
+
+import './index.scss';

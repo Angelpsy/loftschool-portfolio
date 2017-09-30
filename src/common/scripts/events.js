@@ -7,6 +7,10 @@ const events = {
         id: 'closeLoginForm',
         event: new CustomEvent('closeLoginForm', {'bubbles': true, 'cancelable': true}),
     },
+    viewElement: {
+        id: 'viewElement',
+        event: new CustomEvent('viewElement', {'bubbles': true, 'cancelable': true}),
+    },
 };
 
 export {events};
