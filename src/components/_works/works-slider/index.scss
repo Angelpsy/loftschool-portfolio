@@ -1,6 +1,6 @@
 @import "../../../common/styles/vars";
 
-$_sliders-h: 750px;
+$_sliders-h-medium-plus: 750px;
 
 .b-works-slider {
     //
@@ -8,13 +8,22 @@ $_sliders-h: 750px;
 
 .b-works-slider__sliders {
     display: flex;
-    flex-flow: column wrap;
-    height: $_sliders-h;
+
+    @media (max-width: $media-medium - 1) {
+        flex-direction: column;
+    }
+
+    @media (min-width: $media-medium) {
+        flex-flow: column wrap;
+        height: $_sliders-h-medium-plus;
+    }
 }
 
 .b-works-slider__slider-info {
-    height: 100%;
-    width: 50%;
+    @media (min-width: $media-medium) {
+        height: 100%;
+        width: 50%;
+    }
 }
 
 .b-works-slider-info {
@@ -35,12 +44,37 @@ $_sliders-h: 750px;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-bottom: 10px;
+
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 28px;
+        padding-bottom: 30px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        padding-top: 43px;
+        padding-bottom: 60px;
+    }
+
+    @media (min-width: $media-medium) {
+        padding-bottom: 10px;
+    }
 }
 
 .b-works-slide-info__title {
-    max-width: 20em;
-    margin-bottom: 25px;
+    @media (max-width: $media-ipad - 1) {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        margin-bottom: 15px;
+    }
+
+    @media (min-width: $media-medium) {
+        max-width: 20em;
+        margin-bottom: 25px;
+    }
 }
 
 .b-works-slide-info__sub-title {
@@ -48,12 +82,22 @@ $_sliders-h: 750px;
     line-height: 1.2;
     text-transform: uppercase;
     font-weight: 500;
-    margin-bottom: 56px;
+
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 14px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        margin-bottom: 38px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 56px;
+    }
 }
 
 .b-works-slide-info__link {
     text-decoration: none;
-    min-height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,6 +108,14 @@ $_sliders-h: 750px;
     padding-right: 20px;
 
     transition: background-color $transition-standard;
+
+    @media (max-width: $media-ipad - 1) {
+        min-height: 40px;
+    }
+
+    @media (min-width: $media-ipad) {
+        min-height: 45px;
+    }
 
     &:hover,
     &:focus {
@@ -84,8 +136,14 @@ $_sliders-h: 750px;
 }
 
 .b-works-slider__slider-img {
-    width: 50%;
-    height: (525px / $_sliders-h * 100%);
+    @media (max-width: $media-medium - 1) {
+        order: -1;
+    }
+
+    @media (min-width: $media-medium) {
+        width: 50%;
+        height: (525px / $_sliders-h-medium-plus * 100%);
+    }
 }
 
 .b-works-slider-img {
@@ -104,16 +162,45 @@ $_sliders-h: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 23px;
+
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 49px;
+        padding-bottom: 58px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        padding-top: 104px;
+        padding-bottom: 9px;
+    }
+
+    @media (min-width: $media-medium) {
+        padding-top: 23px;
+    }
 }
 
 .b-works-slide-img__img {
-    //
+    @media (max-width: $media-ipad - 1) {
+        max-width: (232px / $media-iphone * 100%);
+    }
 }
 
 .b-works-slider__nav {
-    width: 50%;
-    height: (225px / $_sliders-h * 100%);
+    @media (max-width: $media-ipad - 1) {
+        min-height: 93px;
+        height: 93px;
+        height: 29vw;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        min-height: 215px;
+        height: 215px;
+        height: 27.3vw;
+    }
+
+    @media (min-width: $media-medium) {
+        width: 50%;
+        height: (225px / $_sliders-h-medium-plus * 100%);
+    }
 }
 
 .b-works-slider-nav {

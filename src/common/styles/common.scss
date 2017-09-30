@@ -12,8 +12,15 @@ html {
 }
 
 body {
-    font-size: $font-size-base;
     font-family: $font-family-base;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: $font-size-iphone;
+    }
+
+    @media (min-width: $media-ipad) {
+        font-size: $font-size-base;
+    }
 }
 
 svg symbol {
@@ -33,7 +40,8 @@ label {
     user-select: none;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
     opacity: 0.5;
 }
 

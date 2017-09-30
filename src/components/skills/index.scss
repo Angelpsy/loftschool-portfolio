@@ -2,36 +2,78 @@
 @import "../../common/styles/mixins";
 
 .b-skills {
-    //
+    @media (max-width: $media-medium - 1) {
+        text-align: center;
+    }
 }
 
 .b-skills__list {
     @include nl;
 }
 
-.b-skills-list__item {
-    margin-bottom: 15px;
+.b-skills-lists__item {
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        margin-bottom: 32px;
+    }
+
+    @media (min-width: $media-medium) and (max-width: $media-max - 1) {
+        margin-bottom: 26px;
+    }
+
+    @media (min-width: $media-max) {
+        margin-bottom: 15px;
+    }
 }
 
-.b-skills-list {
+.b-skills-lists {
     //
 }
 
-.b-skills-list__title {
-    font-size: 28px;
+.b-skills-lists__title {
     color: rgb(86, 99, 88);
-    line-height: 1.143;
     margin-top: 0;
-    margin-bottom: 13px;
+    margin-bottom: 7px;
+
+    @media (max-width: $media-medium - 1) {
+        font-size: 21px;
+        line-height: 1.333;
+    }
+
+    @media (min-width: $media-medium) {
+        font-size: 28px;
+        line-height: 1.143;
+    }
+
+    @media (min-width: $media-max) {
+        margin-bottom: 13px;
+    }
 }
 
-.b-skills-list__content {
+.b-skills-lists__content {
     @include nl;
 }
 
 .b-skills-list__item {
     display: inline-block;
     margin-right: 34px;
+
+    width: 110px;
+
+    &:last-of-type {
+        @media (min-width: $media-ipad) {
+            margin-right: 0;
+        }
+    }
+
+    @media (max-width: $media-ipad - 1) {
+        margin-left: 17px;
+        margin-right: 17px;
+        margin-bottom: 15px;
+    }
+
+    @media (min-width: $media-max) {
+        width: 120px;
+    }
 }
 
 .b-skill {

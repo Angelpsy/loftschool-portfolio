@@ -1,3 +1,21 @@
+@import "../../common/styles/vars";
+
 .b-simple-footer {
     //
+}
+
+.b-simple-footer__col {
+    display: inline-block;
+    padding: 0 0.3em;
+
+    &:not(:last-of-type) {
+        border-right: 1px solid;
+    }
+
+    &:first-of-type {
+        @media (max-width: $media-ipad - 1) {
+            width: 100%;
+            border-right: none;
+        }
+    }
 }

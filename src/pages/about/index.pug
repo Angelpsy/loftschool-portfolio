@@ -23,15 +23,16 @@ block body
         +hero({
             persona: {
                 avatar: require("../../common/img/photo.jpg"),
+                avatarX2: require('../../common/img/photo-x2.jpg'),
                 name: persona.name
             },
-            subTitle: "Личный сайт веб разработчика",
-            isArrow: true
+            subTitle: "Личный сайт веб разработчика"
         })(class="p-about__hero")
         //-TODO заменить photo на покрупнее
         +about-main({
             skills: data.skills,
             photo: require("../../common/img/photo-about.jpg"),
+            photoX2: require("../../common/img/photo-about-x2.jpg"),
             persona: persona
         })(class="p-about__main")
         +about-contacts({

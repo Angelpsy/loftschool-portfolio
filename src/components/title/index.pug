@@ -9,13 +9,9 @@ mixin title(options)
     if !options
         - options = {}
     - var tagTitle = attributes.tag ? attributes.tag : 'div'
-    - var classNameTitle = attributes.class + (attributes.mod ? ' b-title--' + attributes.mod : '')
+    - var classNameTitle = attributes.class + (attributes.mod ? ' b-title--' + attributes.mod : '') + (options.icon ? ' b-title--icon_' + options.icon : '')
 
     #{tagTitle}.b-title(class!=classNameTitle)
-        if (options.icon)
-            +icon({
-                file: options.icon
-            })(class="b-title__icon")
         span.b-title__text= options.text
 
 //-

@@ -1,8 +1,14 @@
 @import "../../../common/styles/vars";
 
 .b-index-header {
-    display: flex;
-    justify-content: flex-end;
+    @media (max-width: $media-ipad - 1) {
+        text-align: center;
+    }
+
+    @media (min-width: $media-ipad) {
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 
 .b-index-header__menu {
@@ -15,7 +21,13 @@
 }
 
 .b-index-header__btn {
-    min-width: 180px;
+    @media (max-width: $media-ipad - 1) {
+        min-width: 146px;
+    }
+
+    @media (min-width: $media-ipad) {
+        min-width: 180px;
+    }
 
     & + & {
         margin-left: $gutter-base;

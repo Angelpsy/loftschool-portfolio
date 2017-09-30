@@ -3,38 +3,106 @@
 
 .b-about-contacts {
     position: relative;
+
+    @media (max-width: $media-ipad - 1) {
+        height: 1145px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        height: 908px;
+        height: (908px / $media-ipad) * 100vw;
+        min-height: 908px;
+        max-height: 968px;
+    }
+
+    @media (min-width: $media-medium) and (max-width: $media-max - 1) {
+        height: 968px;
+        height: 80vw;
+        min-height: 968px;
+        max-height: 1113px;
+    }
+
+    @media (min-width: $media-max) {
+        height: 1113px;
+        height: 60vw;
+        min-height: 1113px;
+        max-height: 1200px;
+    }
 }
 
 .b-about-contacts__map {
-    height: 1113px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .b-about-contacts__main {
     position: absolute;
+    z-index: 1;
     left: 0;
     right: 0;
-    top: 0;
-    bottom: 145px;
-    width: 380px;
-    height: 310px;
     margin: auto;
-    padding: 25px 38px 35px;
     border-radius: 5px;
     background-color: fade_out(#f4f5f0, 0.15);
+
+    @media (max-width: $media-ipad - 1) {
+        top: 0;
+        height: 287px;
+        width: 100%;
+        padding: 18px 27px 35px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        top: 170px;
+        bottom: auto;
+        height: 287px;
+        width: 350px;
+        padding: 25px 20px 35px;
+    }
+
+    @media (min-width: $media-medium) {
+        top: 0;
+        bottom: 145px;
+        height: 310px;
+        width: 380px;
+        padding: 25px 38px 35px;
+    }
 }
 
 .b-about-contacts__title {
-    margin-bottom: 30px;
+    @media (max-width: $media-medium - 1) {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 30px;
+    }
 }
 
 .b-about-contacts__list {
     @include nl;
+
+    @media (max-width: $media-ipad - 1) {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .b-about-contacts__list-item {
-    margin-bottom: 19px;
     display: flex;
     align-items: center;
+
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 21px;
+    }
+
+    @media (min-width: $media-ipad) {
+        margin-bottom: 19px;
+    }
 }
 
 .b-about-contact {

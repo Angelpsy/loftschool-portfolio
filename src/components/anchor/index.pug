@@ -1,0 +1,9 @@
+mixin anchor(options)
+    if !options
+        - options = {}
+
+    a.b-anchor.js-anchor(class!=attributes.class href=options.href ? options.href : "")
+        if block
+            block
+        else
+            span.b-anchor__text ссылка

@@ -7,7 +7,7 @@ include ../icon/index
 mixin soc-btns(options)
     if !options
         - options = {}
-    - className = attributes.class + (options.mod ? ' b-soc-btns--' + options.mod : null)
+    - className = attributes.class + (options.mod ? ' b-soc-btns--' + options.mod : "")
 
     ul.b-soc-btns(class!=className)
         each item in options.items

@@ -17,11 +17,11 @@ mixin skills(options)
 
 
     .b-skills(class!=attributes.class)
-        ul.b-skills__list.b-skills-list
+        ul.b-skills__list.b-skills-lists
             each list in items
-                li.b-skills-list__item
-                    h3.b-skills-list__title= list.name
-                    ul.b-skills-list__content
+                li.b-skills-lists__item
+                    h3.b-skills-lists__title= list.name
+                    ul.b-skills-lists__content
                         each item in list.items
                             li.b-skills-list__item.b-skill(style=`opacity: ${item.value && item.value > 25 ? item.value / 100 : 0.25}`)
                                 .b-skill__img

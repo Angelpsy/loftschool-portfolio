@@ -1,12 +1,21 @@
 @import "../../common/styles/vars";
 
-$_btn-width: 40px;
+$_btn-width-base: 40px;
+$_btn-width-iphone: 26px;
 
 .b-fullscreen {
     position: relative;
-    width: $_btn-width;
-    height: $_btn-width;
     perspective-origin: 0;
+
+    @media (max-width: $media-ipad - 1) {
+        width: $_btn-width-iphone;
+        height: $_btn-width-iphone;
+    }
+
+    @media (min-width: $media-ipad) {
+        width: $_btn-width-base;
+        height: $_btn-width-base;
+    }
 }
 
 .b-fullscreen__btn-toggle-menu {
@@ -29,7 +38,19 @@ $_btn-width: 40px;
     }
 
     &:active {
-        transform: scale(1.05);
+        transform: scale(0.55);
+        padding: 0;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -40,12 +61,19 @@ $_btn-width: 40px;
     left: 0;
     width: 100%;
     height: 100%;
-    padding-top: 100px;
-
     background: fade-out($color-light-green, 0.13);
 
     transition: transform $transition-standard;
     transform: translateY(-100%);
+
+    @media (max-width: $media-ipad - 1) {
+        overflow-y: auto;
+        padding-top: 20px;
+    }
+
+    @media (min-width: $media-ipad) {
+        padding-top: 100px;
+    }
 
     .b-fullscreen--active & {
         transform: translateY(0);
@@ -67,9 +95,10 @@ $_btn-width: 40px;
 }
 
 .b-hamburger__inner {
+    $_item-height-base: 5px;
+    $_item-height-iphone: 3px;
     display: block;
     width: 100%;
-    height: 5px;
     background-color: #fff;
     border-radius: 3px;
     position: absolute;
@@ -81,27 +110,56 @@ $_btn-width: 40px;
     transition-duration: 0.22s;
     transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
+    @media (max-width: $media-ipad - 1) {
+        height: $_item-height-iphone;
+    }
+
+    @media (min-width: $media-ipad) {
+        height: $_item-height-base;
+    }
+
     &::before,
     &::after {
         content: "";
         display: block;
         width: 100%;
-        height: 5px;
         background-color: #fff;
         border-radius: 3px;
         position: absolute;
+
+        @media (max-width: $media-ipad - 1) {
+            height: $_item-height-iphone;
+        }
+
+        @media (min-width: $media-ipad) {
+            height: $_item-height-base;
+        }
     }
 
     &::before {
-        top: -10px;
         transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+
+        @media (max-width: $media-ipad - 1) {
+            top: -10px;
+        }
+
+        @media (min-width: $media-ipad) {
+            top: -14px;
+        }
     }
 
     &::after {
-        bottom: -10px;
         transition:
             bottom 0.1s 0.25s ease-in,
             transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+        @media (max-width: $media-ipad - 1) {
+            bottom: -10px;
+        }
+
+        @media (min-width: $media-ipad) {
+            bottom: -14px;
+        }
     }
 
     .b-fullscreen--active & {

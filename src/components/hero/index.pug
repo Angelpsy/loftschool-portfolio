@@ -1,7 +1,10 @@
 include ../icon/index
 include ../title/index
+include ../anchor/index
+include ../picture/index
 //-
     options.persona.avatar
+    options.persona.avatarX2=
     options.persona.name=
     options.title.text=
     options.title.mod=
@@ -12,17 +15,25 @@ mixin hero(options)
     if !options
         - options = {}
 
-    section.b-hero(class!=attributes.class)
+    - className = attributes.class + (attributes.mod ? " b-hero--" + attributes.mod : "")
+
+    section.b-hero(class!=className)
         .b-hero__bg
         .b-hero__main
             .b-hero__photo-wr
-                img.b-hero__photo(src=options.persona.avatar alt=options.persona.name)
+                +picture({
+                    img: options.persona.avatar,
+                    imgX2: options.persona.avatarX2,
+                    alt: options.persona.name
+                })(class="b-hero__photo")
             if (options.title)
                 +title(options.title)(class="b-hero__title" tag="h1" mod=options.title.mod ? options.title.mod : "")
             else
                 .b-hero__name= options.persona.name
             .b-hero__subtitle= options.subTitle
-        if (options.isArrow)
-            .b-hero__bottom
-                .b-hero__arrow
-                    +icon({file: 'arrow_down'})(class="b-hero__icon")
+        .b-hero__bottom
+            +anchor({
+                href: "#section-end-hero"
+            })(class="b-hero__arrow")
+                +icon({file: 'arrow_down'})(class="b-hero__icon")
+        #section-end-hero

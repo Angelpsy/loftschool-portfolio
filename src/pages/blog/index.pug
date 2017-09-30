@@ -22,16 +22,16 @@ block body
         +hero({
             persona: {
                 avatar: require("../../common/img/photo.jpg"),
+                avatarX2: require('../../common/img/photo-x2.jpg'),
                 name: persona.name
             },
             title: {
                 text: "Блог",
                 mod: "blog",
-                icon: "blog_header"
+                icon: "blog"
             },
-            subTitle: "Статьи, которые я написал",
-            isArrow: false
-        })(class="p-blog__hero")
+            subTitle: "Статьи, которые я написал"
+        })(class="p-blog__hero" mod="blog")
         +blog-main({
             posts: data.posts
         })(class="p-blog__main" tag="main")

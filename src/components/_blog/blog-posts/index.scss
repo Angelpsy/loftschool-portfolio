@@ -6,11 +6,23 @@
 }
 
 .b-blog-posts__item {
-    margin-bottom: 60px;
     position: relative;
 
     &:nth-last-of-type(n+2) {
-        padding-bottom: 60px;
+        @media (max-width: $media-ipad - 1) {
+            margin-bottom: 23px;
+            padding-bottom: 23px;
+        }
+
+        @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+            margin-bottom: 43px;
+            padding-bottom: 40px;
+        }
+
+        @media (min-width: $media-medium) {
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+        }
 
         &::after {
             content: '';
@@ -20,9 +32,16 @@
             bottom: 0;
             background-color: rgb(55, 62, 66);
             opacity: 0.071;
-            width: 98%;
-            max-width: 681px;
             height: 5px;
+
+            @media (max-width: $media-medium - 1) {
+                width: 100%;
+            }
+
+            @media (min-width: $media-medium) {
+                width: 98%;
+                max-width: 681px;
+            }
         }
     }
 }
@@ -32,24 +51,54 @@
 }
 
 .b-blog-post__header {
-    margin-bottom: 10px;
+    @media (max-width: $media-medium - 1) {
+        margin-bottom: 5px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 10px;
+    }
 }
 
 .b-blog-post__title {
-    font-size: 35px;
     color: rgb(69, 90, 100);
-    line-height: 1.171;
     font-family: $font-family-sansus;
     font-weight: 400;
     margin-top: 0;
     margin-bottom: 10px;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 21px;
+        line-height: 1.333;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        font-size: 30px;
+        line-height: 1.171;
+    }
+
+    @media (min-width: $media-medium) {
+        font-size: 35px;
+        line-height: 1.171;
+    }
 }
 
 .b-blog-post__date {
     color: fade_out($color-green, 0.3);
     line-height: 2.563;
+
+    @media (max-width: $media-medium - 1) {
+        font-size: 14px;
+        line-height: 1.714;
+    }
 }
 
 .b-blog-post__main {
-    color: #455a64;
+    @media (max-width: $media-medium - 1) {
+        color: #566358;
+    }
+
+    @media (min-width: $media-medium) {
+        color: #455a64;
+    }
 }

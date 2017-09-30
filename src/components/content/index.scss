@@ -3,8 +3,16 @@
 .b-content {
     p {
         margin-top: 0;
-        margin-bottom: 10px;
-        line-height: 1.623;
+
+        @media (max-width: $media-ipad - 1) {
+            margin-bottom: 7px;
+            line-height: 1.8;
+        }
+
+        @media (min-width: $media-ipad) {
+            margin-bottom: 10px;
+            line-height: 1.623;
+        }
     }
 
     a {

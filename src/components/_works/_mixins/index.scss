@@ -1,0 +1,13 @@
+@mixin bg-what() {
+    @media (max-width: $media-ipad - 1) {
+        background: #f4f5f0 url("../_assets/bg-ipad.jpg") center bottom no-repeat;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        background: #f4f5f0 url("../_assets/bg-medium.jpg") center bottom no-repeat;
+    }
+
+    @media (min-width: $media-medium) {
+        background: #f4f5f0 url("../_assets/bg.jpg") center bottom no-repeat;
+    }
+}

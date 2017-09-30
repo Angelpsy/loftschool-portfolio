@@ -1,9 +1,22 @@
+@import "../../../common/styles/vars";
+
 $_bg-color: #f8f9f5;
 
 .b-works-main {
-    padding-top: 58px;
     background: $_bg-color;
     position: relative;
+
+    @media (max-width: $media-ipad - 1) {
+        padding-top: 20px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        padding-top: 40px;
+    }
+
+    @media (min-width: $media-medium) {
+        padding-top: 58px;
+    }
 
     &::before {
         content: '';
@@ -12,7 +25,7 @@ $_bg-color: #f8f9f5;
         left: 0;
         bottom: 100%;
         width: 100%;
-        height: 320px;
+        padding-top: 17%;
         transform: translateY(50%);
 
         background-image:
@@ -36,7 +49,17 @@ $_bg-color: #f8f9f5;
 }
 
 .b-works-main__title {
-    margin-bottom: 37px;
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        margin-bottom: 25px;
+    }
+
+    @media (min-width: $media-medium) {
+        margin-bottom: 37px;
+    }
 }
 
 .b-works-main__slider {

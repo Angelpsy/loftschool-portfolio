@@ -3,8 +3,7 @@
 .b-index-header-btn {
     height: 45px;
     border: 1px solid;
-    padding-left: 29px;
-    padding-right: 29px;
+
     border-radius: 23px;
     text-decoration: none;
     color: inherit;
@@ -26,6 +25,16 @@
     &:focus {
         border-color: #729e19;
         background-color: #4e8839;
+    }
+
+    @media (max-width: $media-ipad - 1) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @media (min-width: $media-ipad) {
+        padding-left: 29px;
+        padding-right: 29px;
     }
 }
 

@@ -2,25 +2,85 @@
 
 .b-footer {
     color: #fff;
+
+    @media (max-width: $media-medium - 1) {
+        font-size: 14px;
+    }
 }
 
 .b-footer__row-base {
     background: fade_out($color-black-green, 0.15);
     padding-top: 27px;
-    padding-bottom: 30px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+    @media (max-width: $media-ipad - 1) {
+        text-align: center;
+        padding: 17px 10px 16px;
+    }
+
+    @media (min-width: $media-ipad) {
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+
+    @media (max-width: $media-medium - 1) {
+        flex-wrap: wrap;
+    }
+
+    @media (min-width: $media-medium) {
+        padding-bottom: 30px;
+    }
 }
 
 .b-footer__col {
-    min-height: 90px;
-    flex-basis: (100%/3);
-    padding-left: 30px;
-    padding-right: 30px;
+    width: 100%;
+
+    @media (min-width: $media-ipad) {
+        min-height: 90px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        margin-bottom: 26px;
+    }
 
     & + & {
-        border-left: 1px solid fade_out(#fff, 0.8);
+        @media (max-width: $media-ipad - 1) {
+            border-top: 1px solid fade_out(#fff, 0.8);
+            margin-top: 15px;
+            padding-top: 18px;
+        }
+
+        @media (min-width: $media-ipad) {
+            border-left: 1px solid fade_out(#fff, 0.8);
+        }
+    }
+
+    &:nth-of-type(-n+2) {
+        @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+            width: 50%;
+        }
+    }
+
+    &:nth-of-type(n+3) {
+        @media (max-width: $media-medium - 1) {
+            border-left: none;
+        }
+    }
+
+    &:last-of-type {
+        @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.b-footer__col-content {
+    @media (max-width: $media-ipad - 1) {
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -31,7 +91,13 @@
 }
 
 .b-footer__menu {
-    margin-bottom: 28px;
+    @media (max-width: $media-ipad - 1) {
+        margin-bottom: 15px;
+    }
+
+    @media (min-width: $media-ipad) {
+        margin-bottom: 28px;
+    }
 }
 
 .b-footer__soc-btns {
@@ -42,7 +108,11 @@
 .b-footer__quote {
     opacity: 0.5;
     line-height: 1.625;
-    max-width: 35em;
+    font-style: italic;
+
+    @media (min-width: $media-medium) {
+        max-width: 35em;
+    }
 }
 
 .b-footer__quote-author {
@@ -56,4 +126,20 @@
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: 100;
+}
+
+.b-footer__copy-col {
+    display: inline-block;
+    padding: 0 0.3em;
+
+    &:not(:last-of-type) {
+        border-right: 1px solid;
+    }
+
+    &:first-of-type {
+        @media (max-width: $media-ipad - 1) {
+            width: 100%;
+            border-right: none;
+        }
+    }
 }

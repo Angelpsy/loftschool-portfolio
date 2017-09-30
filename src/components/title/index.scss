@@ -4,36 +4,135 @@
     margin-top: 0;
     text-align: center;
     position: relative;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 35px;
+        line-height: 1.2;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        font-size: 48px;
+        line-height: 1.167;
+    }
+
+    @media (min-width: $media-medium) {
+        font-size: 63px;
+        line-height: 1.048;
+    }
+
+    &[class*="b-title--icon_"]::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        opacity: 0.1;
+    }
 }
 
-.b-title__icon {
-    display: block;
-    position: absolute;
-    opacity: 0.1;
-    color: #93c42e;
-    width: 350px;
-    top: 50%;
-    left: 50%;
-    margin: auto;
-    transform: translate(-50%, -50%);
+.b-title--icon_about::before {
+    background-image: url("./assets/bg/about.svg");
 }
 
-.b-title--works,
-.b-title--what {
-    .b-title__icon {
-        width: 500px;
+.b-title--about::before {
+    @media (max-width: $media-ipad - 1) {
+        height: 70px;
+        margin-top: -10px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        height: 90px;
+        margin-top: -5px;
+    }
+
+    @media (min-width: $media-medium) {
+        height: 125px;
+        margin-top: -20px;
+    }
+}
+
+.b-title--icon_blog::before {
+    background-image: url("./assets/bg/blog.svg");
+
+    @media (max-width: $media-ipad - 1) {
+        height: 125px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        height: 150px;
+        width: 220px;
+        margin-top: 10px;
+    }
+
+    @media (min-width: $media-medium) {
+        height: 208px;
+        width: 280px;
+        margin-top: 10px;
+    }
+}
+
+.b-title--icon_works::before {
+    background-image: url("./assets/bg/works.svg");
+
+    @media (max-width: $media-ipad - 1) {
+        height: 85px;
+        margin-top: -10px;
+    }
+
+    @media (min-width: $media-ipad) {
+        margin-top: -20px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        height: 135px;
+    }
+
+    @media (min-width: $media-medium) {
+        height: 165px;
+    }
+}
+
+.b-title--what::before {
+    @media (max-width: $media-ipad - 1) {
+        height: 90px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        height: 135px;
+    }
+
+    @media (max-width: $media-medium - 1) {
+        margin-top: -15px;
+    }
+
+    @media (min-width: $media-medium) {
+        height: 200px;
+        margin-top: -20px;
     }
 }
 
 .b-title__text {
     display: inline-block;
     font-family: $font-family-sansus;
-    font-size: 63px;
     font-weight: normal;
-    line-height: 1.048;
     text-transform: uppercase;
     position: relative;
-    padding-bottom: 22px;
+
+    @media (max-width: $media-ipad - 1) {
+        padding-bottom: 12px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        padding-bottom: 12px;
+    }
+
+    @media (min-width: $media-medium) {
+        padding-bottom: 22px;
+    }
 
     &::after {
         content: '';
@@ -52,17 +151,41 @@
 .b-sub-title {
     margin-top: 0;
     text-align: center;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 21px;
+        line-height: 1.333;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    @media (min-width: $media-medium) {
+        font-size: 35px;
+        line-height: 1.171;
+    }
 }
 
 .b-sub-title__text {
     display: inline-block;
     font-family: $font-family-sansus;
-    font-size: 35px;
     font-weight: normal;
     text-transform: uppercase;
-    line-height: 1.171;
     position: relative;
-    padding-bottom: 26px;
+
+    @media (max-width: $media-ipad - 1) {
+        padding-bottom: 17px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        padding-bottom: 14px;
+    }
+
+    @media (min-width: $media-medium) {
+        padding-bottom: 26px;
+    }
 
     &::after {
         content: '';
@@ -71,9 +194,16 @@
         bottom: 0;
         left: 50%;
         right: 0;
-        width: 89px;
         height: 3px;
         transform: translateX(-50%);
         background: currentColor;
+
+        @media (max-width: $media-ipad - 1) {
+            width: 55px;
+        }
+
+        @media (min-width: $media-ipad) {
+            width: 89px;
+        }
     }
 }

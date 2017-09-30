@@ -18,7 +18,13 @@
 }
 
 .b-menu-fullscreen-item {
-    //
+    @media (max-width: $media-ipad - 1) {
+        font-size: 35px;
+    }
+
+    @media (min-width: $media-ipad) {
+        font-size: 63px;
+    }
 }
 
 .b-menu-fullscreen-item--active {
@@ -32,10 +38,9 @@
 }
 
 .b-menu-fullscreen-item__text {
+    display: inline-block;
     font-family: $font-family-sansus;
-    font-size: 63px;
     text-transform: uppercase;
-    line-height: 0.381;
     position: relative;
     padding-bottom: 18px;
 
@@ -49,11 +54,11 @@
         content: '';
         display: block;
         position: absolute;
-        left: 0;
-        right: 0;
+        left: 50%;
         bottom: 0;
         margin: auto;
         width: 90px;
+        margin-left: -45px;
         height: 3px;
         background: currentColor;
         opacity: 0;

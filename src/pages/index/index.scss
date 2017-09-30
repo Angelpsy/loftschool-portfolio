@@ -1,8 +1,9 @@
 @import "../../common/styles/vars";
+@import "../../common/styles/mixins";
 
 .p-index {
-    background: $color-black-green url("../../common/img/bg-forest-max.jpg") center center no-repeat;
-    background-size: cover;
+    @include bg-forest;
+
     color: #fff;
     justify-content: center;
     text-align: center;
@@ -12,20 +13,40 @@
 }
 
 .p-index__header {
-    max-width: 98%;
+    max-width: calc(100% - (2 * #{$gutter-base}));
     width: 1600px;
     margin: 24px auto auto;
 }
 
 .p-index__main {
-    max-width: 98%;
-    width: 380px;
+    max-width: 380px;
     margin: $offset-horizontal-base*2 auto;
 
     transition: transform $transition-slow;
     transform-style: preserve-3d;
 
     position: relative;
+
+    @media (max-width: $media-iphone - 1) {
+        min-width: calc(100% - 20px);
+        width: 300px;
+    }
+
+    @media (min-width: $media-iphone) and (max-width: $media-ipad - 1) {
+        min-width: 300px;
+        width: (300px / $media-iphone) * 100%;
+        max-width: 348px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        min-width: 348px;
+        width: (348px / $media-ipad) * 100%;
+        max-width: 380px;
+    }
+
+    @media (min-width: $media-medium) {
+        width: 98%;
+    }
 }
 
 .p-index__main--open-login {

@@ -18,7 +18,7 @@ mixin index-card(options)
     #{tag}.b-index-card(class!=attributes.class)
         .b-index-card__main
             .b-index-card__photo-wr
-                img.b-index-card__photo(src=options.persona.avatar)
+                img.b-index-card__photo(src=options.persona.avatar alt=options.persona.name)
             .b-index-card__title=options.persona.name
             h2.b-index-card__subtitle=options.subTitle
             +soc-btns({

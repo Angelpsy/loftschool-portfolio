@@ -10,20 +10,26 @@ mixin footer(options)
     footer.b-footer(class!=attributes.class)
         .b-footer__row-base
             .b-footer__col
-                .b-footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+                .b-footer__col-content
+                    .b-footer__text Этот сайт я сделал в&nbsp;рамках обучения в&nbsp;Школе онлайн образования LoftSchool.
             .b-footer__col
-                +menu-footer({
-                    menuItems: options.menu.menuItems,
-                    menuItemActiveHref: options.menu.menuItemActiveHref
-                })(class="b-footer__menu")
-                +soc-btns({
-                    items: options.socLinks,
-                    mod: 'opacity'
-                })(class="b-footer__soc-btns")
+                .b-footer__col-content
+                    +menu-footer({
+                        menuItems: options.menu.menuItems,
+                        menuItemActiveHref: options.menu.menuItemActiveHref
+                    })(class="b-footer__menu")
+                    +soc-btns({
+                        items: options.socLinks,
+                        mod: 'opacity'
+                    })(class="b-footer__soc-btns")
             .b-footer__col
-                .b-footer__quote Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.
+                .b-footer__col-content
+                    .b-footer__quote Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.
                     .b-footer__quote-author — Martin Golding
-        .b-footer__row-copy &copy; #{persona.name} | Создано с любовью в LoftSchool | 2017
+        .b-footer__row-copy
+            span.b-footer__copy-col &copy; #{persona.name}
+            span.b-footer__copy-col Создано с любовью в LoftSchool
+            span.b-footer__copy-col 2017
 
 
 

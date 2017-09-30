@@ -1,4 +1,5 @@
 @import "../../common/styles/vars";
+@import "../../common/styles/mixins";
 
 $_footer-height: 90px;
 
@@ -8,21 +9,39 @@ $_footer-height: 90px;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-height: 600px;
-    padding-top: 17px;
     background-color: $color-black-green;
     color: #fff;
     text-align: center;
+
+    @media (max-width: $media-ipad - 1) {
+        min-height: 557px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        min-height: 505px;
+        padding-top: 17px;
+    }
+
+    @media (min-width: $media-medium) {
+        min-height: 600px;
+        padding-top: 17px;
+    }
 }
 
 .b-hero__bg {
+    @include bg-forest;
+
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../../common/img/bg-forest-max.jpg") center center no-repeat;
-    background-size: cover;
+}
+
+.b-hero__title {
+    @media (max-width: $media-max - 1) {
+        margin-bottom: 25px;
+    }
 }
 
 .b-hero__main {
@@ -53,22 +72,56 @@ $_footer-height: 90px;
     margin-top: 0;
     margin-bottom: 0;
     font-weight: 500;
-    font-size: 35px;
-    line-height: 1.171;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 21px;
+        line-height: 1.333;
+    }
+
+    @media (min-width: $media-ipad) {
+        font-size: 35px;
+        line-height: 1.171;
+    }
 }
 
 .b-hero__subtitle {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 16px;
-    line-height: 1.5;
     font-weight: 400;
+
+    @media (max-width: $media-ipad - 1) {
+        font-size: 14px;
+        line-height: 1.714;
+    }
+
+    @media (min-width: $media-ipad) {
+        font-size: 16px;
+        line-height: 1.5;
+    }
 }
 
 .b-hero__bottom {
     position: relative;
     z-index: 1;
-    height: $_footer-height;
+
+    @media (max-width: $media-ipad - 1) {
+        height: 70px;
+        margin-top: 26px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        height: 65px;
+    }
+
+    @media (min-width: $media-medium) {
+        height: $_footer-height;
+    }
+
+    .b-hero--blog & {
+        @media (min-width: $media-medium) {
+            display: none;
+        }
+    }
 }
 
 .b-hero__arrow {
