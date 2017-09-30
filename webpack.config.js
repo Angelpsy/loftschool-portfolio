@@ -195,6 +195,17 @@ module.exports = (env={}) => {
                     },
                 },
                 {
+                    test: /\.svg$/,
+                    exclude: [/sprite/, /bg/],
+                    loader: 'url-loader',
+                    query: {
+                        name,
+                        publicPath: publicPath,
+                        outputPath: PATHS.static + 'img/',
+                        limit: 4000,
+                    },
+                },
+                {
                     test: /\.(ttf|eot|woff(2)?)$/,
                     loader: 'url-loader',
                     query: {

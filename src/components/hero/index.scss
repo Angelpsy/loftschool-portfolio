@@ -1,4 +1,5 @@
 @import "../../common/styles/vars";
+@import "../../common/styles/mixins";
 
 $_footer-height: 90px;
 
@@ -28,13 +29,13 @@ $_footer-height: 90px;
 }
 
 .b-hero__bg {
+    @include bg-forest;
+
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../../common/img/bg-forest-max.jpg") center center no-repeat;
-    background-size: cover;
 }
 
 .b-hero__title {

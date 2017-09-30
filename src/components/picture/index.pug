@@ -1,0 +1,17 @@
+//-
+    options.img
+    options.imgX2
+    options.alt
+mixin picture(options)
+    if !options
+        - options = {}
+
+    if (options.imgX2 && options.img)
+        picture
+            if options.imgX2
+                source(srcset=options.imgX2 media="(-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px), (min-resolution: 192dpi) and (min-width: 1200px)")
+            source(srcset=options.img media="(max-width: 1199px)")
+            source(srcset=options.img)
+            img(src=options.img alt=options.alt class!=attributes.class)
+    else if (options.img)
+        img(src=options.img alt=options.alt class!=attributes.class)

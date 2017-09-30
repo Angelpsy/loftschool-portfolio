@@ -18,3 +18,20 @@
         clear: both;
     }
 }
+
+@mixin bg-forest($path: "../../common/img/") {
+    background: $color-black-green center center no-repeat;
+    background-size: cover;
+
+    @media (max-width: $media-ipad - 1) {
+        background-image: url("#{$path}bg-forest-ipad.jpg");
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        background-image: url("#{$path}bg-forest-medium.jpg");
+    }
+
+    @media (min-width: $media-medium) {
+        background-image: url("#{$path}bg-forest-max.jpg");
+    }
+}

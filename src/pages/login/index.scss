@@ -1,8 +1,8 @@
 @import "../../common/styles/vars";
+@import "../../common/styles/mixins";
 
 .p-login {
-    background: $color-black-green url("../../common/img/bg-forest-max.jpg") center center no-repeat;
-    background-size: cover;
+    @include bg-forest;
     color: #fff;
     justify-content: center;
     text-align: center;

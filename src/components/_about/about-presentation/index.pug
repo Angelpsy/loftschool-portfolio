@@ -1,5 +1,6 @@
 include ../../content/index
 include ../../title/index
+include ../../picture/index
 
 mixin about-presentation(options)
     if !options
@@ -7,7 +8,11 @@ mixin about-presentation(options)
 
     section.b-about-presentation(class!=attributes.class)
         header.b-about-presentation__header
-            img.b-about-presentation__photo(src=options.photo alt=options.persona.name)
+            +picture({
+                img: options.photo,
+                imgX2: options.photoX2,
+                alt: options.persona.name
+            })(class="b-about-presentation__photo")
             +sub-title({
                 text: "Кто я"
             })(class="b-about-presentation__title" tag="h2")
