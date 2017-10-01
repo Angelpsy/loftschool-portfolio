@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReloadPlugin = require('reload-html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const SERVER = require('./configs/server');
 const PATHS = require('./configs/paths');
@@ -102,6 +103,13 @@ module.exports = (env={}) => {
                     core: isProd,
                 },
             }),
+            new CopyWebpackPlugin([
+                {
+                    context: path.join(PATHS.src, 'misc'),
+                    from: '**/*',
+                    to: isProd ? PATHS.build : PATHS.dev,
+                },
+            ]),
         ]
             .concat(HtmlWebpackPlugins),
         resolve: {

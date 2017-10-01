@@ -1,0 +1,5 @@
+{
+    "success": false,
+    "message": "Все ок",
+    "messageError": "Неверный логин или пароль"
+}

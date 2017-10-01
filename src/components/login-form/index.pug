@@ -2,13 +2,14 @@ include ../title/index
 include ../icon/index
 include ../ui/checkbox/index
 include ../ui/radio-button/index
+include ../ui/tooltip/index
 
 mixin login-form(options)
     if !options
         - options = {}
     - var formName = "login-form"
 
-    form.b-login-form(class!=attributes.class)
+    form.b-login-form(class!=attributes.class name=formName)
         +sub-title({
             text: "Авторизуйтесь"
         })(class="b-login-form__title")
@@ -20,7 +21,15 @@ mixin login-form(options)
                         +icon({
                             file: "login"
                         })(class="b-login-form__icon")
-                    input.b-login-form__input-control(id=`${formName}-login` type="text" placeholder="Логин")
+                    input.b-login-form__input-control(
+                        id=`${formName}-login`
+                        name=`${formName}-login`
+                        type="text"
+                        placeholder="Логин")
+                    +tooltip({
+                        text: 'Вы не ввели логин',
+                        isError: true
+                    })(class="b-login-form__tooltip")
             .b-login-form__field
                 .b-login-form__input
                     label.b-login-form__input-addon(for=`${formName}-password`)
@@ -28,24 +37,41 @@ mixin login-form(options)
                         +icon({
                             file: "password"
                         })(class="b-login-form__icon")
-                    input.b-login-form__input-control(id=`${formName}-password` type="password" placeholder="Пароль")
+                    input.b-login-form__input-control(
+                        id=`${formName}-password`
+                        name=`${formName}-password`
+                        type="password"
+                        placeholder="Пароль")
+                    +tooltip({
+                        text: 'Вы не ввели пароль',
+                        isError: true
+                    })(class="b-login-form__tooltip")
             .b-login-form__field.b-login-form__field--checkbox
                 label.b-login-form__label(for=`${formName}-human`)
                     +checkbox({
                         id: `${formName}-human`,
-                        isChecked: false,
-                        name: `${formName}-human`
+                        name: `${formName}-human`,
+                        isChecked: false
                     })(class="b-login-form__checkbox")
                     span.b-login-form__label-text Я человек
+                    +tooltip({
+                        text: 'Только для людей',
+                        isError: true,
+                    })(class="b-login-form__tooltip" mod="right")
             .b-login-form__field
-                .b-login-form__field-note Вы точно не робот ?
+                .b-login-form__field-note
+                    span.b-login-form__field-note-text Вы точно не робот ?
+                        +tooltip({
+                            text: 'Только для людей',
+                            isError: true
+                        })(class="b-login-form__tooltip" mod="right")
                 .b-login-form__radio-btns
                     .b-login-form__radio-btn
                         +radio-button({
                             id: `${formName}-norobot-yes`,
                             value: `${formName}-norobot-yes`,
-                            isChecked: true,
                             name: `${formName}-norobot`,
+                            isChecked: true,
                             className: "b-login-form__radio-btn-control",
                             text: {
                                 text: "Да",
@@ -56,14 +82,16 @@ mixin login-form(options)
                         +radio-button({
                             id: `${formName}-norobot-not-sure`,
                             value: `${formName}-norobot-not-sure`,
-                            isChecked: false,
                             name: `${formName}-norobot`,
+                            isChecked: false,
                             className: "b-login-form__radio-btn-control",
                             text: {
                                 text: "Не уверен",
                                 className: "b-login-form__radio-btn-text"
                             }
                         })
+            .b-login-form__error-container
+                .b-login-form__error-content
         .b-login-form__footer
             if (options.menuItemIndex && options.menuItemIndex[0].href)
                 a.b-login-form__btn.b-login-form__footer-btn(href=options.menuItemIndex[0].href)

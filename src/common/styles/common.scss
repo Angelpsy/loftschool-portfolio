@@ -49,3 +49,7 @@ button,
 button:active {
     padding: 1px 6px;
 }
+
+button:disabled {
+    opacity: 0.5;
+}

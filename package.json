@@ -35,6 +35,7 @@
         "babel-runtime": "^6.26.0",
         "browserslist": "^2.4.0",
         "clean-webpack-plugin": "^0.1.16",
+        "copy-webpack-plugin": "^4.1.0",
         "css-loader": "^0.28.7",
         "eslint": "^4.6.1",
         "eslint-config-google": "^0.9.1",
@@ -71,6 +72,7 @@
         "IE 11"
     ],
     "dependencies": {
+        "form-serialize": "^0.7.2",
         "normalize.css": "^7.0.0"
     }
 }

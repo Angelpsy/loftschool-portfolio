@@ -1,0 +1,72 @@
+@import "../../../common/styles/vars";
+
+.b-tooltip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    padding-left: $offset-horizontal-base;
+    padding-right: $offset-horizontal-base;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+    &::before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        position: absolute;
+    }
+}
+
+.b-tooltip--bottom {
+    &::before {
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom: 8px solid currentColor;
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+    }
+}
+
+.b-tooltip--right {
+    &::before {
+        @media (max-width: $media-ipad - 1) {
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom: 8px solid currentColor;
+            border-right: 8px solid transparent;
+            border-left: 8px solid transparent;
+        }
+
+        @media (min-width: $media-ipad) {
+            top: 50%;
+            right: 100%;
+            transform: translateY(-50%);
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            border-right: 8px solid currentColor;
+        }
+    }
+}
+
+.b-tooltip--error {
+    background: $color-error;
+    color: #fff;
+
+    &::before {
+        color: $color-error;
+    }
+}
+
+.b-tooltip__text {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+
+}
