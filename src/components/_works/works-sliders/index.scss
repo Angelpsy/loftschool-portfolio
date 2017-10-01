@@ -1,12 +1,9 @@
 @import "../../../common/styles/vars";
 
 $_sliders-h-medium-plus: 750px;
+$_z-slide-active: 1;
 
-.b-works-slider {
-    //
-}
-
-.b-works-slider__sliders {
+.b-works-sliders {
     display: flex;
 
     @media (max-width: $media-medium - 1) {
@@ -19,7 +16,42 @@ $_sliders-h-medium-plus: 750px;
     }
 }
 
-.b-works-slider__slider-info {
+.b-works-slider {
+    position: relative;
+}
+
+.b-works-slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    opacity: 1;
+    visibility: visible;
+
+    //transition: opacity $transition-standard;
+}
+
+.b-works-slide--hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.b-works-slide--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.b-works-sliders__slider-info {
+    @media (max-width: $media-ipad - 1) {
+        height: 219px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        height: 271px;
+    }
+
     @media (min-width: $media-medium) {
         height: 100%;
         width: 50%;
@@ -44,6 +76,7 @@ $_sliders-h-medium-plus: 750px;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background: #ebefe2;
 
     @media (max-width: $media-ipad - 1) {
         padding-top: 28px;
@@ -135,7 +168,15 @@ $_sliders-h-medium-plus: 750px;
     //
 }
 
-.b-works-slider__slider-img {
+.b-works-sliders__slider-img {
+    @media (max-width: $media-ipad - 1) {
+        height: 257px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        height: 532px;
+    }
+
     @media (max-width: $media-medium - 1) {
         order: -1;
     }
@@ -162,6 +203,7 @@ $_sliders-h-medium-plus: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #e1e4d7;
 
     @media (max-width: $media-ipad - 1) {
         padding-top: 49px;
@@ -181,10 +223,23 @@ $_sliders-h-medium-plus: 750px;
 .b-works-slide-img__img {
     @media (max-width: $media-ipad - 1) {
         max-width: (232px / $media-iphone * 100%);
+        max-height: 160px;
+    }
+
+    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+        max-height: 388px;
+    }
+
+    @media (min-width: $media-medium) and (max-width: $media-max - 1) {
+        max-height: 311px;
+    }
+
+    @media (min-width: $media-max) {
+        max-height: 416px;
     }
 }
 
-.b-works-slider__nav {
+.b-works-sliders__nav {
     @media (max-width: $media-ipad - 1) {
         min-height: 93px;
         height: 93px;
@@ -203,17 +258,19 @@ $_sliders-h-medium-plus: 750px;
     }
 }
 
-.b-works-slider-nav {
+.b-works-sliders-nav {
     display: flex;
 }
 
-.b-works-slider-nav__col {
+.b-works-sliders-nav__col {
     flex-basis: 50%;
     height: 100%;
+    position: relative;
 }
 
-.b-works-slider-nav__btn {
+.b-works-sliders-nav__btn {
     position: relative;
+    z-index: $_z-slide-active + 1;
     width: 100%;
     height: 100%;
     background: center center no-repeat;
@@ -237,38 +294,65 @@ $_sliders-h-medium-plus: 750px;
         transition: $transition-standard;
     }
 
-    &:hover::before,
-    &:focus::before {
+    &:hover::before {
         transform: scale(0.1);
     }
 
+    &:focus::before {
+        opacity: 0.5;
+    }
+
     &:active::before {
-        background-color: darken($color-green, 10%);
+        background-color: darken($color-green, 20%);
     }
 }
 
-.b-works-slider-nav__btn--prev {
-    background-image: url("./assets/bg-btn-prev.jpg");
-
+.b-works-sliders-nav__btn--prev {
     &::before {
         background: #b0b7aa;
     }
 
-    .b-works-slider-nav__icon {
+    .b-works-sliders-nav__icon {
         position: relative;
-        top: 5px;
     }
 }
 
-.b-works-slider-nav__btn--next {
-    background-image: url("./assets/bg-btn-next.jpg");
-
+.b-works-sliders-nav__btn--next {
     &::before {
         background: #93998d;
     }
 }
 
-.b-works-slider-nav__icon {
+.b-works-sliders-nav__icon {
     position: relative;
     z-index: 1;
+}
+
+.b-works-sliders-nav__slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f8f9f5;
+}
+
+.b-works-sliders-small {
+    //
+}
+
+.b-works-sliders-small__slide {
+    //
+}
+
+.b-works-slide-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9f5;
+}
+
+.b-works-slide-small__img {
+    max-width: 100%;
+    max-height: 100%;
 }
