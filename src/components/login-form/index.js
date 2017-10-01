@@ -157,7 +157,7 @@ function handlerSubmit(event) {
 
     toggleIsSend(form, true);
 
-    postResource({url: '/test-server-response-login.json'}, dataForm) // TODO: заменить на корректный адрес
+    postResource({url: 'test-server-response-login.json'}, dataForm) // TODO: заменить на корректный адрес
         .then((data) => {
             toggleIsSend(form, false);
         })

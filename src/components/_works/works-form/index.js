@@ -161,7 +161,7 @@ function handlerSubmit(event) {
 
     toggleIsSend(form, true);
 
-    getResource({url: '/test-server-response-feedback.json'}, dataForm) // TODO: заменить на корректный адрес
+    getResource({url: 'test-server-response-feedback.json'}, dataForm) // TODO: заменить на корректный адрес
         .then((data) => {
             const contentEl = form.querySelector('.' + CLASSES.formSuccessContent); // TODO: заменить на el
             contentEl.innerText = JSON.parse(data.response).message
