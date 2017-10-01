@@ -1,4 +1,5 @@
 include ../../title/index
+include ../../ui/tooltip/index
 
 mixin works-form(options)
     if !options
@@ -10,13 +11,40 @@ mixin works-form(options)
         .b-works-form__main
             .b-works-form__field
                 label.b-works-form__label.u-sr-only(for=`${formName}-name`) Имя
-                input.b-works-form__input(id=`${formName}-name` type="text" placeholder="Имя")
+                input.b-works-form__input(
+                    id=`${formName}-name`
+                    name=`${formName}-name`
+                    type="text"
+                    placeholder="Имя")
+                +tooltip({
+                    text: 'Необходимо ввести имя',
+                    isError: true
+                })(class="b-works-form__tooltip" mod="bottom")
             .b-works-form__field
                 label.b-works-form__label.u-sr-only(for=`${formName}-email`) Email
-                input.b-works-form__input(id=`${formName}-email` type="email" placeholder="Email")
+                input.b-works-form__input(
+                    id=`${formName}-email`
+                    name=`${formName}-email`
+                    type="email"
+                    placeholder="Email")
+                +tooltip({
+                    text: 'Некорректный email',
+                    isError: true
+                })(class="b-works-form__tooltip" mod="bottom")
             .b-works-form__field
                 label.b-works-form__label.u-sr-only(for=`${formName}-message`) Ваше сообщение
-                textarea.b-works-form__textarea(id=`${formName}-message` type="email" placeholder="Ваше сообщение")
+                textarea.b-works-form__textarea(
+                    id=`${formName}-message`
+                    name=`${formName}-message`
+                    placeholder="Ваше сообщение")
+                +tooltip({
+                    text: 'Необходимо ввести сообщение',
+                    isError: true
+                })(class="b-works-form__tooltip" mod="bottom")
+            .b-works-form__error-container
+                .b-works-form__error-content
+            .b-works-form__success-container
+                .b-works-form__success-content
         .b-works-form__bottom
             .b-works-form__btns
                 button.b-works-form__btn(type="submit") Отправить

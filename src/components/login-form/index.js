@@ -9,7 +9,7 @@ import './index.scss';
 import {events} from '../../common/scripts/events';
 import serialize from 'form-serialize';
 
-const ClASSES = {
+const CLASSES = {
     field: 'b-login-form__field',
     fieldError: 'b-login-form__field--error',
     fieldSucces: 'b-login-form__field--success',
@@ -39,12 +39,13 @@ function dispatchCloseLoginForm(event) {
     event.target.dispatchEvent(events.closeLoginForm.event);
 }
 
+// TODO: Перенести в Api
 /**
  * @param {{url: String}} options
  * @param {Object} data
  * @return {Promise}
  */
-function loginResource(options, data) {
+function postResource(options, data) {
     return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
         // xhr.open('POST', options.url);
@@ -54,7 +55,11 @@ function loginResource(options, data) {
                 && this.status < 300
                 && xhr.response
                 && JSON.parse(xhr.response).success) {
-                resolve(xhr.response);
+                resolve({
+                    status: this.status,
+                    statusText: xhr.statusText,
+                    response: xhr.response ? xhr.response : null,
+                });
             } else {
                 reject({
                     status: this.status,
@@ -128,15 +133,15 @@ function handlerSubmit(event) {
 
     fields.forEach((field) => {
         const el = container.querySelector(field.selector);
-        const rowEl = el.closest('.' + ClASSES.field);
+        const rowEl = el.closest('.' + CLASSES.field);
         if (field.isValid) {
-            rowEl.classList.remove(ClASSES.fieldError);
-            rowEl.classList.add(ClASSES.fieldSucces);
+            rowEl.classList.remove(CLASSES.fieldError);
+            rowEl.classList.add(CLASSES.fieldSucces);
         } else {
-            rowEl.classList.remove(ClASSES.fieldSucces);
-            rowEl.classList.add(ClASSES.fieldError);
+            rowEl.classList.remove(CLASSES.fieldSucces);
+            rowEl.classList.add(CLASSES.fieldError);
             el.addEventListener('change', function x() {
-                rowEl.classList.remove(ClASSES.fieldError);
+                rowEl.classList.remove(CLASSES.fieldError);
                 el.removeEventListener('change', x);
             });
         }
@@ -152,15 +157,15 @@ function handlerSubmit(event) {
 
     toggleIsSend(form, true);
 
-    loginResource({url: '/test-server-response.json'}, dataForm)
+    postResource({url: '/test-server-response-login.json'}, dataForm) // TODO: заменить на корректный адрес
         .then((data) => {
             toggleIsSend(form, false);
         })
         .catch((data) => {
-            const contentEl = form.querySelector('.' + ClASSES.formErrorContent);
+            const contentEl = form.querySelector('.' + CLASSES.formErrorContent); // TODO: заменить на el
             contentEl.innerText = JSON.parse(data.response).messageError
                 || 'Что-то пошло не так';
-            const containerEl = form.querySelector('.' + ClASSES.formErrorContainer);
+            const containerEl = form.querySelector('.' + CLASSES.formErrorContainer); // TODO: заменить на el
             containerEl.style.height = contentEl.offsetHeight + 'px';
             toggleIsSend(form, false);
         });
