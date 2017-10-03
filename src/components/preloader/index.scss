@@ -12,7 +12,7 @@
     background-size: cover;
     color: #fff;
 
-    transition: opacity 1s, z-index 1s;
+    transition: opacity $transition-standard, z-index $transition-standard;
 }
 
 .b-preloader--hide {
