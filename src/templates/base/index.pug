@@ -12,13 +12,47 @@ block variables
         var data = htmlWebpackPlugin.options.data.data;
         data.menuItemsFull = [].concat(data.menuItemIndex, data.menuItems, data.menuItemLogin);
 
+    //-
+        CRITICAL CSS BLOCKS
+    -
+        var templateName = htmlWebpackPlugin.options.templateName
+        var assetsByChunk = locals.webpack.assetsByChunkName[templateName]
+        var nameFileJsChunk = assetsByChunk[0] // TODO
+        var nameFileCssChunk = assetsByChunk[1] // TODO
+        var nameCriticalFileCssChunk = nameFileCssChunk.substring(0, nameFileCssChunk.lastIndexOf('.css')) + `.${CRITICAL_PREFIX}.css`
+        var assetsCommon = locals.webpack.assetsByChunkName['common']
+        var nameFileJsCommon = assetsCommon[0] // TODO
+        var nameFileCssCommon = assetsCommon[1] // TODO
+        var nameCriticalFileCssCommon = nameFileCssCommon.substring(0, nameFileCssCommon.lastIndexOf('.css')) + `.${CRITICAL_PREFIX}.css`
+        var isServer = !!ENV.server
+
 
 doctype html
-html(lang="ru-RU")
+html(lang="ru-RU").no-js
+
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="initial-scale=1.0,width=device-width")
         title=title
+        if !isServer
+            link(rel="stylesheet" href=`${nameCriticalFileCssCommon}`)
+            link(rel="stylesheet" href=`${nameCriticalFileCssChunk}`)
+            noscript
+                link(rel="stylesheet" href=`${nameFileCssCommon}`)
+                link(rel="stylesheet" href=`${nameFileCssChunk}`)
+            //- for async connections the styles
+            script.
+                var nameFileCssCommon = "#{nameFileCssCommon}";
+                var nameFileCssChunk = "#{nameFileCssChunk}";
+        script.
+            (function (H) {
+                H.className = H.className.replace(/\bno-js\b/, 'js')
+            })(document.documentElement)
+
     body#section-top
         block body
             div Основное содержимое базового шаблона
+
+        if !isServer
+            script(src=nameFileJsCommon defer)
+            script(src=nameFileJsChunk defer)
