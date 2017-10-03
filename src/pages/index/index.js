@@ -31,11 +31,6 @@ function init() {
     document.addEventListener(events.closeLoginForm.id, function(event) {
         mainEl.classList.remove(CLASSES.mainLogin);
     }, false);
-
-    window.addEventListener('load', function x() {
-        container.style.display = '';
-        window.removeEventListener('load', x);
-    });
 }
 
 init();

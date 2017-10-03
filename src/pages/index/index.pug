@@ -11,8 +11,6 @@ include ../../components/simple-footer/index
 block body
     +preloader()(class="l-preloader")
     .p-index.l-page
-        script.
-            document.querySelector('.p-index').style.display = 'none'
         +index-header({
             menu: data.menuItemLogin
         })(class="p-index__header")
