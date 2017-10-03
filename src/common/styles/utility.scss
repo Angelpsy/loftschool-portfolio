@@ -1,3 +1,5 @@
+/* critical:start */
+
 .u-cf::after {
     content: "";
     display: block;
@@ -14,3 +16,5 @@
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+
+/* critical:end */

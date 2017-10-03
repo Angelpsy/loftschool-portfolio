@@ -1,6 +1,8 @@
 @import "../../common/styles/vars";
 @import "../../common/styles/mixins";
 
+/* critical:start */
+
 .p-login {
     @include bg-forest;
     color: #fff;
@@ -50,3 +52,5 @@
 .p-login__footer {
     //
 }
+
+/* critical:end */

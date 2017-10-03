@@ -1,5 +1,7 @@
 @import "../../common/styles/vars";
 
+/* critical:start */
+
 .p-blog {
     display: flex;
     justify-content: flex-start;
@@ -25,3 +27,5 @@
 .p-blog__footer {
     margin-top: auto;
 }
+
+/* critical:end */
