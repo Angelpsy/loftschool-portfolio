@@ -1,10 +1,13 @@
 import '../../templates/base/index';
-import './index.scss';
+import '../../components/preloader/index';
+
 
 import '../../components/_index/index-header/index';
 import '../../components/_index/index-card/index';
 import '../../components/login-form/index';
 import '../../components/simple-footer/index';
+
+import './index.scss';
 
 import {events} from '../../common/scripts/events';
 
@@ -28,6 +31,11 @@ function init() {
     document.addEventListener(events.closeLoginForm.id, function(event) {
         mainEl.classList.remove(CLASSES.mainLogin);
     }, false);
+
+    window.addEventListener('load', function x() {
+        container.style.display = '';
+        window.removeEventListener('load', x);
+    });
 }
 
 init();

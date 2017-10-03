@@ -1,0 +1,23 @@
+@import "../../common/styles/vars";
+
+/* critical:start */
+
+.b-preloader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: $color-green url('./assets/forest_prel_bg.jpg') center center no-repeat;
+    background-size: cover;
+    color: #fff;
+
+    transition: opacity 1s, z-index 1s;
+}
+
+.b-preloader--hide {
+    opacity: 0;
+    z-index: -1;
+}
+
+/* critical:end */

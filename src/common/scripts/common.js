@@ -6,6 +6,9 @@ import '../styles/layout.scss';
 
 // async style
 [window.nameFileCssCommon, window.nameFileCssChunk].forEach((url) => {
+    if (!url) {
+        return;
+    }
     const el = document.createElement('link');
     el.rel = 'stylesheet';
     el.href = url;

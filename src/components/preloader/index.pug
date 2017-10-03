@@ -1,0 +1,8 @@
+mixin preloader(options)
+    if !options
+        - options = {}
+
+    .b-preloader(class!=attributes.class)
+        .b-preloader__container
+            .b-preloader__icon
+                include ./assets/forest.svg

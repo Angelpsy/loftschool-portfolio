@@ -1,5 +1,16 @@
 @import "./vars";
 
+/* critical:start */
+
+.l-preloader {
+    position: fixed;
+    z-index: $z-preloader;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .l-page {
     min-height: 100%;
     display: flex;
@@ -18,3 +29,5 @@
 .l-page__footer {
     margin-top: auto;
 }
+
+/* critical:end */
