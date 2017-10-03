@@ -20,4 +20,41 @@
     z-index: -1;
 }
 
+#preloader-icon {
+    path {
+        stroke-dasharray: 80;
+        stroke-dashoffset: 0;
+
+        animation-name: toLeft;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+
+        &:nth-of-type(1) {
+            animation-timing-function: ease;
+        }
+
+        &:nth-of-type(2) {
+            animation-timing-function: ease-in-out;
+        }
+
+        &:nth-of-type(3) {
+            animation-timing-function: ease-in;
+        }
+    }
+}
+
+@keyframes toLeft {
+    0% {
+        stroke-dashoffset: 320;
+    }
+
+    50% {
+        stroke-dashoffset: 160;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
 /* critical:end */
