@@ -46,10 +46,10 @@ function init() {
         hWindow = window.innerHeight;
         posts.forEach((post) => {
             post.top = getCoords(post.el).top;
-        })
-            .sort((a, b) => {
-                return b.top - a.top;
-            });
+        });
+        posts.sort((a, b) => {
+            return b.top - a.top;
+        });
     };
 
     resizeHandler = throttle(resizeHandler, 300);

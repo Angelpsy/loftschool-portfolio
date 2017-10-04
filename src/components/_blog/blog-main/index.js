@@ -17,7 +17,7 @@ const btns = Array.prototype.slice.call(container.querySelectorAll('.js-open-sid
  *
  */
 function toggleSidebar() {
-    if (client.isPhone) {
+    if (client.isPhone || client.isIpad) {
         sidebar.classList.toggle(CLASSES.sidebarOpen);
     }
 }
