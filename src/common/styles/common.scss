@@ -1,5 +1,7 @@
 @import "vars";
 
+/* critical:start */
+
 *,
 *::before,
 *::after {
@@ -10,6 +12,14 @@ body,
 html {
     height: 100%;
 }
+
+body {
+    margin: 0;
+    bottom: 0;
+    font-family: sans-serif;
+}
+
+/* critical:end */
 
 body {
     font-family: $font-family-base;
@@ -48,4 +58,8 @@ textarea::placeholder {
 button,
 button:active {
     padding: 1px 6px;
+}
+
+button:disabled {
+    opacity: 0.5;
 }

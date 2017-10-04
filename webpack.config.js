@@ -5,7 +5,12 @@ const CleanPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReloadPlugin = require('reload-html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+
+const PostCssPipelineWebpackPlugin = require('postcss-pipeline-webpack-plugin');
+const criticalSplit = require('postcss-critical-split');
+const csso = require('postcss-csso');
 
 const SERVER = require('./configs/server');
 const PATHS = require('./configs/paths');
@@ -16,6 +21,7 @@ const pages = require('./configs/pages');
  * @return {{entry: Object, output: {path: string, filename: string}, plugins: Array.<*>, module: {rules: [null,null,null,null,null,null,null,null]}, devtool: string, devServer: {hot: boolean, inline: boolean, contentBase: string, compress: boolean, port: number, stats: string}, stats: string}}
  */
 module.exports = (env={}) => {
+    const CRITICAL_PREFIX = 'critical';
     const isProd = !!env.prod;
     const isServer = !!env.server;
     const isMarkup = !!env.markup;
@@ -57,6 +63,8 @@ module.exports = (env={}) => {
                 chunks: ['common', page],
                 template: `${PATHS.src}/pages/${page}/index.pug`,
                 data: {data},
+                templateName: page,
+                inject: isServer,
             })
         );
     });
@@ -80,26 +88,47 @@ module.exports = (env={}) => {
                 filename: PATHS.static + 'css/' + fileNameCss,
                 disable: isServer,
             }),
+            new PostCssPipelineWebpackPlugin({
+                suffix: CRITICAL_PREFIX,
+                pipeline: [
+                    criticalSplit({
+                        output: criticalSplit.output_types.CRITICAL_CSS,
+                    }),
+                ],
+            }),
+            new PostCssPipelineWebpackPlugin({
+                suffix: false,
+                pipeline: [
+                    csso({
+                        restructure: false,
+                    }),
+                ],
+                map: {
+                    inline: false,
+                },
+            }),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common',
                 filename: PATHS.static + 'js/' + fileNameJs,
-                minChunks: 3,
+                minChunks: 5,
             }),
             new webpack.optimize.UglifyJsPlugin({
                 compress: isProd,
             }),
-            new OptimizeCssAssetsPlugin({
-                assetNameRegExp: /\.css$/,
-                cssProcessor: require('cssnano'),
-                cssProcessorOptions: {
-                    discardComments: isProd,
-                    discardDuplicates: isProd,
-                    minifyFontValues: {
-                        removeQuotes: false,
-                    },
-                    discardUnused: false,
-                    mergeIdents: false,
-                    core: isProd,
+            new CopyWebpackPlugin([
+                {
+                    context: path.join(PATHS.src, 'misc'),
+                    from: '**/*',
+                    to: isProd ? PATHS.build : PATHS.dev,
+                },
+            ]),
+            new webpack.DefinePlugin({
+                ENV: env,
+                CRITICAL_PREFIX: JSON.stringify(CRITICAL_PREFIX),
+            }),
+            new ManifestPlugin({
+                filter: (link) => {
+                    return link.isChunk && !~link.name.lastIndexOf('.map');
                 },
             }),
         ]
@@ -131,6 +160,7 @@ module.exports = (env={}) => {
                     loader: 'pug-loader',
                     options: {
                         pretty: !isProd,
+                        locals: {},
                     },
                 },
                 {

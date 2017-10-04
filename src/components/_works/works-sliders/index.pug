@@ -1,0 +1,51 @@
+include ../../title/index
+include ../../icon/index
+
+mixin works-slider(options)
+    if !options
+        - options = {}
+
+    -
+        var workFirst = options.works[0]
+        var workLast = options.works[options.works.length - 1]
+        var worksForPrev = [].concat(workLast, options.works)
+            worksForPrev.length = options.works.length
+        var worksForNext = options.works.slice(1)
+            worksForNext.push(workFirst)
+
+    .b-works-sliders(class!=attributes.class)
+        .b-works-sliders__slider-info.b-works-slider-info.b-works-slider
+            .b-works-slider__list
+                each item, index in options.works
+                    .b-works-slider-info__slide.b-works-slide-info.b-works-slide.b-works-slider__slide(data-slide-index=index)
+                        +sub-title({text: item.name})(class="b-works-slide-info__title")
+                        .b-works-slide-info__sub-title= item.skills
+                        a.b-works-slide-info__link(href=item.href target="_blank" rel="noopener")
+                            +icon({file: "link"})(class="b-works-slide-info__link-icon")
+                            .b-works-slide-info__link-text Посмотреть сайт
+
+        .b-works-sliders__slider-img.b-works-slider-img.b-works-slider
+            .b-works-slider__list
+                each item, index in options.works
+                    .b-works-slider-img__slide.b-works-slide-img.b-works-slide.b-works-slider__slide(data-slide-index=index)
+                        img.b-works-slide-img__img(src=item.img)
+
+        .b-works-sliders__nav.b-works-sliders-nav
+            .b-works-sliders-nav__col
+                button.b-works-sliders-nav__btn.b-works-sliders-nav__btn--prev.js-sliders-btn-prev
+                    span.b-works-sliders-nav__btn-text.u-sr-only Предыдущий слайд
+                    +icon({file: "portf_arrow_up"})(class="b-works-sliders-nav__icon")
+                .b-works-sliders-nav__slider.b-works-sliders-small.b-works-slider(data-slider-reverse="1")
+                    .b-works-slider__list
+                        each item in worksForPrev
+                            .b-works-sliders-small__slide.b-works-slide-small.b-works-slide.b-works-slider__slide
+                                img.b-works-slide-small__img(src=item.img)
+            .b-works-sliders-nav__col
+                button.b-works-sliders-nav__btn.b-works-sliders-nav__btn--next.js-sliders-btn-next
+                    span.b-works-sliders-nav__btn-text.u-sr-only Следущий слайд
+                    +icon({file: "portf_arrow_up"})(class="b-works-sliders-nav__icon")
+                .b-works-sliders-nav__slider.b-works-sliders-small.b-works-slider
+                    .b-works-slider__list
+                        each item, index in worksForNext
+                            .b-works-sliders-small__slide.b-works-slide-small.b-works-slide.b-works-slider__slide(data-slide-id=item.id)
+                                img.b-works-slide-small__img(src=item.img)

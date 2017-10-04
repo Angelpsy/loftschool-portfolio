@@ -1,0 +1,14 @@
+//-
+    attributes.mod ['bottom']
+    options.text
+    options.isError
+
+mixin tooltip(options)
+    if !options
+        - options = {}
+
+    - className = attributes.class + (attributes.mod ? " b-tooltip--" + attributes.mod : " b-tooltip--bottom") + (options.isError ? " b-tooltip--error" : "")
+
+    span.b-tooltip(class=className)
+        span.b-tooltip__text= options.text
+

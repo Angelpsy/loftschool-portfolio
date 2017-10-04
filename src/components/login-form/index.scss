@@ -34,6 +34,7 @@
 
 .b-login-form__field {
     margin-bottom: $offset-vertical-base;
+    position: relative;
 }
 
 .b-login-form__input {
@@ -41,7 +42,7 @@
     align-items: center;
     width: 100%;
     height: 45px;
-    border-radius: 23px;
+    //border-radius: 23px;
     overflow: hidden;
 }
 
@@ -52,6 +53,16 @@
     justify-content: center;
     align-items: center;
     background: #f0efe9;
+    border-radius: 23px 0 0 23px;
+    color: #c4cbcd;
+
+    .b-login-form__field--error & {
+        color: $color-error;
+    }
+
+    .b-login-form__field--success & {
+        color: $color-light-green;
+    }
 }
 
 .b-login-form__input-control {
@@ -59,9 +70,18 @@
     width: calc(100% - 45px);
     height: 100%;
     background: #fff;
-    border: none;
     padding-left: 20px;
     padding-right: 20px;
+    border-radius: 0 23px 23px 0;
+    border: 1px solid transparent;
+
+    .b-login-form__field--error & {
+        border-color: $color-error;
+    }
+
+    .b-login-form__field--success & {
+        border-color: $color-light-green;
+    }
 }
 
 .b-login-form__field--checkbox {
@@ -79,6 +99,7 @@
 .b-login-form__label {
     display: inline-flex;
     align-items: center;
+    position: relative;
 }
 
 .b-login-form__label-text {
@@ -94,6 +115,13 @@
 
     @media (max-width: $media-ipad - 1) {
         font-size: 16px;
+    }
+}
+
+.b-login-form__field-note-text {
+    @media (min-width: $media-ipad) {
+        display: inline-block;
+        position: relative;
     }
 }
 
@@ -171,5 +199,49 @@
     &:hover,
     &:focus {
         background-color: fade_out($color-green, 0.15);
+    }
+}
+
+.b-login-form__error-container {
+    height: 0;
+    overflow: hidden;
+    transition: height $transition-fast;
+}
+
+.b-login-form__error-content {
+    color: $color-error;
+    padding-top: $offset-vertical-base;
+    padding-bottom: $offset-vertical-base;
+}
+
+.b-login-form__tooltip {
+    position: absolute;
+    z-index: 1;
+    top: calc(100% + 10px);
+    left: 45px;
+
+    opacity: 0;
+    visibility: hidden;
+    user-select: none;
+
+    transition: opacity $transition-fast;
+
+    .b-login-form__field--error & {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .b-login-form__label &,
+    .b-login-form__field-note-text & {
+        @media (max-width: $media-ipad - 1) {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (min-width: $media-ipad) {
+            left: calc(100% + 10px);
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
 }

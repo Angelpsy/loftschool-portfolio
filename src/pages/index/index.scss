@@ -12,6 +12,18 @@
     perspective: 1000px;
 }
 
+.p-index__preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    .no-js & {
+        display: none;
+    }
+}
+
 .p-index__header {
     max-width: calc(100% - (2 * #{$gutter-base}));
     width: 1600px;

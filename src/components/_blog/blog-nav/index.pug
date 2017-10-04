@@ -1,3 +1,5 @@
+include ../../anchor/index
+
 mixin blog-nav(options)
     if !options
         - options = {}
@@ -5,5 +7,7 @@ mixin blog-nav(options)
     ul.b-blog-nav(class!=attributes.class)
         each item in options.items
             li.b-blog-nav__item.b-blog-nav-item
-                a.b-blog-nav-item__link(href=item.href)
+                +anchor({
+                    href: item.href
+                })(class="b-blog-nav-item__link")
                     span.b-blog-nav-item__text!= item.name

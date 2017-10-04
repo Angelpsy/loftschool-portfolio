@@ -42,6 +42,7 @@
 
 .b-works-form__field {
     margin-bottom: $offset-vertical-base;
+    position: relative;
 }
 
 .b-works-form__label {
@@ -73,6 +74,25 @@
     resize: vertical;
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+.b-works-form__tooltip {
+    position: absolute;
+    z-index: 1;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    opacity: 0;
+    visibility: hidden;
+    user-select: none;
+
+    transition: opacity $transition-fast;
+
+    .b-works-form__field--error & {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 .b-works-form__bottom {
@@ -124,4 +144,28 @@
     z-index: -1;
 
     filter: blur(12px) brightness(1.075);
+}
+
+.b-works-form__error-container {
+    height: 0;
+    overflow: hidden;
+    transition: height $transition-fast;
+}
+
+.b-works-form__error-content {
+    color: $color-error;
+    padding-bottom: $offset-vertical-base;
+    padding-left: 23px;
+}
+
+.b-works-form__success-container {
+    height: 0;
+    overflow: hidden;
+    transition: height $transition-fast;
+}
+
+.b-works-form__success-content {
+    color: $color-black-green;
+    padding-bottom: $offset-vertical-base;
+    padding-left: 23px;
 }

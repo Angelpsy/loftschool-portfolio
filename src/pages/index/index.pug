@@ -3,12 +3,13 @@ extends ../../templates/base/index
 append variables
     - var title = "Добро пожаловать";
 
+include ../../components/preloader/index
 include ../../components/_index/index-header/index
 include ../../components/_index/index-card/index
 include ../../components/login-form/index
 include ../../components/simple-footer/index
 block body
-
+    +preloader()(class="l-preloader")
     .p-index.l-page
         +index-header({
             menu: data.menuItemLogin

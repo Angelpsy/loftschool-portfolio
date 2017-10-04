@@ -80,7 +80,7 @@ $_bg-color: #faf8f0;
     flex-basis: ($_sidebar-width-medium / 1180px * 100%);
     padding-top: 10px;
 
-    @media (max-width: $media-ipad - 1) {
+    @media (max-width: $media-medium - 1) {
         position: fixed;
         z-index: $z-fullscreen - 1;
         top: 0;
@@ -95,9 +95,9 @@ $_bg-color: #faf8f0;
         transform: translateX(-100%);
     }
 
-    @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
-        display: none;
-    }
+    //@media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+    //    display: none;
+    //}
 
     @media (min-width: $media-max) {
         padding-right: $gutter-base;
@@ -105,7 +105,7 @@ $_bg-color: #faf8f0;
     }
 
     &::before {
-        @media (max-width: $media-ipad - 1) {
+        @media (max-width: $media-medium - 1) {
             content: '';
             display: block;
             position: absolute;
@@ -119,14 +119,14 @@ $_bg-color: #faf8f0;
 }
 
 .b-blog-main__sidebar--open {
-    @media (max-width: $media-ipad - 1) {
+    @media (max-width: $media-medium - 1) {
         box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.2);
         transform: translateX(0);
     }
 }
 
 .b-blog-main__btn-sidebar-open {
-    @media (max-width: $media-ipad - 1) {
+    @media (max-width: $media-medium - 1) {
         position: absolute;
         z-index: -1;
         left: 100%;
@@ -139,7 +139,7 @@ $_bg-color: #faf8f0;
         border: none;
     }
 
-    @media (min-width: $media-ipad) {
+    @media (min-width: $media-medium) {
         display: none;
     }
 
@@ -160,7 +160,7 @@ $_bg-color: #faf8f0;
 }
 
 .b-blog-main__nav {
-    @media (max-width: $media-ipad - 1) {
+    @media (max-width: $media-medium - 1) {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -177,6 +177,8 @@ $_bg-color: #faf8f0;
 }
 
 .b-blog-main__content {
+    position: relative;
+
     @media (min-width: $media-medium) {
         flex-basis: (680px / 1180px * 100%);
         flex-shrink: 0;
