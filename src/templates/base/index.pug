@@ -37,11 +37,13 @@ html(lang="ru-RU").no-js
         if !isServer
             link(rel="stylesheet" href=`${nameCriticalFileCssCommon}`)
             link(rel="stylesheet" href=`${nameCriticalFileCssChunk}`)
-            link(href=`${nameFileCssCommon}` rel="preload" as="style" onload="this.rel='stylesheet'")
-            link(href=`${nameFileCssChunk}` rel="preload" as="style" onload="this.rel='stylesheet'")
             noscript
                 link(rel="stylesheet" href=`${nameFileCssCommon}`)
                 link(rel="stylesheet" href=`${nameFileCssChunk}`)
+            //- for async connections the styles
+            script.
+                var nameFileCssCommon = "#{nameFileCssCommon}";
+                var nameFileCssChunk = "#{nameFileCssChunk}";
         script.
             (function (H) {
                 H.className = H.className.replace(/\bno-js\b/, 'js')
