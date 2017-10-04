@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReloadPlugin = require('reload-html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const PostCssPipelineWebpackPlugin = require('postcss-pipeline-webpack-plugin');
 const criticalSplit = require('postcss-critical-split');
@@ -124,6 +125,11 @@ module.exports = (env={}) => {
             new webpack.DefinePlugin({
                 ENV: env,
                 CRITICAL_PREFIX: JSON.stringify(CRITICAL_PREFIX),
+            }),
+            new ManifestPlugin({
+                filter: (link) => {
+                    return link.isChunk && !~link.name.lastIndexOf('.map');
+                },
             }),
         ]
             .concat(HtmlWebpackPlugins),
