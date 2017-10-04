@@ -14,6 +14,7 @@ $_footer-height: 90px;
     background-color: $color-black-green;
     color: #fff;
     text-align: center;
+    overflow: hidden;
 
     @media (max-width: $media-ipad - 1) {
         min-height: 557px;
@@ -52,6 +53,34 @@ $_footer-height: 90px;
     z-index: 1;
     margin-top: auto;
     margin-bottom: auto;
+
+    .b-hero--works &,
+    .b-hero--about & {
+        &::before {
+            @media (min-width: $media-ipad) {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: 1;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background: url("./assets/bg/portfolio.svg") center center no-repeat;
+                background-size: contain;
+                opacity: 0.12;
+            }
+
+            @media (min-width: $media-ipad) and (max-width: $media-medium - 1) {
+                height: 197px;
+                width: 738px;
+            }
+
+            @media (min-width: $media-medium) {
+                height: 313px;
+                width: 1176px;
+            }
+        }
+    }
 }
 
 .b-hero__photo-wr {
