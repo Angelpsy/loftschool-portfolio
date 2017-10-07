@@ -16,10 +16,11 @@ block body
         })(class="p-index__header")
         .p-index__main
             .p-index__card-front
+                //- TODO: require не работает в express
                 +index-card({
                     persona: {
-                        avatar: require('../../common/img/photo.jpg'),
-                        avatarX2: require('../../common/img/photo-x2.jpg'),
+                        avatar: ('img/photo.jpg'),
+                        avatarX2: ('img/photo-x2.jpg'),
                         name: persona.name
                     },
                     subTitle: 'Личный сайт веб разработчика',

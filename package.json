@@ -7,8 +7,10 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build:prod": "webpack --env.prod=1",
         "build:dev": "webpack --env.dev=1",
+        "build:static": "webpack --env.static=1 --env.prod=1",
         "server:dev": "webpack-dev-server --inline --hot --env.dev=1 --env.server=1",
         "server:dev-markup": "webpack-dev-server --inline --hot --env.dev=1 --env.server=1 --env.markup=1",
+        "server:express": "node ./bin/www",
         "lint:js": "eslint \"src/**/*.js\"",
         "lint:css": "stylelint \"src/**/*.scss\" \"src/**/*.css\"",
         "lint:all": "npm run lint:js && npm run lint:css",
@@ -76,6 +78,13 @@
     ],
     "dependencies": {
         "form-serialize": "^0.7.2",
-        "normalize.css": "^7.0.0"
+        "normalize.css": "^7.0.0",
+        "body-parser": "~1.18.2",
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.9",
+        "express": "~4.15.5",
+        "morgan": "~1.9.0",
+        "pug": "2.0.0-beta11",
+        "serve-favicon": "~2.4.5"
     }
 }

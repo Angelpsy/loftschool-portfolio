@@ -11,6 +11,7 @@ const PATHS = {
     public: '/',
     pages: 'pages/',
     ghPage: '/loftschool-portfolio/',
+    criticalPrefix: 'critical',
 };
 
 module.exports = PATHS;

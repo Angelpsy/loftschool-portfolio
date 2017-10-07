@@ -25,6 +25,7 @@ module.exports = (env={}) => {
     const isProd = !!env.prod;
     const isServer = !!env.server;
     const isMarkup = !!env.markup;
+    const isStatic = !!env.static;
     const nameBase = '[name]' + (isProd ? '.[hash]' : '');
     const name = nameBase + '.[ext]';
     const fileNameJs = nameBase + '.js';
@@ -132,7 +133,7 @@ module.exports = (env={}) => {
                 },
             }),
         ]
-            .concat(HtmlWebpackPlugins),
+            .concat(!isStatic ? HtmlWebpackPlugins : []),
         resolve: {
             alias: {},
             modules: ['node_modules', PATHS.src, './'],
