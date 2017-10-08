@@ -38,36 +38,8 @@ const ctrlWorks = new Ctrl({
     template: 'pages/works/index',
     title: 'Работы',
     templateName: 'works',
+    requests: [requestWorks, requestReviews],
 });
-
-ctrlWorks.getPage = function(req, res, next) {
-    Promise.all([
-        requestMenu(),
-        requestSocLinks(),
-        requestWorks(),
-        requestReviews(),
-    ])
-        .then((dataArray) => {
-            const data = Object.assign({},
-                dataArray[0],
-                dataArray[1],
-                dataArray[2],
-                dataArray[3]
-            );
-
-            res.render(this.template, Object.assign(
-                {
-                    title: this.title,
-                    staticManifest: this.staticManifest,
-                    templateName: this.templateName,
-                    criticalPrefix: this.criticalPrefix,
-                },
-                {
-                    data,
-                }
-            ));
-        });
-}.bind(ctrlWorks);
 
 module.exports = ctrlWorks;
 
