@@ -1,5 +1,5 @@
-const staticManifest = require('../staticManifest.js');
-const PATHS = require('../../configs/paths');
+const staticManifest = require('../../staticManifest.js');
+const PATHS = require('../../../configs/paths');
 
 /**
  *
@@ -16,6 +16,9 @@ class Ctrl {
         this.title = options.title;
         this.templateName = options.templateName;
 
+        this.staticManifest = staticManifest;
+        this.criticalPrefix = PATHS.criticalPrefix;
+
         this.getPage = this.getPage.bind(this);
     }
 
@@ -27,10 +30,11 @@ class Ctrl {
     getPage(req, res, next) {
         res.render(this.template, {
             title: this.title,
-            staticManifest,
+            staticManifest: this.staticManifest,
             templateName: this.templateName,
-            criticalPrefix: PATHS.criticalPrefix,
+            criticalPrefix: this.criticalPrefix,
         });
     }
 }
+
 module.exports = Ctrl;

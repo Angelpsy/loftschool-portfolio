@@ -11,6 +11,10 @@ const PATHS = {
     public: '/',
     pages: 'pages/',
     ghPage: '/loftschool-portfolio/',
+
+    /**
+     * @type {String}
+     */
     criticalPrefix: 'critical',
 };
 

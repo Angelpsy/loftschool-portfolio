@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const ctrlHome = require('../controllers/homepage');
-const ctrlAbout = require('../controllers/about');
-const ctrlBlog = require('../controllers/blog');
-const ctrlWorks = require('../controllers/works');
-const ctrlLogin = require('../controllers/login');
+const ctrlHome = require('../controllers/public/homepage');
+const ctrlAbout = require('../controllers/public/about');
+const ctrlBlog = require('../controllers/public/blog');
+const ctrlWorks = require('../controllers/public/works');
+const ctrlLogin = require('../controllers/public/login');
 
 /* GET home page. */
 router.get('/', ctrlHome.getPage);
