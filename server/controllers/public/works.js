@@ -3,9 +3,26 @@ const http = require('request');
 
 const apiConfig = require('../../../configs/api');
 
-const requestmenu = function() {
+const requestMenu = require('./request-menu');
+const requestSocLinks = require('./request-soc-links');
+
+const requestWorks = function() {
     return new Promise((resolve, reject) => {
-        const pathApi = '/api/menu';
+        const pathApi = '/api/works';
+        const requestOptions = {
+            url: apiConfig.server + pathApi,
+            method: 'GET',
+            json: {},
+        };
+        http(requestOptions, function(error, response, body) {
+            resolve(body.data);
+        });
+    });
+};
+
+const requestReviews = function() {
+    return new Promise((resolve, reject) => {
+        const pathApi = '/api/reviews';
         const requestOptions = {
             url: apiConfig.server + pathApi,
             method: 'GET',
@@ -25,10 +42,18 @@ const ctrlWorks = new Ctrl({
 
 ctrlWorks.getPage = function(req, res, next) {
     Promise.all([
-        requestmenu(),
+        requestMenu(),
+        requestSocLinks(),
+        requestWorks(),
+        requestReviews(),
     ])
         .then((dataArray) => {
-            const data = Object.assign({}, dataArray[0]);
+            const data = Object.assign({},
+                dataArray[0],
+                dataArray[1],
+                dataArray[2],
+                dataArray[3]
+            );
 
             res.render(this.template, Object.assign(
                 {

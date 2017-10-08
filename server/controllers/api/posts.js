@@ -4,7 +4,7 @@ const path = require('path');
 const PATH = require('../../../configs/paths');
 
 const data = JSON.parse(
-    fs.readFileSync(path.join(PATH.src, 'data', 'menu.json'))
+    fs.readFileSync(path.join(PATH.src, 'data', 'posts.json'))
 )
     .data;
 

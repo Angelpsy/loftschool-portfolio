@@ -3,9 +3,12 @@ const http = require('request');
 
 const apiConfig = require('../../../configs/api');
 
-const requestmenu = function() {
+const requestMenu = require('./request-menu');
+const requestSocLinks = require('./request-soc-links');
+
+const requestPosts = function() {
     return new Promise((resolve, reject) => {
-        const pathApi = '/api/menu';
+        const pathApi = '/api/posts';
         const requestOptions = {
             url: apiConfig.server + pathApi,
             method: 'GET',
@@ -25,10 +28,16 @@ const ctrlBlog = new Ctrl({
 
 ctrlBlog.getPage = function(req, res, next) {
     Promise.all([
-        requestmenu(),
+        requestMenu(),
+        requestSocLinks(),
+        requestPosts(),
     ])
         .then((dataArray) => {
-            const data = Object.assign({}, dataArray[0]);
+            const data = Object.assign({},
+                dataArray[0],
+                dataArray[1],
+                dataArray[2]
+            );
 
             res.render(this.template, Object.assign(
                 {

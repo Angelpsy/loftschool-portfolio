@@ -1,21 +1,7 @@
 const Ctrl = require('./_base');
-const http = require('request');
 
-const apiConfig = require('../../../configs/api');
-
-const requestmenu = function() {
-    return new Promise((resolve, reject) => {
-        const pathApi = '/api/menu';
-        const requestOptions = {
-            url: apiConfig.server + pathApi,
-            method: 'GET',
-            json: {},
-        };
-        http(requestOptions, function(error, response, body) {
-            resolve(body.data);
-        });
-    });
-};
+const requestMenu = require('./request-menu');
+const requestSocLinks = require('./request-soc-links');
 
 const ctrlLogin = new Ctrl({
     template: 'pages/login/index',
@@ -25,10 +11,14 @@ const ctrlLogin = new Ctrl({
 
 ctrlLogin.getPage = function(req, res, next) {
     Promise.all([
-        requestmenu(),
+        requestMenu(),
+        requestSocLinks(),
     ])
         .then((dataArray) => {
-            const data = Object.assign({}, dataArray[0]);
+            const data = Object.assign({},
+                dataArray[0],
+                dataArray[1]
+            );
 
             res.render(this.template, Object.assign(
                 {
