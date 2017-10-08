@@ -1,0 +1,16 @@
+{
+    "mail": {
+        "subject": "Сообщение с сайта портфолио loftschool",
+        "toEmail": "aatest74@yandex.ru",
+        "toUserName": "aatest74",
+        "smtp": {
+            "host": "smtp.yandex.ru",
+            "port": 465,
+            "secure": true,
+            "auth": {
+                "user": "aatest74",
+                "pass": "a123123"
+            }
+        }
+    }
+}

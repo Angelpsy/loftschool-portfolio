@@ -8,6 +8,7 @@ const ctrlSocLinks = require('../controllers/api/soc-links');
 const ctrlPosts = require('../controllers/api/posts');
 const ctrlSkills = require('../controllers/api/skills');
 const ctrlContacts = require('../controllers/api/contancts');
+const ctrlFeedback = require('../controllers/api/feedback');
 
 /* GET home page. */
 router.get('/menu', ctrlMenu.getPage);
@@ -17,5 +18,7 @@ router.get('/soc-links', ctrlSocLinks.getPage);
 router.get('/posts', ctrlPosts.getPage);
 router.get('/skills', ctrlSkills.getPage);
 router.get('/contacts', ctrlContacts.getPage);
+router.get('/feedback', ctrlFeedback.getPage);
+router.post('/feedback', ctrlFeedback.getPage);
 
 module.exports = router;
