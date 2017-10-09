@@ -1,9 +1,9 @@
 import '../../templates/base/index';
 import '../../components/preloader/index';
 
-
 import '../../components/_index/index-header/index';
 import '../../components/_index/index-card/index';
+// import '../../components/_index/index-bg/index'; // WebGl, TODO: оптимизировать производительность
 import '../../components/login-form/index';
 import '../../components/simple-footer/index';
 

@@ -6,10 +6,10 @@ append variables
 include ../../components/preloader/index
 include ../../components/_index/index-header/index
 include ../../components/_index/index-card/index
+//- include ../../components/_index/index-bg/index
 include ../../components/login-form/index
 include ../../components/simple-footer/index
 block body
-    +preloader()(class="l-preloader")
     .p-index.l-page
         +index-header({
             menu: data.menuItemLogin
@@ -34,4 +34,5 @@ block body
             .p-index__card-back
                 +login-form()(class="p-index__login-form")
         +simple-footer()(class="p-index__footer l-page__footer")
-
+        //- +index-bg()(class="p-index__bg")
+    +preloader()(class="l-preloader")
