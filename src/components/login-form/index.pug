@@ -14,7 +14,7 @@ mixin login-form(options)
             text: "Авторизуйтесь"
         })(class="b-login-form__title")
         .b-login-form__main
-            .b-login-form__field
+            .b-login-form__field.b-login-form__tooltip-wrapper
                 .b-login-form__input
                     label.b-login-form__input-addon(for=`${formName}-login`)
                         span.u-sr-only Логин
@@ -30,7 +30,7 @@ mixin login-form(options)
                         text: 'Вы не ввели логин',
                         isError: true
                     })(class="b-login-form__tooltip")
-            .b-login-form__field
+            .b-login-form__field.b-login-form__tooltip-wrapper
                 .b-login-form__input
                     label.b-login-form__input-addon(for=`${formName}-password`)
                         span.u-sr-only Пароль
@@ -47,7 +47,7 @@ mixin login-form(options)
                         isError: true
                     })(class="b-login-form__tooltip")
             .b-login-form__field.b-login-form__field--checkbox
-                label.b-login-form__label(for=`${formName}-human`)
+                label.b-login-form__label.b-login-form__tooltip-wrapper.b-login-form__tooltip-wrapper--right(for=`${formName}-human`)
                     +checkbox({
                         id: `${formName}-human`,
                         name: `${formName}-human`,
@@ -58,8 +58,8 @@ mixin login-form(options)
                         text: 'Только для людей',
                         isError: true,
                     })(class="b-login-form__tooltip" mod="right")
-            .b-login-form__field
-                .b-login-form__field-note
+            .b-login-form__field.b-login-form__field--radio
+                .b-login-form__field-note.b-login-form__tooltip-wrapper.b-login-form__tooltip-wrapper--right
                     span.b-login-form__field-note-text Вы точно не робот ?
                         +tooltip({
                             text: 'Только для людей',

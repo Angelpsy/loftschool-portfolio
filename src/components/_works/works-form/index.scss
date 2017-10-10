@@ -1,6 +1,9 @@
 @import "../../../common/styles/vars";
 @import "../_mixins/index";
 
+$_offset-tooltip: 50px;
+$_transitions-tooltip: $transition-standard;
+
 .b-works-form {
     border-radius: 5px;
     background-color: fade_out(#dadbd6, 0.4);
@@ -43,6 +46,12 @@
 .b-works-form__field {
     margin-bottom: $offset-vertical-base;
     position: relative;
+    transition: padding $_transitions-tooltip;
+    padding-bottom: 0;
+}
+
+.b-works-form__field--error {
+    padding-bottom: $_offset-tooltip;
 }
 
 .b-works-form__label {
@@ -79,17 +88,20 @@
 .b-works-form__tooltip {
     position: absolute;
     z-index: 1;
-    top: calc(100% + 10px);
+    bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 100%);
+    margin-bottom: -10px;
+    max-width: 100%;
 
     opacity: 0;
     visibility: hidden;
     user-select: none;
 
-    transition: opacity $transition-fast;
+    transition: opacity $transition-fast, bottom $_transitions-tooltip;
 
     .b-works-form__field--error & {
+        bottom: $_offset-tooltip;
         opacity: 1;
         visibility: visible;
     }
