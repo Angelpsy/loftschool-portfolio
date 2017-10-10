@@ -6,28 +6,28 @@
                 "name": "Сайт школы онлайн Образования 1",
                 "skills": "HTML , CSS, JavaScript",
                 "href": "#",
-                "imgFileName": "work-1.png"
+                "img": "img/work-1.png"
             },
             {
                 "id": "2",
                 "name": "Сайт школы онлайн Образования 2",
                 "skills": "HTML , CSS, JavaScript",
                 "href": "#",
-                "imgFileName": "work-2.png"
+                "img": "img/work-2.png"
             },
             {
                 "id": "3",
                 "name": "Сайт школы онлайн Образования 3",
                 "skills": "HTML , CSS, JavaScript",
                 "href": "#",
-                "imgFileName": "work-3.png"
+                "img": "img/work-3.png"
             },
             {
                 "id": "4",
                 "name": "Сайт школы онлайн Образования 4",
                 "skills": "HTML , CSS, JavaScript",
                 "href": "#",
-                "imgFileName": "work-4.png"
+                "img": "img/work-4.png"
             }
         ]
     }

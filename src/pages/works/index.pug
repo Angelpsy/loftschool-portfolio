@@ -12,10 +12,6 @@ append variables
             review.persona.photo = `img/review-photo-${review.id}.jpg`
             return review;
         });
-        var works = data.works.map((work) => {
-            work.img = `img/${work.imgFileName}`
-            return work;
-        });
 
 include ../../components/header/index
 include ../../components/hero/index
@@ -37,7 +33,7 @@ block body
             subTitle: "Личный сайт веб разработчика"
         })(class="p-works__hero" mod="works")
         +works-main({
-            works
+            works: data.works
         })(class="p-works__main" tag="main")
         +works-what({
             reviews
