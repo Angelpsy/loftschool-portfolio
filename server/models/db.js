@@ -44,3 +44,4 @@ require('./post');
 require('./work');
 require('./skills-group');
 require('./skill-item');
+require('./user');

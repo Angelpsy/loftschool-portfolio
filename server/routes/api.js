@@ -9,6 +9,7 @@ const ctrlPost = require('../controllers/api/post');
 const ctrlSkills = require('../controllers/api/skill');
 const ctrlContacts = require('../controllers/api/contancts');
 const ctrlFeedback = require('../controllers/api/feedback');
+const ctrlAuth = require('../controllers/api/auth');
 
 router.get('/menu', ctrlMenu.getPage);
 router.get('/works', ctrlWorks.getWorks);
@@ -23,5 +24,6 @@ router.post('/skill-item', ctrlSkills.createItem);
 router.get('/contacts', ctrlContacts.getPage);
 router.get('/feedback', ctrlFeedback.getPage);
 router.post('/feedback', ctrlFeedback.getPage);
+router.post('/login', ctrlAuth.login);
 
 module.exports = router;

@@ -94,7 +94,6 @@ const ctrl = {
         skills.find()
             .then((skillsGroups) => {
                 const promises = skillsGroups.map((skillsGroup) => {
-                    console.log(skillsGroup.skillItems);
                     return new Promise((resolve, reject) => {
                         Promise.all(skillsGroup.skillItems.map((idItem) => {
                             return _getItem(idItem);
@@ -143,10 +142,7 @@ const ctrl = {
             skillItems: [],
         });
 
-        // console.log(group);
-        // сохраняем запись в базе
-        group
-            .save()
+        group.save()
             .then((item) => {
                 return res
                     .status(200)

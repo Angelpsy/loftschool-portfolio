@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const crypto = require('crypto');
 // const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -10,9 +11,12 @@ const apiRoutes = require('./routes/api');
 
 const PATH = require('../configs/paths');
 
-// const staticManifest = require('./staticManifest.js');
-
 const app = express();
+
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const passport = require('passport');
 
 // view engine setup
 app.set('views', path.join(__dirname, '../src/'));
@@ -25,6 +29,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(PATH.build));
+
+
+const secret = crypto.randomBytes(16).toString('hex');
+app.use(session({
+    secret,
+    key: 'keys',
+    cookie: {
+        path: '/',
+        httpOnly: true,
+        maxAge: 1000*60*60,
+    },
+    saveUninitialized: false,
+    resave: false,
+    store: new MongoStore({mongooseConnection: mongoose.connection}),
+}));
+
+require('../configs/config-passport');
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', publicRoutes);
 app.use('/api', apiRoutes);
