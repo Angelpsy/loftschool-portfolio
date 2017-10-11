@@ -23,8 +23,9 @@ const ctrl = {
                     return next(err);
                 }
                 if (!user) {
-                    return res.json({
+                    return res.status(400).json({
                         error: true,
+                        invalidGrant: true,
                         messageError: 'Укажите правильный логин и пароль!',
                     });
                 }

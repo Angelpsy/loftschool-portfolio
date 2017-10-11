@@ -225,6 +225,7 @@ $_transitions-tooltip: $transition-standard;
     height: 0;
     overflow: hidden;
     transition: height $transition-fast;
+    transition-delay: 0.1s;
 }
 
 .b-login-form__error-content {
