@@ -39,46 +39,6 @@ function dispatchCloseLoginForm(event) {
     event.target.dispatchEvent(events.closeLoginForm.event);
 }
 
-// TODO: Перенести в Api
-/**
- * @param {{url: String}} options
- * @param {Object} data
- * @return {Promise}
- */
-function postResource(options, data) {
-    return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
-        // xhr.open('POST', options.url);
-        xhr.open('GET', options.url); // TODO: после реализации серверной части заменить на POST
-        xhr.onload = function() {
-            if (this.status >= 200
-                && this.status < 300
-                && xhr.response
-                && JSON.parse(xhr.response).success) {
-                resolve({
-                    status: this.status,
-                    statusText: xhr.statusText,
-                    response: xhr.response ? xhr.response : null,
-                });
-            } else {
-                reject({
-                    status: this.status,
-                    statusText: xhr.statusText,
-                    response: xhr.response ? xhr.response : null,
-                });
-            }
-        };
-        xhr.onerror = function() {
-            reject({
-                status: this.status,
-                statusText: xhr.statusText,
-                response: xhr.response ? xhr.response : null,
-            });
-        };
-        xhr.send(data);
-    });
-}
-
 /**
  * @param {Element} formEl
  * @param {Boolean=} _isSend
@@ -157,7 +117,23 @@ function handlerSubmit(event) {
 
     toggleIsSend(form, true);
 
-    postResource({url: 'test-server-response-login.json'}, dataForm) // TODO: заменить на корректный адрес
+    const url = 'api/login';
+
+    const data = {
+        username: dataForm[`${formName}-login`],
+        password: dataForm[`${formName}-password`],
+        isHuman: dataForm[`${formName}-human`],
+        isNorobot: dataForm[`${formName}-norobot`],
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        credentials: 'same-origin',
+        body: (JSON.stringify(data)),
+    })
         .then((data) => {
             toggleIsSend(form, false);
         })
