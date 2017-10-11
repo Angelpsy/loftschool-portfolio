@@ -6,7 +6,7 @@ append variables
 include ../../components/preloader/index
 include ../../components/_index/index-header/index
 include ../../components/_index/index-card/index
-//- include ../../components/_index/index-bg/index
+include ../../components/_index/index-bg/index
 include ../../components/login-form/index
 include ../../components/simple-footer/index
 block body
@@ -16,7 +16,6 @@ block body
         })(class="p-index__header")
         .p-index__main
             .p-index__card-front
-                //- TODO: require не работает в express
                 +index-card({
                     persona: {
                         avatar: ('img/photo.jpg'),
@@ -34,5 +33,5 @@ block body
             .p-index__card-back
                 +login-form()(class="p-index__login-form")
         +simple-footer()(class="p-index__footer l-page__footer")
-        //- +index-bg()(class="p-index__bg")
+        +index-bg()(class="p-index__bg")
     +preloader()(class="l-preloader")
