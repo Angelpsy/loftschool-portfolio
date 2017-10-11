@@ -26,4 +26,12 @@ router.get('/feedback', ctrlFeedback.getPage);
 router.post('/feedback', ctrlFeedback.getPage);
 router.post('/login', ctrlAuth.login);
 
+router.get('*', function(req, res) {
+    res.status(404).json({
+        success: false,
+        error: true,
+        messageError: 'Неизвестный url',
+    });
+});
+
 module.exports = router;

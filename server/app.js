@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 require('./models/db');
 const publicRoutes = require('./routes/public');
 const apiRoutes = require('./routes/api');
+const adminRoutes = require('./routes/admin');
+const notFoundRoutes = require('./routes/not-found');
 
 const PATH = require('../configs/paths');
 
@@ -38,7 +40,9 @@ app.use(session({
     cookie: {
         path: '/',
         httpOnly: true,
-        maxAge: 1000*60*60,
+        // maxAge: 1000*60*60*24,
+        maxAge: 1000*60,
+        // maxAge: null,
     },
     saveUninitialized: false,
     resave: false,
@@ -51,6 +55,8 @@ app.use(passport.session());
 
 app.use('/', publicRoutes);
 app.use('/api', apiRoutes);
+app.use('/admin', adminRoutes);
+app.use('*', notFoundRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
