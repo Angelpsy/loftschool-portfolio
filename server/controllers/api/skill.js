@@ -178,6 +178,7 @@ const ctrl = {
             value: req.body.value,
         });
 
+        // TODO переписать в более лаконичный вид
         item.save()
             .then((item) => {
                 return new Promise((resolve, reject) => {
