@@ -135,7 +135,12 @@ module.exports = (env={}) => {
         ]
             .concat(!isStatic ? HtmlWebpackPlugins : []),
         resolve: {
-            alias: {},
+            extensions: ['.vue', '.js', '.json'],
+            alias: {
+                'vue$': 'vue/dist/vue.esm.js',
+                'Vue': 'vue',
+                '@': 'src',
+            },
             modules: ['node_modules', PATHS.src, './'],
         },
         module: {
@@ -154,6 +159,47 @@ module.exports = (env={}) => {
                     exclude: /(node_modules)/,
                     use: {
                         loader: 'babel-loader',
+                    },
+                },
+                {
+                    test: /\.vue$/,
+                    loader: 'vue-loader',
+                    options: {
+                        loaders: {
+                            css: ExtractTextPlugin.extract({
+                                fallback: 'vue-style-loader?sourceMap',
+                                use: [
+                                    {
+                                        loader: 'css-loader',
+                                        options: {
+                                            sourceMap: true,
+                                            extract: false,
+                                        },
+                                    },
+                                    {
+                                        loader: 'postcss-loader',
+                                        options: {
+                                            sourceMap: true,
+                                            extract: false,
+                                        },
+                                    },
+                                    {
+                                        loader: 'sass-loader',
+                                        options: {
+                                            sourceMap: true,
+                                            extract: false,
+                                        },
+                                    },
+                                ],
+                            }),
+                        },
+                        extractCSS: true,
+                        // transformToRequire: {
+                        //     video: 'src',
+                        //     source: 'src',
+                        //     img: 'src',
+                        //     image: 'xlink:href',
+                        // },
                     },
                 },
                 {
