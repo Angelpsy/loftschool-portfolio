@@ -3,29 +3,15 @@ block variables
         var title = "Base шаблон";
         var menuItemActiveHref = "base.html";
         var persona = {
-            name: "Алексей Алексеев"
+        name: "Алексей Алексеев"
         }
 
-    //-
-        DATA BLOCKS
-    -
-        var data = htmlWebpackPlugin.options.data.data;
-        data.menuItemsFull = [].concat(data.menuItemIndex, data.menuItems, data.menuItemLogin);
+    if (templateName)
+        include ./varsExpress
+    else
+        include ./varsWebpack
 
-    //-
-        CRITICAL CSS BLOCKS
-    -
-        var templateName = htmlWebpackPlugin.options.templateName
-        var assetsByChunk = locals.webpack.assetsByChunkName[templateName]
-        var nameFileJsChunk = assetsByChunk[0] // TODO
-        var nameFileCssChunk = assetsByChunk[1] // TODO
-        var nameCriticalFileCssChunk = nameFileCssChunk.substring(0, nameFileCssChunk.lastIndexOf('.css')) + `.${CRITICAL_PREFIX}.css`
-        var assetsCommon = locals.webpack.assetsByChunkName['common']
-        var nameFileJsCommon = assetsCommon[0] // TODO
-        var nameFileCssCommon = assetsCommon[1] // TODO
-        var nameCriticalFileCssCommon = nameFileCssCommon.substring(0, nameFileCssCommon.lastIndexOf('.css')) + `.${CRITICAL_PREFIX}.css`
-        var isServer = !!ENV.server
-
+    - var data = locals.data
 
 doctype html
 html(lang="ru-RU").no-js
@@ -34,16 +20,17 @@ html(lang="ru-RU").no-js
         meta(charset="UTF-8")
         meta(name="viewport", content="initial-scale=1.0,width=device-width")
         title=title
-        if !isServer
-            link(rel="stylesheet" href=`${nameCriticalFileCssCommon}`)
-            link(rel="stylesheet" href=`${nameCriticalFileCssChunk}`)
+        if !locals.isServer
+            link(rel="stylesheet" href=`${locals.nameCriticalFileCssCommon}`)
+            link(rel="stylesheet" href=`${locals.nameCriticalFileCssChunk}`)
             noscript
-                link(rel="stylesheet" href=`${nameFileCssCommon}`)
-                link(rel="stylesheet" href=`${nameFileCssChunk}`)
+                link(rel="stylesheet" href=`${locals.nameFileCssCommon}`)
+                link(rel="stylesheet" href=`${locals.nameFileCssChunk}`)
             //- for async connections the styles
             script.
-                var nameFileCssCommon = "#{nameFileCssCommon}";
-                var nameFileCssChunk = "#{nameFileCssChunk}";
+                var nameFileCssCommon = "#{locals.nameFileCssCommon}";
+                var nameFileCssChunk = "#{locals.nameFileCssChunk}";
+
         script.
             (function (H) {
                 H.className = H.className.replace(/\bno-js\b/, 'js')
@@ -53,6 +40,7 @@ html(lang="ru-RU").no-js
         block body
             div Основное содержимое базового шаблона
 
-        if !isServer
-            script(src=nameFileJsCommon defer)
-            script(src=nameFileJsChunk defer)
+        if !locals.isServer
+            script(src=locals.nameFileJsCommon defer)
+            script(src=locals.nameFileJsChunk defer)
+

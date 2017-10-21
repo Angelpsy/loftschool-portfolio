@@ -8,6 +8,6 @@ mixin blog-nav(options)
         each item in options.items
             li.b-blog-nav__item.b-blog-nav-item
                 +anchor({
-                    href: item.href
+                    href: `#${item.id}`
                 })(class="b-blog-nav-item__link")
                     span.b-blog-nav-item__text!= item.name

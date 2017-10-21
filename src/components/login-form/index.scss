@@ -1,5 +1,8 @@
 @import "../../common/styles/vars";
 
+$_offset-tooltip: 50px;
+$_transitions-tooltip: $transition-standard;
+
 .b-login-form {
     padding-top: 32px;
     background: rgba(18, 38, 32, 0.6);
@@ -35,7 +38,13 @@
 .b-login-form__field {
     margin-bottom: $offset-vertical-base;
     position: relative;
+    //transition: padding $_transitions-tooltip;
+    //padding-bottom: 0;
 }
+
+//.b-login-form__field--error:not(.b-login-form__field--checkbox):not(.b-login-form__field--radio) {
+//    padding-bottom: $_offset-tooltip;
+//}
 
 .b-login-form__input {
     display: flex;
@@ -90,7 +99,17 @@
     @media (max-width: $media-ipad - 1) {
         font-size: 16px;
     }
+    //
+    //&.b-login-form__field--error .b-login-form__label {
+    //    padding-bottom: $_offset-tooltip;
+    //}
 }
+
+//.b-login-form__field--radio {
+//    &.b-login-form__field--error .b-login-form__field-note {
+//        padding-bottom: $_offset-tooltip;
+//    }
+//}
 
 .b-login-form__checkbox {
     //
@@ -206,6 +225,7 @@
     height: 0;
     overflow: hidden;
     transition: height $transition-fast;
+    transition-delay: 0.1s;
 }
 
 .b-login-form__error-content {
@@ -217,16 +237,19 @@
 .b-login-form__tooltip {
     position: absolute;
     z-index: 1;
-    top: calc(100% + 10px);
-    left: 45px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    margin-bottom: -10px;
 
     opacity: 0;
     visibility: hidden;
     user-select: none;
 
-    transition: opacity $transition-fast;
+    transition: opacity $transition-fast, bottom $_transitions-tooltip;
 
     .b-login-form__field--error & {
+        bottom: $_offset-tooltip;
         opacity: 1;
         visibility: visible;
     }
@@ -235,13 +258,33 @@
     .b-login-form__field-note-text & {
         @media (max-width: $media-ipad - 1) {
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, 100%);
         }
 
         @media (min-width: $media-ipad) {
             left: calc(100% + 10px);
             top: 50%;
             transform: translateY(-50%);
+        }
+    }
+}
+
+.b-login-form__tooltip-wrapper {
+    transition: padding $_transitions-tooltip;
+    padding-bottom: 0;
+    position: relative;
+
+    &.b-login-form__field--error,
+    .b-login-form__field--error & {
+        padding-bottom: $_offset-tooltip;
+    }
+}
+
+.b-login-form__tooltip-wrapper--right {
+    &.b-login-form__field--error,
+    .b-login-form__field--error & {
+        @media (min-width: $media-ipad) {
+            padding-bottom: 0;
         }
     }
 }

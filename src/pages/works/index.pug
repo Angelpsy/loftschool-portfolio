@@ -9,12 +9,8 @@ append variables
         menuItemActiveHref: menuItemActiveHref
         }
         var reviews = data.reviews.map((review) => {
-            review.persona.photo = require(`../../common/img/review-photo-${review.id}.jpg`)
+            review.persona.photo = `img/review-photo-${review.id}.jpg`
             return review;
-        });
-        var works = data.works.map((work) => {
-            work.img = require(`./content/${work.imgFileName}`)
-            return work;
         });
 
 include ../../components/header/index
@@ -30,14 +26,14 @@ block body
         })(class="p-works__header l-page__header")
         +hero({
             persona: {
-                avatar: require("../../common/img/photo.jpg"),
-                avatarX2: require("../../common/img/photo-x2.jpg"),
+                avatar: "img/photo.jpg",
+                avatarX2: "img/photo-x2.jpg",
                 name: persona.name
             },
             subTitle: "Личный сайт веб разработчика"
         })(class="p-works__hero" mod="works")
         +works-main({
-            works
+            works: data.works
         })(class="p-works__main" tag="main")
         +works-what({
             reviews

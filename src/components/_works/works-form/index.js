@@ -50,45 +50,6 @@ drawBlur = throttle(drawBlur, 300);
  */
 let isSend = false;
 
-// TODO: Перенести в Api
-/**
- * @param {{url: String}} options
- * @param {Object} data
- * @return {Promise}
- */
-function getResource(options, data) {
-    return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', options.url);
-        xhr.onload = function() {
-            if (this.status >= 200
-                && this.status < 300
-                && xhr.response
-                && JSON.parse(xhr.response).success) {
-                resolve({
-                    status: this.status,
-                    statusText: xhr.statusText,
-                    response: xhr.response ? xhr.response : null,
-                });
-            } else {
-                reject({
-                    status: this.status,
-                    statusText: xhr.statusText,
-                    response: xhr.response ? xhr.response : null,
-                });
-            }
-        };
-        xhr.onerror = function() {
-            reject({
-                status: this.status,
-                statusText: xhr.statusText,
-                response: xhr.response ? xhr.response : null,
-            });
-        };
-        xhr.send(data);
-    });
-}
-
 /**
  * @param {Element} formEl
  * @param {Boolean=} _isSend
@@ -96,6 +57,16 @@ function getResource(options, data) {
 function toggleIsSend(formEl, _isSend = false) {
     formEl.querySelector('[type="submit"]').disabled = _isSend;
     isSend = _isSend;
+}
+
+/**
+ * @param {String=} textError
+ */
+function showError(textError = 'Что-то пошло не так') {
+    const contentEl = form.querySelector('.' + CLASSES.formErrorContent); // TODO: заменить на el
+    contentEl.innerText = textError;
+    const containerEl = form.querySelector('.' + CLASSES.formErrorContainer);
+    containerEl.style.height = contentEl.offsetHeight + 'px';
 }
 
 /**
@@ -161,21 +132,35 @@ function handlerSubmit(event) {
 
     toggleIsSend(form, true);
 
-    getResource({url: 'test-server-response-feedback.json'}, dataForm) // TODO: заменить на корректный адрес
-        .then((data) => {
-            const contentEl = form.querySelector('.' + CLASSES.formSuccessContent); // TODO: заменить на el
-            contentEl.innerText = JSON.parse(data.response).message
-                || 'Ваше сообщение отправлено';
-            const containerEl = form.querySelector('.' + CLASSES.formSuccessContainer);
-            containerEl.style.height = contentEl.offsetHeight + 'px';
+
+    const url = 'api/feedback?'
+        + '&name=' + (dataForm[`${formName}-name`] || '')
+        + '&email=' + (dataForm[`${formName}-email`] || '');
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'message=' + (dataForm[`${formName}-message`] || ''),
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            if (response.success) {
+                const contentEl = form.querySelector('.' + CLASSES.formSuccessContent); // TODO: заменить на el
+                contentEl.innerText = response.message
+                    || 'Ваше сообщение отправлено';
+                const containerEl = form.querySelector('.' + CLASSES.formSuccessContainer);
+                containerEl.style.height = contentEl.offsetHeight + 'px';
+            } else {
+                showError(response && response.messageError);
+            }
             toggleIsSend(form, false);
         })
-        .catch((data) => {
-            const contentEl = form.querySelector('.' + CLASSES.formErrorContent); // TODO: заменить на el
-            contentEl.innerText = JSON.parse(data.response).messageError
-                || 'Что-то пошло не так';
-            const containerEl = form.querySelector('.' + CLASSES.formErrorContainer);
-            containerEl.style.height = contentEl.offsetHeight + 'px';
+        .catch((response) => {
+            showError(response && response.messageError);
             toggleIsSend(form, false);
         });
 }

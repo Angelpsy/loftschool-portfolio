@@ -1,0 +1,19 @@
+//-
+    DATA BLOCKS
+-
+    locals.data = htmlWebpackPlugin.options.data.data;
+    locals.data.menuItemsFull = [].concat(locals.data.menuItemIndex, locals.data.menuItems, locals.data.menuItemLogin);
+
+//-
+    CRITICAL CSS BLOCKS
+-
+    locals.templateName = htmlWebpackPlugin.options.templateName
+    locals.assetsByChunk = locals.webpack.assetsByChunkName[locals.templateName]
+    locals.nameFileJsChunk = locals.assetsByChunk[0] // TODO
+    locals.nameFileCssChunk = locals.assetsByChunk[1] // TODO
+    locals.nameCriticalFileCssChunk = locals.nameFileCssChunk.substring(0, locals.nameFileCssChunk.lastIndexOf('.css')) + `.${CRITICAL_PREFIX}.css`
+    locals.assetsCommon = locals.webpack.assetsByChunkName['common']
+    locals.nameFileJsCommon = locals.assetsCommon[0] // TODO
+    locals.nameFileCssCommon = locals.assetsCommon[1] // TODO
+    locals.nameCriticalFileCssCommon = locals.nameFileCssCommon.substring(0, locals.nameFileCssCommon.lastIndexOf('.css')) + `.${CRITICAL_PREFIX}.css`
+    locals.isServer = !!ENV.server

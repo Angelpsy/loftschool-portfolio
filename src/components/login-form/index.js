@@ -39,46 +39,6 @@ function dispatchCloseLoginForm(event) {
     event.target.dispatchEvent(events.closeLoginForm.event);
 }
 
-// TODO: Перенести в Api
-/**
- * @param {{url: String}} options
- * @param {Object} data
- * @return {Promise}
- */
-function postResource(options, data) {
-    return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
-        // xhr.open('POST', options.url);
-        xhr.open('GET', options.url); // TODO: после реализации серверной части заменить на POST
-        xhr.onload = function() {
-            if (this.status >= 200
-                && this.status < 300
-                && xhr.response
-                && JSON.parse(xhr.response).success) {
-                resolve({
-                    status: this.status,
-                    statusText: xhr.statusText,
-                    response: xhr.response ? xhr.response : null,
-                });
-            } else {
-                reject({
-                    status: this.status,
-                    statusText: xhr.statusText,
-                    response: xhr.response ? xhr.response : null,
-                });
-            }
-        };
-        xhr.onerror = function() {
-            reject({
-                status: this.status,
-                statusText: xhr.statusText,
-                response: xhr.response ? xhr.response : null,
-            });
-        };
-        xhr.send(data);
-    });
-}
-
 /**
  * @param {Element} formEl
  * @param {Boolean=} _isSend
@@ -86,6 +46,29 @@ function postResource(options, data) {
 function toggleIsSend(formEl, _isSend = false) {
     formEl.querySelector('[type="submit"]').disabled = _isSend;
     isSend = _isSend;
+}
+
+/**
+ * @param {*} response
+ * @private
+ */
+function _handlerErrorRequest(response) {
+    const contentEl = form.querySelector('.' + CLASSES.formErrorContent); // TODO: заменить на el
+    contentEl.innerText = response && response.messageError
+        ? response.messageError
+        : 'Что-то пошло не так';
+    const containerEl = form.querySelector('.' + CLASSES.formErrorContainer); // TODO: заменить на el
+    containerEl.style.height = contentEl.offsetHeight + 'px';
+}
+
+/**
+ * @private
+ */
+function _clearContainer() {
+    const contentEl = form.querySelector('.' + CLASSES.formErrorContent); // TODO: заменить на el
+    contentEl.innerText = '';
+    const containerEl = form.querySelector('.' + CLASSES.formErrorContainer); // TODO: заменить на el
+    containerEl.style.height = '';
 }
 
 /**
@@ -156,17 +139,48 @@ function handlerSubmit(event) {
     }
 
     toggleIsSend(form, true);
+    _clearContainer();
 
-    postResource({url: 'test-server-response-login.json'}, dataForm) // TODO: заменить на корректный адрес
-        .then((data) => {
-            toggleIsSend(form, false);
+    const url = 'api/login';
+
+    const data = {
+        username: dataForm[`${formName}-login`],
+        password: dataForm[`${formName}-password`],
+        isHuman: dataForm[`${formName}-human`],
+        isNorobot: dataForm[`${formName}-norobot`],
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        credentials: 'same-origin',
+        body: (JSON.stringify(data)),
+    })
+        .then((response) => {
+            return response.json();
         })
-        .catch((data) => {
-            const contentEl = form.querySelector('.' + CLASSES.formErrorContent); // TODO: заменить на el
-            contentEl.innerText = JSON.parse(data.response).messageError
-                || 'Что-то пошло не так';
-            const containerEl = form.querySelector('.' + CLASSES.formErrorContainer); // TODO: заменить на el
-            containerEl.style.height = contentEl.offsetHeight + 'px';
+        .then((response) => {
+            toggleIsSend(form, false);
+
+            if (response.error) {
+                _handlerErrorRequest(response);
+
+                // TODO: подумать над выносом в отдельную функцию
+                if (response.invalidGrant) {
+                    fields.forEach((field) => {
+                        const el = container.querySelector(field.selector);
+                        const rowEl = el.closest('.' + CLASSES.field);
+                        rowEl.classList.remove(CLASSES.fieldSucces);
+                    });
+                }
+            } else {
+                window.location.pathname = '/admin';
+            }
+        })
+        .catch((response) => {
+            _handlerErrorRequest(response);
             toggleIsSend(form, false);
         });
 }

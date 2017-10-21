@@ -4,7 +4,7 @@
             {
                 "id": "1",
                 "persona": {
-                    "photoUrl": "../common/img/review-photo-1.jpg",
+                    "photoUrl": "img/review-photo-1.jpg",
                     "name": "Ковальчук Дмитрий",
                     "post": "основатель Loftschool"
                 },
@@ -13,7 +13,7 @@
             {
                 "id": "2",
                 "persona": {
-                    "photoUrl": "../common/img/review-photo-2.jpg",
+                    "photoUrl": "img/review-photo-2.jpg",
                     "name": "Сабанцев Владимир",
                     "post": "преподаватель"
                 },

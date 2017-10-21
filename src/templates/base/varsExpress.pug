@@ -1,0 +1,16 @@
+//-
+    DATA BLOCKS
+-
+    locals.data.menuItemsFull = [].concat(locals.data.menuItemIndex, locals.data.menuItems, locals.data.menuItemLogin);
+
+//-
+    CRITICAL CSS BLOCKS
+-
+    locals.templateName = templateName
+    locals.nameFileJsChunk = staticManifest[templateName + '.js']
+    locals.nameFileCssChunk = staticManifest[templateName + '.css']
+    locals.nameCriticalFileCssChunk = locals.nameFileCssChunk.substring(0, locals.nameFileCssChunk.lastIndexOf('.css')) + `.${criticalPrefix}.css`
+    locals.nameFileJsCommon = staticManifest['common.js']
+    locals.nameFileCssCommon = staticManifest['common.css']
+    locals.nameCriticalFileCssCommon = locals.nameFileCssCommon.substring(0, locals.nameFileCssCommon.lastIndexOf('.css')) + `.${criticalPrefix}.css`
+    locals.isServer = false

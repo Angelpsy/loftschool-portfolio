@@ -22,16 +22,16 @@ block body
         })(class="p-about__header l-page__header")
         +hero({
             persona: {
-                avatar: require("../../common/img/photo.jpg"),
-                avatarX2: require('../../common/img/photo-x2.jpg'),
+                avatar: "img/photo.jpg",
+                avatarX2: 'img/photo-x2.jpg',
                 name: persona.name
             },
             subTitle: "Личный сайт веб разработчика"
         })(class="p-about__hero" mod="about")
         +about-main({
             skills: data.skills,
-            photo: require("../../common/img/photo-about.jpg"),
-            photoX2: require("../../common/img/photo-about-x2.jpg"),
+            photo: "img/photo-about.jpg",
+            photoX2: "img/photo-about-x2.jpg",
             persona: persona
         })(class="p-about__main")
         +about-contacts({

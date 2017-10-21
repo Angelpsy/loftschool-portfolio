@@ -218,6 +218,12 @@ class SuperSlider {
      *
      */
     init() {
+        if (this.sliders.some((slider) => {
+            return slider.slides.length <= 1;
+        })) {
+            return;
+        }
+
         this.sliders.forEach((slider) => {
             slider.init();
         });
