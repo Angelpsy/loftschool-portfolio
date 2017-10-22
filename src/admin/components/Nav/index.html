@@ -1,6 +1,14 @@
 <section class="b-admin-nav">
     <h2 class="u-sr-only">Навигация</h2>
-    <router-link :to="{ name: 'about'}">Обо мне</router-link>
-    <router-link :to="{ name: 'blog'}">Блог</router-link>
-    <router-link :to="{ name: 'works'}">Мои работы</router-link>
+    <ul class="b-admin-nav__list">
+        <router-link
+            v-for="link in links"
+            tag="li"
+            class="b-admin-nav__item"
+            active-class="b-admin-nav__item--active"
+            :key="link.id"
+            :to="{ name: link.hrefName}">
+            <a class="b-admin-nav__item-link">{{link.text}}</a>
+        </router-link>
+    </ul>
 </section>

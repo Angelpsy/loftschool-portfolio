@@ -23,6 +23,11 @@ const routes = [
         name: 'works',
         component: Works,
     },
+    {
+        path: '*',
+        name: '*',
+        component: About, // TODO: реализовать компонент not found
+    },
 ];
 
 export default routes;

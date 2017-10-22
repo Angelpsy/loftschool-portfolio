@@ -1,0 +1,37 @@
+@import "../../../common/styles/vars";
+@import "../../../common/styles/mixins";
+
+.b-admin-nav {
+    //
+}
+
+.b-admin-nav__list {
+    @include nl;
+    display: flex;
+    background: #f0efe9;
+}
+
+.b-admin-nav__item {
+    flex-basis: 180px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+    transition: background-color $transition-fast;
+
+    &:first-of-type {
+        border-left: none;
+    }
+}
+
+.b-admin-nav__item--active {
+    background-color: #fff;
+}
+
+.b-admin-nav__item-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+
+    text-decoration: none;
+}
