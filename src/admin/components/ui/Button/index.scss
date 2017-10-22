@@ -1,0 +1,12 @@
+@import "../../../../common/styles/vars";
+@import "../../../../common/styles/mixins";
+
+.ui-button {
+    @include adminUiBase($color-light-green);
+    color: #fff;
+}
+
+.ui-button__text {
+    padding: 1px 20px;
+    font-weight: 500;
+}

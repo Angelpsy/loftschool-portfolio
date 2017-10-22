@@ -1,0 +1,5 @@
+<button class="ui-button" @click="handlerClick">
+    <slot>
+        <span class="ui-button__text" v-if="text">{{text}}</span>
+    </slot>
+</button>

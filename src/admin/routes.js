@@ -6,7 +6,7 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: About,
+        redirect: '/about',
     },
     {
         path: '/about',
@@ -26,7 +26,7 @@ const routes = [
     {
         path: '*',
         name: '*',
-        component: About, // TODO: реализовать компонент not found
+        redirect: '/about', // TODO: реализовать компонент not found
     },
 ];
 

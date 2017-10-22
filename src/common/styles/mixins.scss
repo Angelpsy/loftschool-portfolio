@@ -1,3 +1,5 @@
+@import "./vars";
+
 // Mixins.
 
 @mixin nl {
@@ -34,4 +36,12 @@
     @media (min-width: $media-medium) {
         background-image: url("#{$path}bg-forest-max.jpg");
     }
+}
+
+@mixin adminUiBase($bg-color: #fff) {
+    height: $ui-height-base;
+    border-radius: $ui-border-radius;
+    border: none;
+
+    background-color: $bg-color;
 }

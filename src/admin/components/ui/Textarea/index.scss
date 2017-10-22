@@ -1,0 +1,16 @@
+@import "../../../../common/styles/vars";
+@import "../../../../common/styles/mixins";
+
+.ui-textarea {
+    @include adminUiBase;
+
+    padding: 15px 20px 10px;
+
+    min-height: $ui-height-base + 18px;
+
+    resize: vertical;
+
+    &::placeholder {
+        opacity: 0.5;
+    }
+}

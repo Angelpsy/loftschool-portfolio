@@ -1,0 +1,13 @@
+@import "../../../../common/styles/vars";
+@import "../../../../common/styles/mixins";
+
+.ui-input {
+    @include adminUiBase;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &::placeholder {
+        opacity: 0.5;
+    }
+}
