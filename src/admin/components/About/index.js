@@ -1,3 +1,6 @@
+import Page from '../Page';
+import Skills from '../Skills';
+
 const About = {
     name: 'About',
     data() {
@@ -7,8 +10,8 @@ const About = {
     props: {
     },
     components: {
-    },
-    methods: {
+        Page,
+        Skills,
     },
     created() {
     },

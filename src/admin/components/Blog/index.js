@@ -1,5 +1,7 @@
-const Page = {
-    name: 'Page',
+import Page from '../Page';
+
+const Blog = {
+    name: 'Blog',
     data() {
         return {
         };
@@ -7,6 +9,7 @@ const Page = {
     props: {
     },
     components: {
+        Page,
     },
     methods: {
     },
@@ -14,4 +17,4 @@ const Page = {
     },
 };
 
-export default Page;
+export default Blog;

@@ -10,4 +10,8 @@
     &::placeholder {
         opacity: 0.5;
     }
+
+    &[readonly] {
+        background: #ccc;
+    }
 }

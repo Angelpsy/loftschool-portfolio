@@ -1,0 +1,40 @@
+<div class="b-admin-skills-item">
+
+    <form
+        class="b-admin-skills-item__form">
+        <ui-input
+            :readonly="!isEdit"
+            class="b-admin-skills-item__form-field-name"
+            v-model="name" />
+        <ui-input
+            :readonly="!isEdit"
+            class="b-admin-skills-item__form-field-value"
+            v-model.number="value" :validatorFn="validatorFnValue"/>
+
+        <ui-button
+            v-show="!isEdit"
+            mod="info"
+            text="Редактировать"
+            @click="_toggleEdit"></ui-button>
+
+        <ui-button
+            v-show="!isEdit"
+            mod="danger"
+            text="Удалить"
+            @click="_remove"
+            :disabled="isSend"></ui-button>
+
+        <ui-button
+            v-show="isEdit"
+            type="submit"
+            text="Обновить"
+            @click="update"
+            :disabled="!isValidData || isSend"></ui-button>
+
+        <ui-button
+            v-show="isEdit"
+            text="Отменить"
+            mod="default"
+            @click="_cancelEdit"></ui-button>
+    </form>
+</div>

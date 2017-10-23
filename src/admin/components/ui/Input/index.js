@@ -6,18 +6,31 @@ const UIInput = {
     },
     props: {
         value: {
-            type: String,
+            type: [String, Number],
             required: true,
+        },
+        validatorFn: {
+            type: Function,
+            required: false,
         },
     },
     components: {
     },
     methods: {
         handlerChange($event) {
-            this.$emit('change', $event.target.value);
+            const val = $event.target.value;
+            if (typeof this.validatorFn === 'function' && !this.validatorFn(val)) {
+                return;
+            }
+            this.$emit('change', val);
         },
         handlerInput($event) {
-            this.$emit('input', $event.target.value);
+            const val = $event.target.value;
+            if (typeof this.validatorFn === 'function' && !this.validatorFn(val)) {
+                $event.target.value = this.value;
+                return;
+            }
+            this.$emit('input', val);
         },
     },
     created() {

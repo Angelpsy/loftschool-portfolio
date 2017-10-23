@@ -1,4 +1,4 @@
-<button class="ui-button" @click="handlerClick">
+<button type="button" class="ui-button" :class="classes" @click="handlerClick">
     <slot>
         <span class="ui-button__text" v-if="text">{{text}}</span>
     </slot>

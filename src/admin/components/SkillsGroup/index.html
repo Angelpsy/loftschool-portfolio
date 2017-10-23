@@ -1,0 +1,47 @@
+<div class="b-admin-skills-group">
+
+    <div class="b-admin-skills-group__title l-row">{{group.name}}</div>
+
+    <div class="b-admin-skills-group__row-add-new-item l-row">
+        <ui-button
+            v-show="!formNewItemShow"
+            text="Добавить отдельное умение"
+            :mod="'info'"
+            @click="_openFormNewItem"></ui-button>
+        <form
+            v-show="formNewItemShow"
+            class="b-admin-skills-group__form-new-item">
+            <ui-input v-model="newItemName" placeholder="Новое умение"/>
+
+            <ui-input v-model.number="newItemValue" :validatorFn="validatorFnValue"/>
+
+            <ui-button text="Сохранить" type="submit" @click="_addItem" :disabled="!isValidFormNewItem || isSend"></ui-button>
+            <ui-button text="Очистить" :mod="'default'" @click="_clearFormNewItem"></ui-button>
+            <ui-button text="Закрыть" :mod="'warning'" @click="_closeFormNewItem"></ui-button>
+        </form>
+    </div>
+    <slot></slot>
+
+    <div class="l-row">
+        <form
+            v-show="formGroupShow"
+            class="b-admin-skills-group__form-edit-group">
+            <ui-input v-model="groupName" />
+
+            <ui-button text="Сохранить" type="submit" @click="_updateGroup" :disabled="!isValidFormEditGroup || isSend"></ui-button>
+            <ui-button text="Отменить" :mod="'default'" @click="_closeFormEditGroup(); _clearFormEditGroup()"></ui-button>
+        </form>
+
+        <ui-button
+            v-show="!formGroupShow"
+            text="Редактировать группу"
+            :mod="'info'"
+            @click="_openFormEditGroup"></ui-button>
+        <ui-button
+            v-show="!formGroupShow"
+            :text="`Удалить группу умений ${group.name}`"
+            :mod="'danger'"
+            :disabled="isSend"
+            @click="_remove"></ui-button>
+    </div>
+</div>

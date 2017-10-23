@@ -1,0 +1,58 @@
+@import "../../../common/styles/mixins";
+
+.b-admin-skills__row-new-group {
+    display: flex;
+    position: relative;
+
+    height: $ui-height-base;
+
+    margin-bottom: 80px;
+
+    overflow: hidden;
+}
+
+$_transition-btn: $transition-standard;
+$_transition-form: $transition-standard*3;
+
+.b-admin-skills__btn-show-new-group {
+    &.left-enter-active,
+    &.left-leave-active {
+        transform: translateX(0);
+        transition: transform $_transition-btn;
+        transition-delay: $_transition-form;
+    }
+
+    &.left-enter,
+    &.left-leave-to {
+        transform: translateX(-100%);
+        transition-delay: 0s;
+        position: absolute;
+    }
+}
+
+.b-admin-skills__form-new-group {
+    overflow: hidden;
+
+    &.left-enter-active,
+    &.left-leave-active {
+        transform: translateX(0);
+        transition: transform $_transition-form;
+        transition-delay: $_transition-btn;
+    }
+
+    &.left-enter,
+    &.left-leave-to {
+        transform: translateX(-100%);
+        transition-delay: 0s;
+        position: absolute;
+    }
+}
+
+.b-admin-skills__group {
+    margin-bottom: 80px;
+}
+
+.b-admin-skills__group-list {
+    @include nl;
+    margin-top: 20px;
+}

@@ -1,0 +1,53 @@
+<div class="b-admin-skills">
+
+    <div class="b-admin-skills__row-new-group l-row">
+
+        <transition name="left">
+
+            <ui-button
+                class="b-admin-skills__btn-show-new-group"
+                v-show="!formNewGroupShow"
+                text="Добавить группу умений"
+                :mod="'info'"
+                @click="_open"></ui-button>
+        </transition>
+
+        <transition name="left">
+            <form
+                v-show="formNewGroupShow"
+                class="b-admin-skills__form-new-group">
+                <ui-input v-model="newGroupName" placeholder="Новая Группа умений"/>
+
+                <ui-button text="Сохранить" type="submit" @click="_addGroup(newGroupName)" :disabled="!isValidData || isSend"></ui-button>
+                <ui-button text="Очистить" :mod="'default'" @click="_clear"></ui-button>
+                <ui-button text="Закрыть" :mod="'warning'" @click="_close"></ui-button>
+            </form>
+        </transition>
+
+    </div>
+
+    <SkillsGroup
+        v-for="group in skills"
+        :key="group.id"
+        :group="group"
+        :updateGroup="updateGroup"
+        :removeGroup="removeGroup"
+        :addItem="addItem"
+        class="b-admin-skills__group">
+
+        <ul class="b-admin-skills__group-list">
+           <li
+               v-for="item in group.items"
+               :key="item.id"
+               class="b-admin-skills__group-item l-row">
+               <SkillsItem
+                   :updateItem="updateItem"
+                   :removeItem="removeItem"
+                   :item="item"
+               ></SkillsItem>
+           </li>
+        </ul>
+
+    </SkillsGroup>
+
+</div>

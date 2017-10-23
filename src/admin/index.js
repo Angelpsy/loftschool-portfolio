@@ -7,6 +7,9 @@ import AppInput from './components/ui/Input';
 import AppTextarea from './components/ui/Textarea';
 
 import routes from './routes';
+import store from './store';
+
+import './styles/layout.scss';
 
 const router = new VueRouter({routes});
 
@@ -20,6 +23,7 @@ Vue.component('ui-textarea', AppTextarea);
 new Vue({
     el: '#root',
     router,
+    store,
     template: '<App />',
     components: {
         App,

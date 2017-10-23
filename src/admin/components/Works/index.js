@@ -1,3 +1,5 @@
+import Page from '../Page';
+
 const Works = {
     name: 'Works',
     data() {
@@ -7,6 +9,7 @@ const Works = {
     props: {
     },
     components: {
+        Page,
     },
     methods: {
     },

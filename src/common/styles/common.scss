@@ -58,8 +58,11 @@ textarea::placeholder {
 button,
 button:active {
     padding: 1px 6px;
+    cursor: pointer;
+    transition: opacity $transition-fast;
 }
 
 button:disabled {
     opacity: 0.5;
+    cursor: default;
 }

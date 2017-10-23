@@ -13,7 +13,8 @@
 }
 
 .b-admin-app__main {
-    background: url("./assets/bg-main.jpg") center center no-repeat;
+    background: url("./assets/bg-main.jpg") center center no-repeat fixed;
+    background-size: cover;
     flex-grow: 1;
     padding-left: $offset-admin;
     padding-right: $offset-admin;

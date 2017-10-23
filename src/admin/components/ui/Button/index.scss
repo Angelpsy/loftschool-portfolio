@@ -6,6 +6,24 @@
     color: #fff;
 }
 
+.ui-button--info {
+    background-color: $color-blue-gray;
+}
+
+.ui-button--default {
+    background-color: transparent;
+    color: inherit;
+    border: 1px solid;
+}
+
+.ui-button--warning {
+    background-color: $color-black-green;
+}
+
+.ui-button--danger {
+    background-color: $color-error;
+}
+
 .ui-button__text {
     padding: 1px 20px;
     font-weight: 500;
