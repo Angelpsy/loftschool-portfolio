@@ -1,5 +1,5 @@
 import Page from '../Page';
-import Skills from '../Skills';
+import SkillsContainer from '../SkillsContainer';
 
 const About = {
     name: 'About',
@@ -11,7 +11,7 @@ const About = {
     },
     components: {
         Page,
-        Skills,
+        SkillsContainer,
     },
     created() {
     },

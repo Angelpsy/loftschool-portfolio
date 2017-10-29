@@ -37,14 +37,13 @@
 
         <ul class="b-admin-skills__group-list">
            <li
+               is="SkillsItem"
                v-for="item in group.items"
                :key="item.id"
-               class="b-admin-skills__group-item l-row">
-               <SkillsItem
-                   :updateItem="updateItem"
-                   :removeItem="removeItem"
-                   :item="item"
-               ></SkillsItem>
+               class="b-admin-skills__group-item l-row"
+               :updateItem="updateItem"
+               :removeItem="removeItem"
+               :item="item">
            </li>
         </ul>
 

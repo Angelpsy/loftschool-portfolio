@@ -1,8 +1,6 @@
 import SkillsGroup from '../SkillsGroup';
 import SkillsItem from '../SkillsItem';
 
-import {mapGetters, mapActions} from 'vuex';
-
 const Skills = {
     name: 'Skills',
     data() {
@@ -12,25 +10,46 @@ const Skills = {
             isSend: false,
         };
     },
-    computed: Object.assign(mapGetters([
-        'skills',
-    ]), {
+    props: {
+        skills: {
+            type: Array,
+            required: true,
+        },
+        addGroup: {
+            type: Function,
+            required: true,
+        },
+        updateGroup: {
+            type: Function,
+            required: true,
+        },
+        removeGroup: {
+            type: Function,
+            required: true,
+        },
+        addItem: {
+            type: Function,
+            required: true,
+        },
+        updateItem: {
+            type: Function,
+            required: true,
+        },
+        removeItem: {
+            type: Function,
+            required: true,
+        },
+    },
+    computed: {
         isValidData() {
             return !!this.newGroupName;
         },
-    }),
+    },
     components: {
         SkillsGroup,
         SkillsItem,
     },
-    methods: Object.assign(mapActions([
-        'addGroup',
-        'updateGroup',
-        'removeGroup',
-        'addItem',
-        'updateItem',
-        'removeItem',
-    ]), {
+    methods: {
         _open() {
             this.formNewGroupShow = true;
         },
@@ -58,7 +77,7 @@ const Skills = {
                     this.isSend = false;
                 });
         },
-    }),
+    },
     created() {
     },
 };

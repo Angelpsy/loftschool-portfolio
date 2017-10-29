@@ -55,14 +55,14 @@ const SkillsGroup = {
             this.isSend = true;
             this.addItem({idGroup: this.group.id, item})
                 .then(() => {
-                    this._clear();
+                    this._clearFormNewItem();
                     this.isSend = false;
                 })
                 .catch(() => {
                     this.isSend = false;
                 });
         },
-        _remove() {
+        _removeItem() {
             if (this.isSend) {
                 return;
             }
@@ -70,7 +70,6 @@ const SkillsGroup = {
             this.isSend = true;
             this.removeGroup({idGroup: this.group.id})
                 .then(() => {
-                    this._clear();
                     this.isSend = false;
                 })
                 .catch(() => {
