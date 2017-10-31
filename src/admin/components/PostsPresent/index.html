@@ -1,0 +1,97 @@
+<div class="b-posts">
+
+    <!-- TODO: разбить на компоненты postsList и postsForm, реализовать дочерний роутинг с передачей внутрь postsForm id выбранного поста (выбирается в postsList), в случае отсутствия id добавляем пост, иначе редактируем\удаляем-->
+    <ul class="b-posts__list">
+        <li
+            v-for="item in posts"
+            :key="item.id"
+            class="b-posts__list-item b-posts__item l-row-small-offset">
+            <a
+                class="b-posts__item-link"
+                href="#"
+                v-html="item.name"
+                @click.prevent="_selectItem(item)"
+            ></a>
+        </li>
+    </ul>
+
+
+    <div class="b-posts__form-wr">
+
+        <ui-button
+            class="b-posts__btn-open-form"
+            v-show="!isFormShow"
+            text="Добавить пост"
+            mod="info"
+            @click="_openForm"
+        />
+
+        <form
+            @submit.prevent="_updateItem"
+            v-show="isFormShow"
+            class="b-posts__form">
+            <div class="b-posts__form-field l-row">
+                <label class="b-posts__form-label">
+                    <span class="b-posts__form-label-text l-row-small-offset">Имя поста</span>
+                    <ui-input
+                        placeholder="Имя поста"
+                        v-model="nameItemSelected"
+                    />
+                </label>
+            </div>
+
+            <div class="b-posts__form-field l-row">
+                <label class="b-posts__form-label">
+                    <span class="b-posts__form-label-text l-row-small-offset">Дата поста</span>
+                    <datepicker
+                        language="ru"
+                        @changedMonth="changedMonth"
+                        @selected="selectedDate"
+                        input-class="b-posts__form-input-date"
+                        :value="formatedDate"
+                    />
+
+                </label>
+            </div>
+
+            <div class="b-posts__form-field b-posts__form-field--message l-row">
+                <label class="b-posts__form-label">
+                    <span class="b-posts__form-label-text l-row-small-offset">Сообщение</span>
+                    <ui-textarea
+                        class="b-posts__form-text-area"
+                        v-model="textItemSelected"
+                    />
+                </label>
+            </div>
+
+            <footer class="b-posts__form-footer">
+                <ui-button
+                    class="b-posts__form-btn"
+                    :text="idItemSelected ? 'Обновить пост' : 'Добавить пост'"
+                    type="submit"
+                    :disabled="isSend"
+                />
+                <ui-button
+                    class="b-posts__form-btn"
+                    text="Очистить форму"
+                    mod="default"
+                    type="reset"
+                    @click="_resetForm"/>
+                <ui-button
+                    class="b-posts__form-btn"
+                    text="Закрыть форму"
+                    mod="default"
+                    @click="isFormShow = false"/>
+                <ui-button
+                    v-show="idItemSelected"
+                    class="b-posts__form-btn"
+                    text="Удалить пост"
+                    mod="danger"
+                    @click="_removeItem"
+                    :disabled="isSend"
+                />
+            </footer>
+        </form>
+
+    </div>
+</div>

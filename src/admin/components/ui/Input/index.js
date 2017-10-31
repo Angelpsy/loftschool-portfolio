@@ -6,7 +6,7 @@ const UIInput = {
     },
     props: {
         value: {
-            type: [String, Number],
+            type: [String, Number, Date],
             required: true,
         },
         validatorFn: {

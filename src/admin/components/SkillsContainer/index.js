@@ -16,12 +16,12 @@ const SkillsContainer = {
         SkillsPresent,
     },
     methods: Object.assign(mapActions([
-        'addGroup',
-        'updateGroup',
-        'removeGroup',
-        'addItem',
-        'updateItem',
-        'removeItem',
+        'addSkillsGroup',
+        'updateSkillsGroup',
+        'removeSkillsGroup',
+        'addSkillsItem',
+        'updateSkillsItem',
+        'removeSkillsItem',
     ]), {}),
     created() {
     },

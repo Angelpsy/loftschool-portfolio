@@ -14,10 +14,8 @@ const skills = {
          * @param {{}} state
          * @param {{group: Object}} options
          */
-        addGroup(state, options) {
+        addSkillsGroup(state, options) {
             const skills = state.items.slice();
-            options.group.id = Date.now();
-            options.group.items = [];
 
             skills.push(options.group);
             state.items = skills;
@@ -27,8 +25,7 @@ const skills = {
          * @param {Object} state
          * @param {{group: {id: String, name: String, items: Array}}} options
          */
-        updateGroup(state, options) {
-            console.log(2);
+        updateSkillsGroup(state, options) {
             const skills = state.items.slice();
             let indexGroup;
             skills.some((group, _indexGroup) => {
@@ -48,7 +45,7 @@ const skills = {
          * @param {{}} state
          * @param {{idGroup: String}} options
          */
-        removeGroup(state, options) {
+        removeSkillsGroup(state, options) {
             const skills = state.items.slice();
             let indexGroup;
             skills.some((group, _indexGroup) => {
@@ -68,7 +65,7 @@ const skills = {
          * @param {{}} state
          * @param {{idGroup: String, item: Object}} options
          */
-        addItem(state, options) {
+        addSkillsItem(state, options) {
             const skills = state.items.slice();
             let indexGroup;
             skills.some((group, _indexGroup) => {
@@ -80,8 +77,6 @@ const skills = {
                 }
             });
 
-            options.item.id = Date.now();
-
             skills[indexGroup].items.push(options.item);
             state.items = skills;
         },
@@ -90,7 +85,7 @@ const skills = {
          * @param {Object} state
          * @param {{id: String, name: String, value: String}} item
          */
-        updateItem(state, item) {
+        updateSkillsItem(state, item) {
             const skills = state.items.slice();
             let indexGroup;
             let indexItem;
@@ -114,7 +109,7 @@ const skills = {
          * @param {Object} state
          * @param {{idItem: String}} options
          */
-        removeItem(state, options) {
+        removeSkillsItem(state, options) {
             const skills = state.items.slice();
             let indexGroup;
             let indexItem;
@@ -140,10 +135,12 @@ const skills = {
          * @param {{group: Object}} options
          * @return {Promise}
          */
-        addGroup(context, options) {
+        addSkillsGroup(context, options) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    context.commit('addGroup', options);
+                    options.group.id = Date.now();
+                    options.group.items = [];
+                    context.commit('addSkillsGroup', options);
                     resolve();
                 }, 1000);
             });
@@ -154,11 +151,10 @@ const skills = {
          * @param {{group: Object}} options
          * @return {Promise}
          */
-        updateGroup(context, options) {
+        updateSkillsGroup(context, options) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    console.log(1);
-                    context.commit('updateGroup', options);
+                    context.commit('updateSkillsGroup', options);
                     resolve();
                 }, 1000);
             });
@@ -169,10 +165,10 @@ const skills = {
          * @param {{group: Object}} options
          * @return {Promise}
          */
-        removeGroup(context, options) {
+        removeSkillsGroup(context, options) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    context.commit('removeGroup', options);
+                    context.commit('removeSkillsGroup', options);
                     resolve();
                 }, 1000);
             });
@@ -183,10 +179,11 @@ const skills = {
          * @param {{idGroup: String, item: Object}} options
          * @return {Promise}
          */
-        addItem(context, options) {
+        addSkillsItem(context, options) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    context.commit('addItem', options);
+                    options.item.id = Date.now();
+                    context.commit('addSkillsItem', options);
                     resolve();
                 }, 1000);
             });
@@ -197,10 +194,10 @@ const skills = {
          * @param {Object} item
          * @return {Promise}
          */
-        updateItem(context, item) {
+        updateSkillsItem(context, item) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    context.commit('updateItem', item);
+                    context.commit('updateSkillsItem', item);
                     resolve();
                 }, 1000);
             });
@@ -211,10 +208,10 @@ const skills = {
          * @param {Object} item
          * @return {Promise}
          */
-        removeItem(context, item) {
+        removeSkillsItem(context, item) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    context.commit('removeItem', item);
+                    context.commit('removeSkillsItem', item);
                     resolve();
                 }, 1000);
             });

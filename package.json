@@ -101,6 +101,7 @@
         "three.js": "^0.77.1",
         "vue": "^2.5.2",
         "vue-router": "^3.0.1",
+        "vuejs-datepicker": "^0.9.18",
         "vuex": "^3.0.0"
     }
 }

@@ -3,3 +3,7 @@
 .l-row {
     margin-bottom: $offset-vertical-base;
 }
+
+.l-row-small-offset {
+    margin-bottom: $offset-vertical-base / 2;
+}
