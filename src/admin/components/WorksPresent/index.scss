@@ -1,0 +1,63 @@
+@import "../../../common/styles/vars";
+@import "../../../common/styles/mixins";
+
+.b-works {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.b-works__list {
+    @include nl;
+    min-width: 50%;
+    width: 500px;
+    flex-grow: 1;
+    margin-right: $offset-horizontal-base;
+    margin-bottom: $offset-vertical-base * 2;
+}
+
+.b-works__list-item {
+    //
+}
+
+.b-works__item-link {
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+
+.b-works__form-wr {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+}
+
+.b-works__btn-open-form {
+    margin-left: auto;
+}
+
+.b-works__form-field {
+    //
+}
+
+.b-works__form-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.b-works__form-label-text {
+    font-weight: bold;
+}
+
+.b-works__form-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.b-works__form-btn {
+    flex-grow: 1;
+    margin: 0 5px 10px;
+}
+

@@ -1,60 +1,48 @@
-import Datepicker from 'vuejs-datepicker';
-
-const PostsPresent = {
-    name: 'PostsPresent',
+const WorksPresent = {
+    name: 'WorksPresent',
     data() {
         return {
             isFormShow: false,
             itemSelected: null,
-            nameItemSelected: '',
-            textItemSelected: '',
-            dateItemSelected: null,
             idItemSelected: null,
+            nameItemSelected: '',
+            skillsItemSelected: '',
+            imgItemSelected: '',
             isSend: false,
         };
     },
     props: {
-        posts: {
+        works: {
             type: Array,
             required: true,
         },
-        addPost: {
+        addWork: {
             type: Function,
             required: true,
         },
-        updatePost: {
+        updateWork: {
             type: Function,
             required: true,
         },
-        removePost: {
+        removeWork: {
             type: Function,
             required: true,
         },
     },
     computed: {
-        // TODO: реализовать валидацию формы
-        formatedDate: {
-            get() {
-                const date = this.dateItemSelected;
-                const number = date.getDate() > 9 ? +date.getDate() : '0' + +date.getDate();
-                const month = date.getMonth() >= 9 ? +date.getMonth() + 1 : '0' + (date.getMonth() + 1);
-                return `${date.getFullYear()}-${month}-${number}`;
-            },
-            set(newValue) {
-                this.dateItemSelected = new Date(newValue);
-            },
+        ifFormValid() {
+            return this.nameItemSelected && this.skillsItemSelected && this.imgItemSelected;
         },
     },
     components: {
-        Datepicker,
     },
     methods: {
         _selectItem(item) {
             this.itemSelected = item;
-            this.nameItemSelected = item.name;
-            this.textItemSelected = item.text;
-            this.dateItemSelected = new Date(item.date);
             this.idItemSelected = item.id;
+            this.nameItemSelected = item.name;
+            this.skillsItemSelected = item.skills;
+            this.imgItemSelected = item.img;
             this.isFormShow = true;
         },
         _openForm() {
@@ -68,13 +56,13 @@ const PostsPresent = {
             this.isSend = true;
 
             if (this.idItemSelected) {
-                const post = Object.assign({}, this.itemSelected, {
+                const work = Object.assign({}, this.itemSelected, {
                     name: this.nameItemSelected,
-                    date: this.dateItemSelected,
-                    text: this.textItemSelected,
+                    skills: this.skillsItemSelected,
+                    img: this.imgItemSelected,
                 });
 
-                this.updatePost({post})
+                this.updateWork({work})
                     .then(() => {
                         this._resetForm();
                         this.isSend = false;
@@ -83,11 +71,11 @@ const PostsPresent = {
                         this.isSend = false;
                     });
             } else {
-                const post = {};
-                post.name = this.nameItemSelected;
-                post.date = this.dateItemSelected;
-                post.text = this.textItemSelected;
-                this.addPost({post})
+                const work = {};
+                work.name = this.nameItemSelected;
+                work.skills = this.skillsItemSelected;
+                work.img = this.imgItemSelected;
+                this.addWork({work})
                     .then(() => {
                         this._resetForm();
                         this.isSend = false;
@@ -102,7 +90,7 @@ const PostsPresent = {
                 return;
             }
             this.isSend = true;
-            this.removePost({id: this.idItemSelected})
+            this.removeWork({id: this.idItemSelected})
                 .then(() => {
                     this._resetForm();
                     this.isSend = false;
@@ -117,16 +105,10 @@ const PostsPresent = {
         },
         _setDefaultItem() {
             this.itemSelected = null;
+            this.idItemSelected = '';
             this.nameItemSelected = '';
-            this.textItemSelected = '';
-            this.dateItemSelected = new Date();
-            this.idItemSelected = null;
-        },
-        changedMonth() {
-            event.preventDefault();
-        },
-        selectedDate(val) {
-            this.dateItemSelected = val;
+            this.skillsItemSelected = '';
+            this.imgItemSelected = '';
         },
     },
     created() {
@@ -134,4 +116,4 @@ const PostsPresent = {
     },
 };
 
-export default PostsPresent;
+export default WorksPresent;

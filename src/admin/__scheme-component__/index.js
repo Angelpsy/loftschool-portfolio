@@ -6,6 +6,8 @@ const Component = {
     },
     props: {
     },
+    computed: {
+    },
     components: {
     },
     methods: {

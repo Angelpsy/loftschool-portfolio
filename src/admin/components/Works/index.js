@@ -1,4 +1,5 @@
 import Page from '../Page';
+import WorksContainer from '../WorksContainer';
 
 const Works = {
     name: 'Works',
@@ -10,6 +11,7 @@ const Works = {
     },
     components: {
         Page,
+        WorksContainer,
     },
     methods: {
     },

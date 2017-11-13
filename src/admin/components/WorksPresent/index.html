@@ -1,0 +1,93 @@
+<div class="b-works">
+
+    <ul class="b-works__list">
+
+        <li
+            v-for="item in works"
+            class="b-works__list-item b-works__item"
+            :key="item.id">
+            <a
+                @click.prevent="_selectItem(item)"
+                href="#"
+                class="b-works__item-link">
+                {{item.name}}
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="b-works__form-wr">
+
+        <ui-button class="b-works__btn-open-form"
+                   v-show="!isFormShow"
+                   text="Добавить пост"
+                   mod="info"
+                   @click="_openForm"
+        />
+
+        <form
+            @submit.prevent="_updateItem"
+            v-show="isFormShow"
+            class="b-works__form">
+            <div class="b-works__form-field l-row">
+                <label class="b-works__form-label">
+                    <span class="b-works__form-label-text l-row-small-offset">Название проекта</span>
+                    <ui-input
+                        placeholder="Название проекта"
+                        v-model="nameItemSelected"
+                    />
+                </label>
+            </div>
+
+            <div class="b-works__form-field l-row">
+                <label class="b-works__form-label">
+                    <span class="b-works__form-label-text l-row-small-offset">Технологии</span>
+                    <ui-input
+                        placeholder="Технологии"
+                        v-model="skillsItemSelected"
+                    />
+                </label>
+            </div>
+
+            <div class="b-works__form-field l-row">
+                <label class="b-works__form-label">
+                    <span class="b-works__form-label-text l-row-small-offset">Адрес изображения</span>
+                    <ui-input
+                        placeholder="Адрес изображения"
+                        v-model="imgItemSelected"
+                    />
+                </label>
+            </div>
+
+            <footer class="b-works__form-footer">
+                <ui-button
+                    class="b-works__form-btn"
+                    :text="idItemSelected ? 'Обновить работу' : 'Добавить работу'"
+                    type="submit"
+                    :disabled="isSend || !ifFormValid"
+                />
+                <ui-button
+                    class="b-works__form-btn"
+                    text="Очистить форму"
+                    mod="default"
+                    type="reset"
+                    @click="_resetForm"/>
+                <ui-button
+                    class="b-works__form-btn"
+                    text="Закрыть форму"
+                    mod="default"
+                    @click="isFormShow = false"/>
+                <ui-button
+                    v-show="idItemSelected"
+                    class="b-works__form-btn"
+                    text="Удалить пост"
+                    mod="danger"
+                    @click="_removeItem"
+                    :disabled="isSend"
+                />
+            </footer>
+        </form>
+
+    </div>
+
+</div>

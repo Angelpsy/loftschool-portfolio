@@ -12,7 +12,7 @@ const posts = {
     mutations: {
         /**
          * @param {Object} state
-         * @param {{post: {name: String, text: String, date: Date}}} options
+         * @param {{post: {id: String, name: String, text: String, date: Date}}} options
          */
         addPost(state, options) {
             const posts = state.items.slice();
